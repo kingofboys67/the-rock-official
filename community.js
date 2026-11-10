@@ -66,11 +66,20 @@
     const send = form.querySelector('.contact-send'); send.disabled = true; send.textContent = 'Sending…';
     try {
       const to = form.topic.options[form.topic.selectedIndex].text;
-      await sendToInbox(`Letter: ${to} (from ${data.name.trim()})`, { type: 'Letter', to, name: data.name, email: data.email, from: data.from, message: data.message, mayShare: data.share ? 'yes' : 'no' });
-      $('#sentName').textContent = data.name.trim().split(/\s+/)[0];
+      const res = await sendToInbox(`Letter: ${to} (from ${data.name.trim()})`, {
+        submissionType: `Official Correspondence · ${to}`,
+        fullName: data.name.trim(),
+        email: data.email.trim(),
+        country: data.from?.trim() || 'Global',
+        favoriteEra: to,
+        message: data.message.trim(),
+        mayShare: data.share ? 'yes' : 'no'
+      });
+      const first = data.name.trim().split(/\s+/)[0];
+      $('#sentName').textContent = res?.applicationId ? `${first} (#${res.applicationId})` : first;
       $('#letterBody').hidden = true; $('#letterSent').hidden = false; $('#letterSent').focus();
-    } catch {
-      err.textContent = 'Your letter didn’t go through. Please try again in a moment.';
+    } catch (ex) {
+      err.textContent = ex?.message || 'Your letter didn’t go through. Please try again in a moment.';
     } finally { send.disabled = false; send.textContent = 'Seal & send →'; }
   });
   $('#letterAgain').onclick = () => { form.reset(); grow(); $('#salute').textContent = salutes.fan; $('#letterSent').hidden = true; $('#letterBody').hidden = false; msg.focus(); };

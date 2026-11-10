@@ -1,12 +1,7 @@
-// Site settings in one place. Loaded before community.js and fanclub.js.
+// Site settings in one place. Loaded before community.js, fanclub.js, and fanclub-home.js.
 window.SITE_CONFIG = {
-  // Where fan club sign-ups and contact letters are delivered.
-  // A static site can't send email by itself, so it posts to a form service that forwards to the club's inbox:
-  //   1. Create the fan club email address.
-  //   2. Make a free form at https://formspree.io with that address, and paste its URL below
-  //      (looks like https://formspree.io/f/abcdwxyz).
-  // While this is empty, sign-ups and letters still work on screen but are NOT delivered anywhere.
-  formEndpoint: '',
+  // Serverless Resend + Zoho Mail receiver endpoint on dwaynejohnsonofficial.com
+  formEndpoint: '/api/fan-club',
 
   // Verified official social accounts shown on the Contact page and across the platform.
   socials: [
@@ -18,15 +13,17 @@ window.SITE_CONFIG = {
   ],
 };
 
-// Sends a form to the inbox. Resolves true when delivered, false when no inbox is set up yet; throws on failure.
+// Sends a form submission to /api/fan-club (delivers to Zoho Mail + triggers Canva-style Resend auto-reply).
 window.sendToInbox = async (subject, fields) => {
-  const url = window.SITE_CONFIG.formEndpoint;
-  if (!url) { console.warn('SITE_CONFIG.formEndpoint is empty: not delivered.', subject, fields); return false; }
+  const url = window.SITE_CONFIG.formEndpoint || '/api/fan-club';
   const r = await fetch(url, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
     body: JSON.stringify({ _subject: subject, ...fields }),
   });
-  if (!r.ok) throw new Error('Form service answered ' + r.status);
-  return true;
+  const data = await r.json().catch(() => ({}));
+  if (!r.ok || data.ok === false) {
+    throw new Error(data.error || 'Submission service answered ' + r.status);
+  }
+  return data;
 };

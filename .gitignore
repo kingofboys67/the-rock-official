@@ -9,3 +9,4 @@ media/about/src/
 /eras/
 /scripts/.bin/
 
+.env*

@@ -29,9 +29,15 @@ for (const hf of htmlFiles) {
   }
 }
 
-for (const stage of ['stage-01.png', 'stage-02.png', 'stage-03.png', 'stage-04.png']) {
+for (const heroAsset of ['rock-24.webp', 'rock-29.webp', 'rock-30.webp', 'rock-54.webp', 'rock-24.png', 'rock-29.png', 'rock-30.png', 'rock-54.png']) {
+  const p = path.join(root, 'assets/hero', heroAsset);
+  if (!fs.existsSync(p)) throw new Error(`Missing Hero era portrait in assets/hero: ${p}`);
+}
+
+for (const stage of ['stage-01.webp', 'stage-02.webp', 'stage-03.webp', 'stage-04.webp', 'stage-01.png', 'stage-02.png', 'stage-03.png', 'stage-04.png']) {
   const p = path.join(root, 'media/eras', stage);
-  if (!fs.existsSync(p)) throw new Error(`Missing Hero era portrait: ${p}`);
+  if (!fs.existsSync(p)) throw new Error(`Missing Hero era portrait in media/eras: ${p}`);
 }
 
 console.log('Production build check passed with 0 errors.');
+

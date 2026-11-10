@@ -31,10 +31,10 @@
   // ---- Interactive Facial Age-Morphing Hero (WebGL Shader + SVG Displacement Warp + Timeline Sync)
   (async () => {
     const ERAS = [
-      { stage: 1, file: 'media/eras/stage-01.webp?v=3', age: 24, year: 1996, yearDisplay: '1996', label: 'Rookie Wrestler' },
-      { stage: 2, file: 'media/eras/stage-02.webp?v=3', age: 29, year: 2001, yearDisplay: '2001', label: 'Early Hollywood' },
-      { stage: 3, file: 'media/eras/stage-03.webp?v=3', age: 30, year: 2002, yearDisplay: '2002', label: 'The Rock · WWE' },
-      { stage: 4, file: 'media/eras/stage-04.webp?v=3', age: 52, year: 2024, yearDisplay: '2024+', label: 'Hollywood Mogul' }
+      { stage: 1, file: 'assets/hero/rock-24.webp', fallback: 'assets/hero/rock-24.png', age: 24, year: 1996, yearDisplay: '1996', label: 'Rookie Wrestler' },
+      { stage: 2, file: 'assets/hero/rock-29.webp', fallback: 'assets/hero/rock-29.png', age: 29, year: 2001, yearDisplay: '2001', label: 'Early Hollywood' },
+      { stage: 3, file: 'assets/hero/rock-30.webp', fallback: 'assets/hero/rock-30.png', age: 30, year: 2002, yearDisplay: '2002', label: 'The Rock · WWE' },
+      { stage: 4, file: 'assets/hero/rock-54.webp', fallback: 'assets/hero/rock-54.png', age: 54, year: 2026, yearDisplay: '2026', label: 'Hollywood Mogul' }
     ];
     const N = ERAS.length;
     const HOLD_MS = 3500;
@@ -52,14 +52,22 @@
     const ageLabel = $('#ageLabel');
     const dotBtns = $$('#ageDots button');
 
-    const loadImg = src => new Promise(res => {
+    const loadImg = (src, fallbackSrc) => new Promise(res => {
       const im = new Image();
-      im.crossOrigin = 'anonymous';
       im.onload = () => res(im);
-      im.onerror = () => res(null);
+      im.onerror = () => {
+        if (fallbackSrc) {
+          const fb = new Image();
+          fb.onload = () => res(fb);
+          fb.onerror = () => res(null);
+          fb.src = fallbackSrc;
+        } else {
+          res(null);
+        }
+      };
       im.src = src;
     });
-    const imgs = await Promise.all(ERAS.map(e => loadImg(e.file)));
+    const imgs = await Promise.all(ERAS.map(e => loadImg(e.file, e.fallback)));
     if (!imgs.every(Boolean)) return;
 
     // Initialize WebGL shader for real-time facial optical warp + alpha blend (with 2D canvas fallback)
@@ -227,20 +235,15 @@
         im.classList.toggle('aging-active', op > 0.5);
       });
 
-      // 3. Synchronize Age Card (AGE count 24 -> 29 -> 40 -> 52 & YEAR 1996 -> 2001 -> 2012 -> 2024+)
+      // 3. Synchronize Age Card (AGE count 24 -> 29 -> 30 -> 54 & YEAR 1996 -> 2001 -> 2002 -> 2026)
       const eraA = ERAS[idxA];
       const eraB = ERAS[idxB];
       const curAge = Math.round(eraA.age + (eraB.age - eraA.age) * e);
       const curYear = Math.round(eraA.year + (eraB.year - eraA.year) * e);
       ageNum.textContent = curAge;
 
-      // Show "2024+" when at or near Stage 4
       const activeIdx = e >= 0.5 ? idxB : idxA;
-      if (activeIdx === 3 && (frac < 0.15 || frac > 0.85)) {
-        ageYear.textContent = '2024+';
-      } else {
-        ageYear.textContent = String(curYear);
-      }
+      ageYear.textContent = String(curYear);
       ageLabel.textContent = ERAS[activeIdx].label;
 
       // 4. Update 4-pill neon lime (#D4FF00) progress bar

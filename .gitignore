@@ -6,5 +6,6 @@ node_modules/
 .netlify
 media/video/
 media/about/src/
-eras/
-scripts/.bin/
+/eras/
+/scripts/.bin/
+

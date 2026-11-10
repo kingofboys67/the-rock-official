@@ -1,0 +1,2808 @@
+[
+ {
+  "id": "mummy-returns",
+  "title": "The Mummy Returns",
+  "year": 2001,
+  "wiki": "The Mummy Returns",
+  "role": "Mathayus / The Scorpion King",
+  "genres": [
+   "action"
+  ],
+  "synopsis": "Rick and Evelyn O’Connell battle a resurrected Imhotep while racing to stop the ancient Scorpion King’s army from rising. Johnson opens the film as the warrior Mathayus and returns as a monstrous Scorpion King in the finale.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/b/b7/The_Mummy_Returns_poster.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/The_Mummy_Returns",
+  "trailer": "3yXjs7BUKYc",
+  "rt": "46%",
+  "gross": 433013274.0,
+  "castCheck": true,
+  "wdChars": [
+   "Mathayus"
+  ],
+  "deadTrailer": [
+   "KcnZPrwd70g"
+  ],
+  "trailerChannel": "Rotten Tomatoes Classic Trailers",
+  "imdb": "tt0209163",
+  "director": [
+   "Stephen Sommers"
+  ],
+  "runtime": 129,
+  "rating": null,
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BMjdiYzVlNjUtNGI5MC00MDE5LTk0MmQtNDc0YzIzOGRmMDNkXkEyXkFqcGc@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Brendan Fraser",
+    "role": "Rick O'Connell"
+   },
+   {
+    "actor": "Rachel Weisz",
+    "role": "Evelyn O'Connell / Nefertiri"
+   },
+   {
+    "actor": "John Hannah",
+    "role": "Jonathan Carnahan"
+   },
+   {
+    "actor": "Arnold Vosloo",
+    "role": "Imhotep"
+   },
+   {
+    "actor": "Oded Fehr",
+    "role": "Ardeth Bay"
+   },
+   {
+    "actor": "Patricia Velásquez",
+    "role": "Meela Nais / Anck-su-namun"
+   }
+  ]
+ },
+ {
+  "id": "longshot",
+  "title": "Longshot",
+  "year": 2001,
+  "wiki": "Longshot (film)",
+  "role": "Mugger",
+  "genres": [
+   "comedy"
+  ],
+  "tag": "Cameo",
+  "synopsis": "A low-budget comedy produced by Lou Pearlman and packed with cameos from late-’90s pop acts. Johnson turns up briefly as a mugger.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/5/54/Long_Shot_poster.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Longshot_%28film%29",
+  "trailer": null,
+  "rt": null,
+  "gross": null,
+  "castCheck": true,
+  "wdChars": [],
+  "trailerChannel": null,
+  "imdb": "tt0201694",
+  "director": [
+   "Lionel C. Martin"
+  ],
+  "runtime": null,
+  "rating": null,
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BNzFhMzcwYjQtNGJkNy00ODc0LTgzZjYtZDI2YTU2MTJhZGEzXkEyXkFqcGc@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Tony DeCamillis",
+    "role": "Jack Taylor"
+   },
+   {
+    "actor": "Hunter Tylo",
+    "role": "Rachel Montgomery"
+   },
+   {
+    "actor": "Joey Sculthorpe",
+    "role": "Alex Taylor"
+   },
+   {
+    "actor": "Paul Sorvino",
+    "role": "Laszlo Pryce"
+   },
+   {
+    "actor": "Antonio Sabato Jr.",
+    "role": "Tommy Sutton"
+   },
+   {
+    "actor": "Jessica Wesson",
+    "role": "Kelly Montgomery"
+   }
+  ]
+ },
+ {
+  "id": "scorpion-king",
+  "title": "The Scorpion King",
+  "year": 2002,
+  "wiki": "The Scorpion King",
+  "role": "Mathayus",
+  "genres": [
+   "action"
+  ],
+  "tag": "First leading role",
+  "synopsis": "In this prequel spin-off to The Mummy films, the assassin Mathayus is hired to kill the sorceress who protects the tyrant Memnon. His first leading role paid a record $5.5 million.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/1/1d/The_Scorpion_King_poster.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/The_Scorpion_King",
+  "trailer": "b7nmYiZ6cAg",
+  "rt": "41%",
+  "gross": 164996077.0,
+  "castCheck": true,
+  "wdChars": [
+   "Mathayus",
+   "Mathayus"
+  ],
+  "deadTrailer": [
+   "u7Sn33Y0gw4"
+  ],
+  "trailerChannel": "Rotten Tomatoes Classic Trailers",
+  "imdb": "tt0277296",
+  "director": [
+   "Chuck Russell"
+  ],
+  "runtime": 92,
+  "rating": "PG-13",
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BMjkxNTAwNTQ0M15BMl5BanBnXkFtZTYwMTQwMjM3._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Steven Brand",
+    "role": "Memnon"
+   },
+   {
+    "actor": "Kelly Hu",
+    "role": "Cassandra"
+   },
+   {
+    "actor": "Grant Heslov",
+    "role": "Arpid"
+   },
+   {
+    "actor": "Bernard Hill",
+    "role": "Philos"
+   },
+   {
+    "actor": "Michael Clarke Duncan",
+    "role": "Balthazar"
+   },
+   {
+    "actor": "Peter Facinelli",
+    "role": "Takmet"
+   }
+  ]
+ },
+ {
+  "id": "rundown",
+  "title": "The Rundown",
+  "year": 2003,
+  "wiki": "The Rundown",
+  "role": "Beck",
+  "genres": [
+   "action",
+   "comedy"
+  ],
+  "synopsis": "A bounty hunter who dreams of opening a restaurant takes one last job: bringing his boss’s son (Seann William Scott) home from a lawless mining town in the Amazon. Arnold Schwarzenegger’s cameo plays as a passing of the action torch.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/d/de/The_Rundown_Movie.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/The_Rundown",
+  "trailer": null,
+  "rt": "69%",
+  "gross": 80916492.0,
+  "castCheck": true,
+  "wdChars": [],
+  "trailerChannel": null,
+  "imdb": "tt0327850",
+  "director": [
+   "Peter Berg"
+  ],
+  "runtime": 100,
+  "rating": null,
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BOWI4ODc0M2MtOTIzYi00MmQ0LTg4NDMtMTZiMjQyZTNmYTNhXkEyXkFqcGc@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Seann William Scott",
+    "role": "Travis Walker"
+   },
+   {
+    "actor": "Rosario Dawson",
+    "role": "Mariana"
+   },
+   {
+    "actor": "Christopher Walken",
+    "role": "Cornelius Bernard Hatcher"
+   },
+   {
+    "actor": "Ewen Bremner",
+    "role": "Declan"
+   },
+   {
+    "actor": "Jon Gries",
+    "role": "Harvey Hatcher"
+   },
+   {
+    "actor": "William Lucking",
+    "role": "Billy Walker"
+   }
+  ]
+ },
+ {
+  "id": "walking-tall",
+  "title": "Walking Tall",
+  "year": 2004,
+  "wiki": "Walking Tall (2004 film)",
+  "role": "Chris Vaughn",
+  "genres": [
+   "action"
+  ],
+  "synopsis": "A former Special Forces soldier comes home to find his town overrun by a casino owner’s drugs and violence. He becomes sheriff to clean it up, with a two-by-four in hand.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/e/e9/Walking_Tall_%282004_film%29.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Walking_Tall_%282004_film%29",
+  "trailer": "ZGn_qOhEYoI",
+  "rt": "26%",
+  "gross": null,
+  "castCheck": true,
+  "wdChars": [],
+  "trailerChannel": "Amazon MGM Studios",
+  "imdb": "tt0351977",
+  "director": [
+   "Kevin Bray"
+  ],
+  "runtime": 82,
+  "rating": null,
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BMTM0MjYzNzM1N15BMl5BanBnXkFtZTcwMDcwNDc3NA@@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Johnny Knoxville",
+    "role": "Ray Templeton"
+   },
+   {
+    "actor": "Neal McDonough",
+    "role": "Jay Hamilton"
+   },
+   {
+    "actor": "Michael Bowen",
+    "role": "Sheriff Stan Watkins"
+   },
+   {
+    "actor": "Kevin Durand",
+    "role": "J"
+   },
+   {
+    "actor": "Kristen Wilson",
+    "role": "Michelle Vaughn"
+   },
+   {
+    "actor": "Ashley Scott",
+    "role": "Deni"
+   }
+  ]
+ },
+ {
+  "id": "be-cool",
+  "title": "Be Cool",
+  "year": 2005,
+  "wiki": "Be Cool",
+  "role": "Elliot Wilhelm",
+  "genres": [
+   "comedy"
+  ],
+  "synopsis": "In the sequel to Get Shorty, Chili Palmer (John Travolta) moves from movies into the music business. Johnson steals scenes as Elliot, a bodyguard desperate to become an actor.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/3/3f/Becool_poster.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Be_Cool",
+  "trailer": "VwIpQflIS4A",
+  "rt": "30%",
+  "gross": null,
+  "castCheck": true,
+  "wdChars": [],
+  "trailerChannel": "Amazon MGM Studios",
+  "imdb": "tt0377471",
+  "director": [
+   "F. Gary Gray"
+  ],
+  "runtime": 118,
+  "rating": null,
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BMTUxNDc4MzAyNV5BMl5BanBnXkFtZTYwMzQ1NDc2._V1_.jpg",
+  "cast": [
+   {
+    "actor": "John Travolta",
+    "role": "Chili Palmer"
+   },
+   {
+    "actor": "Uma Thurman",
+    "role": "Edie Athens"
+   },
+   {
+    "actor": "Vince Vaughn",
+    "role": "Roger \"Raji\" Lowenthal"
+   },
+   {
+    "actor": "Cedric the Entertainer",
+    "role": "Sin LaSalle"
+   },
+   {
+    "actor": "André Benjamin",
+    "role": "Dabu"
+   },
+   {
+    "actor": "Robert Pastorelli",
+    "role": "Joseph \"Joe Loop\" Lupino"
+   }
+  ]
+ },
+ {
+  "id": "doom",
+  "title": "Doom",
+  "year": 2005,
+  "wiki": "Doom (film)",
+  "role": "Sarge",
+  "genres": [
+   "action"
+  ],
+  "synopsis": "A squad of Marines is sent to a research base on Mars after an experiment unleashes creatures on the scientists. Johnson plays Sarge, the squad’s hard-line commander, in this adaptation of the video game.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/5/58/Doom_movie_poster.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Doom_%28film%29",
+  "trailer": "LljkKoPs1Gg",
+  "rt": "18%",
+  "gross": 58072119.0,
+  "castCheck": true,
+  "wdChars": [],
+  "deadTrailer": [
+   "vQU7ODgbUyA"
+  ],
+  "trailerChannel": "Rotten Tomatoes Classic Trailers",
+  "imdb": "tt0419706",
+  "director": [
+   "Andrzej Bartkowiak"
+  ],
+  "runtime": 113,
+  "rating": "R",
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BYjA5ZGQ1MDQtMGI0ZC00ZDY4LTg1NmYtNzgwNGE3MjQ0MzYyXkEyXkFqcGc@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Karl Urban",
+    "role": "John \"Reaper\" Grimm"
+   },
+   {
+    "actor": "Dwayne \"The Rock\" Johnson",
+    "role": "Sgt. Asher \"Sarge\" Mahonin"
+   },
+   {
+    "actor": "Rosamund Pike",
+    "role": "Dr. Samantha \"Sam\" Grimm"
+   },
+   {
+    "actor": "Deobia Oparei",
+    "role": "Roark \"Destroyer\" Gannon"
+   },
+   {
+    "actor": "Ben Daniels",
+    "role": "Eric \"Goat\" Fantom"
+   },
+   {
+    "actor": "Raz Adoti",
+    "role": "Gregory \"Duke\" Schofield"
+   }
+  ]
+ },
+ {
+  "id": "gridiron-gang",
+  "title": "Gridiron Gang",
+  "year": 2006,
+  "wiki": "Gridiron Gang",
+  "role": "Sean Porter",
+  "genres": [
+   "drama"
+  ],
+  "synopsis": "Based on a true story, a counselor at a juvenile detention camp builds a football team to give young offenders discipline and a second chance.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/3/31/Gridiron_gang.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Gridiron_Gang",
+  "trailer": "KxJHxL7pi54",
+  "rt": "42%",
+  "gross": null,
+  "castCheck": true,
+  "wdChars": [],
+  "trailerChannel": "Rotten Tomatoes Classic Trailers",
+  "imdb": "tt0421206",
+  "director": [
+   "Phil Joanou"
+  ],
+  "runtime": 126,
+  "rating": null,
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BNzk4NTAwNTAzN15BMl5BanBnXkFtZTcwNjczODYzMQ@@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Dwayne \"The Rock\" Johnson",
+    "role": "Coach Sean Porter"
+   },
+   {
+    "actor": "Xzibit",
+    "role": "Assistant Coach Malcolm Moore"
+   },
+   {
+    "actor": "Kevin Dunn",
+    "role": "Ted Dexter"
+   },
+   {
+    "actor": "Leon Rippy",
+    "role": "Paul Higa"
+   },
+   {
+    "actor": "Jade Yorker",
+    "role": "Willie Weathers"
+   },
+   {
+    "actor": "Setu Taase",
+    "role": "Junior Palaita"
+   }
+  ]
+ },
+ {
+  "id": "southland-tales",
+  "title": "Southland Tales",
+  "year": 2006,
+  "wiki": "Southland Tales",
+  "role": "Boxer Santaros",
+  "genres": [
+   "drama"
+  ],
+  "synopsis": "Richard Kelly’s sprawling satire of a near-future Los Angeles, where an amnesiac action star tied to a powerful political family is pulled into a conspiracy. It premiered in competition at Cannes.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/b/bf/Southland_Tales.png",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Southland_Tales",
+  "trailer": "9A82ciNC7jk",
+  "rt": "40%",
+  "gross": null,
+  "castCheck": true,
+  "wdChars": [],
+  "trailerChannel": "Rotten Tomatoes Classic Trailers",
+  "imdb": "tt0405336",
+  "director": [
+   "Richard Kelly"
+  ],
+  "runtime": 145,
+  "rating": null,
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BOGEzOWQ4NzUtZTRiZi00MDU1LTg3OGMtMDk4NmFmODhkMjg5XkEyXkFqcGc@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Seann William Scott",
+    "role": "Officer Roland Taverner / Private Ronald Taverner"
+   },
+   {
+    "actor": "Sarah Michelle Gellar",
+    "role": "Krysta Now / Krysta Lynn Kapowski"
+   },
+   {
+    "actor": "Mandy Moore",
+    "role": "Madeline Frost Santaros"
+   },
+   {
+    "actor": "Nora Dunn",
+    "role": "Cyndi Pinziki"
+   },
+   {
+    "actor": "Christopher Lambert",
+    "role": "Walter Mung"
+   },
+   {
+    "actor": "John Larroquette",
+    "role": "Vaughn Smallhouse"
+   }
+  ]
+ },
+ {
+  "id": "reno-911",
+  "title": "Reno 911!: Miami",
+  "year": 2007,
+  "wiki": "Reno 911!: Miami",
+  "role": "Agent Rick “The Condor” Smith",
+  "genres": [
+   "comedy"
+  ],
+  "tag": "Cameo",
+  "synopsis": "The hapless Reno sheriff’s deputies end up policing Miami Beach during a police convention. Johnson makes a cameo as a federal agent.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/a/a2/Reno_911_miami.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Reno_911%21%3A_Miami",
+  "trailer": "dC6gXV0qjGI",
+  "rt": "34%",
+  "gross": null,
+  "castCheck": true,
+  "wdChars": [],
+  "trailerChannel": "Rotten Tomatoes Classic Trailers",
+  "imdb": "tt0499554",
+  "director": [
+   "Ben Garant"
+  ],
+  "runtime": 80,
+  "rating": null,
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BNjkwOTk3MTAyNV5BMl5BanBnXkFtZTcwNjY5NzkyMw@@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Carlos Alazraqui",
+    "role": "Deputy James Oswaldo Garcia"
+   },
+   {
+    "actor": "Mary Birdsong",
+    "role": "Deputy Cherisha Kimball"
+   },
+   {
+    "actor": "Robert Ben Garant",
+    "role": "Deputy Travis Junior"
+   },
+   {
+    "actor": "Kerri Kenney-Silver",
+    "role": "Deputy Trudy Wiegel"
+   },
+   {
+    "actor": "Thomas Lennon",
+    "role": "Lieutenant Jim Dangle"
+   },
+   {
+    "actor": "Wendi McLendon-Covey",
+    "role": "Deputy Clementine Johnson"
+   }
+  ]
+ },
+ {
+  "id": "game-plan",
+  "title": "The Game Plan",
+  "year": 2007,
+  "wiki": "The Game Plan (film)",
+  "role": "Joe Kingman",
+  "genres": [
+   "comedy"
+  ],
+  "synopsis": "A self-absorbed star quarterback discovers he has an eight-year-old daughter and has to learn to be a father in the middle of the season.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/a/a6/TheGamePlanposter.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/The_Game_Plan_%28film%29",
+  "trailer": "NGS2yqWWiuk",
+  "rt": "29%",
+  "gross": null,
+  "castCheck": true,
+  "wdChars": [],
+  "trailerChannel": "Rotten Tomatoes Classic Trailers",
+  "imdb": "tt0492956",
+  "director": [
+   "Andy Fickman"
+  ],
+  "runtime": 110,
+  "rating": null,
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BYjIzMDQ1ZDctNTUwOC00YmQyLTlhZGItNDIwZDIwMjcxMzVjXkEyXkFqcGc@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Madison Pettis",
+    "role": "Peyton Kelly"
+   },
+   {
+    "actor": "Kyra Sedgwick",
+    "role": "Stella Peck"
+   },
+   {
+    "actor": "Morris Chestnut",
+    "role": "Travis Sanders"
+   },
+   {
+    "actor": "Roselyn Sánchez",
+    "role": "Monique Vasquez"
+   },
+   {
+    "actor": "Gordon Clapp",
+    "role": "Coach Mark Maddox"
+   },
+   {
+    "actor": "Paige Turco",
+    "role": "Karen Kelly"
+   }
+  ]
+ },
+ {
+  "id": "get-smart",
+  "title": "Get Smart",
+  "year": 2008,
+  "wiki": "Get Smart (film)",
+  "role": "Agent 23",
+  "genres": [
+   "comedy",
+   "action"
+  ],
+  "synopsis": "Bumbling analyst Maxwell Smart (Steve Carell) gets his shot as a field agent alongside Agent 99 (Anne Hathaway). Johnson plays Agent 23, the spy agency’s star operative.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/8/88/Getsmart08.png",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Get_Smart_%28film%29",
+  "trailer": "K9WNBO3szgQ",
+  "rt": "51%",
+  "gross": 230700000.0,
+  "castCheck": true,
+  "wdChars": [],
+  "deadTrailer": [
+   "dsWaTO-dMAY"
+  ],
+  "trailerChannel": "Movieclips",
+  "imdb": "tt0425061",
+  "director": [
+   "Peter Segal"
+  ],
+  "runtime": 110,
+  "rating": null,
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BMTY0NzQ4MDU0NV5BMl5BanBnXkFtZTcwMzA2NzQ2MQ@@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Steve Carell",
+    "role": "Maxwell \"Max\" Smart"
+   },
+   {
+    "actor": "Anne Hathaway",
+    "role": "Agent 99"
+   },
+   {
+    "actor": "Alan Arkin",
+    "role": "The Chief"
+   },
+   {
+    "actor": "Terence Stamp",
+    "role": "Siegfried"
+   },
+   {
+    "actor": "Terry Crews",
+    "role": "Agent 91"
+   },
+   {
+    "actor": "David Koechner",
+    "role": "Larabee"
+   }
+  ]
+ },
+ {
+  "id": "witch-mountain",
+  "title": "Race to Witch Mountain",
+  "year": 2009,
+  "wiki": "Race to Witch Mountain",
+  "role": "Jack Bruno",
+  "genres": [
+   "comedy",
+   "action"
+  ],
+  "synopsis": "A Las Vegas cab driver finds two siblings with supernatural powers in his back seat and has to protect them from the government agents hunting them.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/f/f5/Race_to_witch_mountain_film.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Race_to_Witch_Mountain",
+  "trailer": "SX2PWpcJlrY",
+  "rt": "42%",
+  "gross": 106387141.0,
+  "castCheck": true,
+  "wdChars": [
+   "Jack Bruno"
+  ],
+  "trailerChannel": "Disney UK",
+  "imdb": "tt1075417",
+  "director": [
+   "Andy Fickman"
+  ],
+  "runtime": 98,
+  "rating": "PG",
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BMzQ5MTM5NTU2NV5BMl5BanBnXkFtZTcwMDAzMjAyMg@@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "AnnaSophia Robb",
+    "role": "Sara"
+   },
+   {
+    "actor": "Alexander Ludwig",
+    "role": "Seth"
+   },
+   {
+    "actor": "Carla Gugino",
+    "role": "Dr. Alex Friedman"
+   },
+   {
+    "actor": "Ciarán Hinds",
+    "role": "Henry Burke"
+   },
+   {
+    "actor": "Tom Woodruff Jr.",
+    "role": "The Siphon"
+   },
+   {
+    "actor": "Garry Marshall",
+    "role": "Dr. Donald Harlan"
+   }
+  ]
+ },
+ {
+  "id": "planet-51",
+  "title": "Planet 51",
+  "year": 2009,
+  "wiki": "Planet 51",
+  "role": "Capt. Charles T. Baker (voice)",
+  "genres": [
+   "comedy"
+  ],
+  "tag": "Voice role",
+  "synopsis": "An American astronaut lands on a planet he thinks is empty, only to find little green aliens living in a world that looks like 1950s suburbia, where he is the invader.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/7/72/Planet51movieposter.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Planet_51",
+  "trailer": "_4LSg8s5XF4",
+  "rt": "23%",
+  "gross": null,
+  "castCheck": true,
+  "wdChars": [],
+  "trailerChannel": "Sony Pictures Entertainment",
+  "imdb": "tt0762125",
+  "director": [
+   "Jorge Blanco",
+   "Javier Abad",
+   "Marcos Martínez"
+  ],
+  "runtime": 91,
+  "rating": null,
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BOGJkZGRhOWItOTM2Ni00ZmFhLThlNDItMDA4YTI4YTc5NTI4XkEyXkFqcGc@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Justin Long",
+    "role": "Lem Korplog"
+   },
+   {
+    "actor": "Jessica Biel",
+    "role": "Neera"
+   },
+   {
+    "actor": "Gary Oldman",
+    "role": "General Grawl of Planet 51's military"
+   },
+   {
+    "actor": "Seann William Scott",
+    "role": "Skiff"
+   },
+   {
+    "actor": "Freddie Benedict",
+    "role": "Eckle"
+   },
+   {
+    "actor": "John Cleese",
+    "role": "Professor Kipple"
+   }
+  ]
+ },
+ {
+  "id": "tooth-fairy",
+  "title": "Tooth Fairy",
+  "year": 2010,
+  "wiki": "Tooth Fairy (2010 film)",
+  "role": "Derek Thompson",
+  "genres": [
+   "comedy"
+  ],
+  "synopsis": "A minor-league hockey enforcer who tells a child the tooth fairy isn’t real is sentenced to serve as one, wings and all.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/2/25/Tooth_fairy_promo_poster.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Tooth_Fairy_%282010_film%29",
+  "trailer": "JqnjK79fGSw",
+  "rt": "17%",
+  "gross": null,
+  "castCheck": true,
+  "wdChars": [],
+  "trailerChannel": "20th Century Studios",
+  "imdb": "tt0808510",
+  "director": [
+   "Michael Lembeck"
+  ],
+  "runtime": 102,
+  "rating": null,
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BNzMyYmJhZDItNmU0NS00MDVjLWI2ODEtMjdhMzliOTU4ZGUwXkEyXkFqcGc@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Ashley Judd",
+    "role": "Carly Harris"
+   },
+   {
+    "actor": "Julie Andrews",
+    "role": "Lily"
+   },
+   {
+    "actor": "Stephen Merchant",
+    "role": "Tracy"
+   },
+   {
+    "actor": "Ryan Sheckler",
+    "role": "Mick \"the Stick\" Donnelly"
+   },
+   {
+    "actor": "Seth MacFarlane",
+    "role": "Ziggy"
+   },
+   {
+    "actor": "Chase Ellison",
+    "role": "Randy Harris"
+   }
+  ]
+ },
+ {
+  "id": "why-married-too",
+  "title": "Why Did I Get Married Too?",
+  "year": 2010,
+  "wiki": "Why Did I Get Married Too?",
+  "role": "Daniel Franklin",
+  "genres": [
+   "drama",
+   "comedy"
+  ],
+  "tag": "Cameo",
+  "synopsis": "Tyler Perry’s sequel follows four couples on a group getaway as their marriages start to crack. Johnson makes a brief cameo.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/b/bb/WhyDidIGotMarried2Poster2.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Why_Did_I_Get_Married_Too%3F",
+  "trailer": "H0IgfAs3tWg",
+  "rt": "27%",
+  "gross": null,
+  "castCheck": true,
+  "wdChars": [],
+  "trailerChannel": "Lionsgate Movies",
+  "imdb": "tt1391137",
+  "director": [
+   "Tyler Perry"
+  ],
+  "runtime": 121,
+  "rating": null,
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BMjIwMDc4MDgyMF5BMl5BanBnXkFtZTcwNjgxODkxMw@@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Tyler Perry",
+    "role": "Terry Brock"
+   },
+   {
+    "actor": "Janet Jackson",
+    "role": "Patricia Agnew"
+   },
+   {
+    "actor": "Jill Scott",
+    "role": "Sheila Jackson"
+   },
+   {
+    "actor": "Sharon Leal",
+    "role": "Dianne Brock"
+   },
+   {
+    "actor": "Tasha Smith",
+    "role": "Angela Williams"
+   },
+   {
+    "actor": "Richard T. Jones",
+    "role": "Mike"
+   }
+  ]
+ },
+ {
+  "id": "other-guys",
+  "title": "The Other Guys",
+  "year": 2010,
+  "wiki": "The Other Guys",
+  "role": "Christopher Danson",
+  "genres": [
+   "comedy",
+   "action"
+  ],
+  "tag": "Cameo",
+  "synopsis": "Two mismatched desk cops (Will Ferrell and Mark Wahlberg) get their chance when the precinct’s superstar detectives are suddenly out of the picture. Johnson and Samuel L. Jackson play those superstars.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/6/6b/Other_guys_poster.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/The_Other_Guys",
+  "trailer": "D6WOoUG1eNo",
+  "rt": "79%",
+  "gross": 170500000.0,
+  "castCheck": true,
+  "wdChars": [],
+  "trailerChannel": "Sony Pictures Entertainment",
+  "imdb": "tt1386588",
+  "director": [
+   "Adam McKay"
+  ],
+  "runtime": 107,
+  "rating": null,
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BODU1OTY5ZTYtNWQ0MC00ZWE1LTkyYjEtZTI2ODM1ZGE2MjBkXkEyXkFqcGc@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Will Ferrell",
+    "role": "Detective Allen \"Gator\" Gamble"
+   },
+   {
+    "actor": "Mark Wahlberg",
+    "role": "Detective Terry Hoitz"
+   },
+   {
+    "actor": "Eva Mendes",
+    "role": "Dr. Sheila Ramos Gamble"
+   },
+   {
+    "actor": "Michael Keaton",
+    "role": "Captain Gene Mauch"
+   },
+   {
+    "actor": "Steve Coogan",
+    "role": "Sir David Ershon"
+   },
+   {
+    "actor": "Ray Stevenson",
+    "role": "Roger Wesley"
+   }
+  ]
+ },
+ {
+  "id": "you-again",
+  "title": "You Again",
+  "year": 2010,
+  "wiki": "You Again",
+  "role": "Air Marshal",
+  "genres": [
+   "comedy"
+  ],
+  "tag": "Cameo",
+  "synopsis": "A young woman discovers her brother is marrying the girl who bullied her in high school. Johnson has a cameo as an air marshal.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/b/b4/You_Again_film_poster.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/You_Again",
+  "trailer": "2J2D95nGGuo",
+  "rt": "19%",
+  "gross": null,
+  "castCheck": true,
+  "wdChars": [],
+  "trailerChannel": "Walt Disney Studios Philippines",
+  "imdb": "tt1414382",
+  "director": [
+   "Andy Fickman"
+  ],
+  "runtime": 106,
+  "rating": null,
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BMTM5MzkyMDY0MV5BMl5BanBnXkFtZTcwNDkxNDc1Mw@@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Kristen Bell",
+    "role": "Marni Olivia Olsen"
+   },
+   {
+    "actor": "Jamie Lee Curtis",
+    "role": "Gail Byer Olsen"
+   },
+   {
+    "actor": "Sigourney Weaver",
+    "role": "Ramona \"Aunt Mona\" Clark"
+   },
+   {
+    "actor": "Odette Yustman",
+    "role": "Joanna \"J"
+   },
+   {
+    "actor": "Kristin Chenoweth",
+    "role": "Georgia King"
+   },
+   {
+    "actor": "Victor Garber",
+    "role": "Mark Olsen"
+   }
+  ]
+ },
+ {
+  "id": "faster",
+  "title": "Faster",
+  "year": 2010,
+  "wiki": "Faster (2010 film)",
+  "role": "Driver",
+  "genres": [
+   "action"
+  ],
+  "synopsis": "Just out of prison, a man sets out to kill everyone responsible for his brother’s murder, pursued by a veteran cop and a hitman. A lean, R-rated return to hard action.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/0/0a/Faster2010Poster.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Faster_%282010_film%29",
+  "trailer": "DHng56b6Qdo",
+  "rt": "42%",
+  "gross": null,
+  "castCheck": true,
+  "wdChars": [],
+  "deadTrailer": [
+   "EAVM6mto_8c"
+  ],
+  "trailerChannel": "Sony Pictures Releasing UK",
+  "imdb": "tt1433108",
+  "director": [
+   "George Tillman, Jr."
+  ],
+  "runtime": 98,
+  "rating": null,
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BMTMyOTQ5MTAxOF5BMl5BanBnXkFtZTcwOTYzMDg5Mw@@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Billy Bob Thornton",
+    "role": "Detective Slade Humphries / Cop"
+   },
+   {
+    "actor": "Carla Gugino",
+    "role": "Detective Cicero"
+   },
+   {
+    "actor": "Oliver Jackson-Cohen",
+    "role": "Killer"
+   },
+   {
+    "actor": "Maggie Grace",
+    "role": "Lily"
+   },
+   {
+    "actor": "Moon Bloodgood",
+    "role": "Marina Humphries"
+   },
+   {
+    "actor": "Adewale Akinnuoye-Agbaje",
+    "role": "Alexander Jarod / Evangelist"
+   }
+  ]
+ },
+ {
+  "id": "fast-five",
+  "title": "Fast Five",
+  "year": 2011,
+  "wiki": "Fast Five",
+  "role": "Luke Hobbs",
+  "genres": [
+   "action"
+  ],
+  "synopsis": "Dom Toretto’s crew plans one last heist in Rio de Janeiro against a corrupt businessman, while relentless federal agent Luke Hobbs closes in. Johnson’s arrival turned the series into a global heist franchise.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/0/0c/Fast_Five_poster.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Fast_Five",
+  "trailer": "vcn2GOuZCKI",
+  "rt": "78%",
+  "gross": 626137675.0,
+  "castCheck": true,
+  "wdChars": [
+   "Luke Hobbs"
+  ],
+  "deadTrailer": [
+   "sVGj9N-bB8E"
+  ],
+  "trailerChannel": "Universal Pictures",
+  "imdb": "tt1596343",
+  "director": [
+   "Justin Lin"
+  ],
+  "runtime": 131,
+  "rating": "PG-13",
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BMTUxNTk5MTE0OF5BMl5BanBnXkFtZTcwMjA2NzY3NA@@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Vin Diesel",
+    "role": "Dominic Toretto"
+   },
+   {
+    "actor": "Paul Walker",
+    "role": "Brian O'Conner"
+   },
+   {
+    "actor": "Jordana Brewster",
+    "role": "Mia Toretto"
+   },
+   {
+    "actor": "Tyrese Gibson",
+    "role": "Roman Pearce"
+   },
+   {
+    "actor": "Ludacris",
+    "role": "Tej Parker"
+   },
+   {
+    "actor": "Matt Schulze",
+    "role": "Vince"
+   }
+  ]
+ },
+ {
+  "id": "journey-2",
+  "title": "Journey 2: The Mysterious Island",
+  "year": 2012,
+  "wiki": "Journey 2: The Mysterious Island",
+  "role": "Hank Parsons",
+  "genres": [
+   "action",
+   "comedy"
+  ],
+  "synopsis": "A teenager and his stepfather follow a coded signal to a hidden island straight out of Jules Verne, full of giant creatures and lost treasure.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/8/8e/Journey_2_Poster.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Journey_2%3A_The_Mysterious_Island",
+  "trailer": "IVX7OidrkXQ",
+  "rt": "45%",
+  "gross": 335300000.0,
+  "castCheck": true,
+  "wdChars": [],
+  "deadTrailer": [
+   "vjScuupLT_U"
+  ],
+  "trailerChannel": "Warner Bros.",
+  "imdb": "tt1397514",
+  "director": [
+   "Brad Peyton"
+  ],
+  "runtime": 94,
+  "rating": null,
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BMjA5MTE1MjQyNV5BMl5BanBnXkFtZTcwODI4NDMwNw@@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Josh Hutcherson",
+    "role": "Sean Anderson"
+   },
+   {
+    "actor": "Michael Caine",
+    "role": "Alexander Anderson"
+   },
+   {
+    "actor": "Vanessa Hudgens",
+    "role": "Kailani Laguatan"
+   },
+   {
+    "actor": "Luis Guzmán",
+    "role": "Gabato Laguatan"
+   },
+   {
+    "actor": "Kristin Davis",
+    "role": "Liz Anderson-Parsons"
+   },
+   {
+    "actor": "Anna Colwell",
+    "role": "Jessica"
+   }
+  ]
+ },
+ {
+  "id": "snitch",
+  "title": "Snitch",
+  "year": 2013,
+  "wiki": "Snitch (film)",
+  "role": "John Matthews",
+  "genres": [
+   "drama",
+   "action"
+  ],
+  "synopsis": "Inspired by true events, a father makes a deal with prosecutors to go undercover against a drug cartel to cut his son’s prison sentence.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/b/bf/Snitch_Poster.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Snitch_%28film%29",
+  "trailer": "rieI5g9fgRc",
+  "rt": "57%",
+  "gross": null,
+  "castCheck": true,
+  "wdChars": [],
+  "deadTrailer": [
+   "9t_nVSbkla8"
+  ],
+  "trailerChannel": "Rotten Tomatoes Trailers",
+  "imdb": "tt0882977",
+  "director": [
+   "Ric Roman Waugh"
+  ],
+  "runtime": 112,
+  "rating": null,
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BNTM4MTYzNjA3Nl5BMl5BanBnXkFtZTcwMzcyNDA5OA@@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Barry Pepper",
+    "role": "Drug Enforcement Administration Agent Cooper"
+   },
+   {
+    "actor": "Benjamin Bratt",
+    "role": "Juan Carlos \"El Topo\" Pintera"
+   },
+   {
+    "actor": "Harold Perrineau",
+    "role": "Assistant District Attorney Jeffery Steele"
+   },
+   {
+    "actor": "Susan Sarandon",
+    "role": "United States Attorney Joanne Keeghan"
+   },
+   {
+    "actor": "Jon Bernthal",
+    "role": "Daniel James"
+   },
+   {
+    "actor": "Michael Kenneth Williams",
+    "role": "Malik Anderson"
+   }
+  ]
+ },
+ {
+  "id": "gi-joe",
+  "title": "G.I. Joe: Retaliation",
+  "year": 2013,
+  "wiki": "G.I. Joe: Retaliation",
+  "role": "Roadblock",
+  "genres": [
+   "action"
+  ],
+  "synopsis": "After the Joes are framed and nearly wiped out, Roadblock leads the survivors against Cobra and an impostor in the White House.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/0/09/G.I._Joe_Retaliation.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/G.I._Joe%3A_Retaliation",
+  "trailer": "2vAo4rJPqQ4",
+  "rt": "29%",
+  "gross": 375700000.0,
+  "castCheck": true,
+  "wdChars": [
+   "Roadblock"
+  ],
+  "deadTrailer": [
+   "mwIS-oMEzLk"
+  ],
+  "trailerChannel": "Paramount Movies",
+  "imdb": "tt1583421",
+  "director": [
+   "Jon M. Chu"
+  ],
+  "runtime": 125,
+  "rating": null,
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BNzk5ODM0OTQ0N15BMl5BanBnXkFtZTcwODg2ODE4OA@@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Bruce Willis",
+    "role": "General Joe Colton"
+   },
+   {
+    "actor": "D. J. Cotrona",
+    "role": "Dashiell R"
+   },
+   {
+    "actor": "Channing Tatum",
+    "role": "Conrad S"
+   },
+   {
+    "actor": "Arnold Vosloo",
+    "role": "Zartan"
+   },
+   {
+    "actor": "Jonathan Pryce",
+    "role": "President of the United States"
+   },
+   {
+    "actor": "Lee Byung-hun",
+    "role": "Thomas Arashikage / Storm Shadow"
+   }
+  ]
+ },
+ {
+  "id": "pain-gain",
+  "title": "Pain & Gain",
+  "year": 2013,
+  "wiki": "Pain & Gain",
+  "role": "Paul Doyle",
+  "genres": [
+   "drama",
+   "comedy"
+  ],
+  "synopsis": "Based on a true story, three Miami bodybuilders kidnap a wealthy businessman in a get-rich scheme that spirals out of control. Johnson plays a born-again ex-convict in Michael Bay’s dark crime comedy.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/4/49/Pain_%26_Gain_film_poster.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Pain_%26_Gain",
+  "trailer": "X4orHp2y2ZQ",
+  "rt": "49%",
+  "gross": null,
+  "castCheck": true,
+  "wdChars": [
+   "Paul Doyle"
+  ],
+  "trailerChannel": "Paramount Pictures",
+  "imdb": "tt1980209",
+  "director": [
+   "Michael Bay"
+  ],
+  "runtime": 129,
+  "rating": null,
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BMTU0NDE5NTU0OV5BMl5BanBnXkFtZTcwMzI1OTMzOQ@@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Mark Wahlberg",
+    "role": "Daniel Lugo"
+   },
+   {
+    "actor": "Anthony Mackie",
+    "role": "Adrian 'Noel' Doorbal"
+   },
+   {
+    "actor": "Tony Shalhoub",
+    "role": "Victor Kershaw"
+   },
+   {
+    "actor": "Ed Harris",
+    "role": "Detective Ed Du Bois"
+   },
+   {
+    "actor": "Rob Corddry",
+    "role": "John Mese"
+   },
+   {
+    "actor": "Rebel Wilson",
+    "role": "Robin Peck"
+   }
+  ]
+ },
+ {
+  "id": "ff6",
+  "title": "Fast & Furious 6",
+  "year": 2013,
+  "wiki": "Fast & Furious 6",
+  "role": "Luke Hobbs",
+  "genres": [
+   "action"
+  ],
+  "synopsis": "Hobbs recruits Dom’s crew to take down a team of mercenary drivers in Europe in exchange for pardons, and they discover Letty is alive and working for the other side.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/3/30/Fast_%26_Furious_6_film_poster.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Fast_%26_Furious_6",
+  "trailer": "dKi5XoeTN0k",
+  "rt": "71%",
+  "gross": 788680968.0,
+  "castCheck": true,
+  "wdChars": [
+   "Luke Hobbs"
+  ],
+  "deadTrailer": [
+   "V3SazrPCEDg"
+  ],
+  "trailerChannel": "Rotten Tomatoes Trailers",
+  "imdb": "tt1905041",
+  "director": [
+   "Justin Lin"
+  ],
+  "runtime": 130,
+  "rating": "PG-13",
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BMTM3NTg2NDQzOF5BMl5BanBnXkFtZTcwNjc2NzQzOQ@@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Vin Diesel",
+    "role": "Dominic Toretto"
+   },
+   {
+    "actor": "Paul Walker",
+    "role": "Brian O'Conner"
+   },
+   {
+    "actor": "Michelle Rodriguez",
+    "role": "Letty Ortiz"
+   },
+   {
+    "actor": "Jordana Brewster",
+    "role": "Mia Toretto"
+   },
+   {
+    "actor": "Tyrese Gibson",
+    "role": "Roman Pearce"
+   },
+   {
+    "actor": "Ludacris",
+    "role": "Tej Parker"
+   }
+  ]
+ },
+ {
+  "id": "empire-state",
+  "title": "Empire State",
+  "year": 2013,
+  "wiki": "Empire State (2013 film)",
+  "role": "Det. James Ransome",
+  "genres": [
+   "drama"
+  ],
+  "synopsis": "Based on a real 1982 armored-car depot robbery in New York, two childhood friends pull off the heist and draw the attention of a determined detective.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/f/f3/Empire_state_--_dvd_cover.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Empire_State_%282013_film%29",
+  "trailer": null,
+  "rt": null,
+  "gross": null,
+  "castCheck": true,
+  "wdChars": [],
+  "trailerChannel": null,
+  "imdb": "tt2171867",
+  "director": [
+   "Dito Montiel"
+  ],
+  "runtime": 93,
+  "rating": null,
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BYmM0Yzk2NGQtZTQ3NC00MjgxLWFhODAtZTYyZjc3N2EzNTBmXkEyXkFqcGc@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Liam Hemsworth",
+    "role": "Chris Potamitis"
+   },
+   {
+    "actor": "Michael Angarano",
+    "role": "Eddie"
+   },
+   {
+    "actor": "Emma Roberts",
+    "role": "Nancy Michaelides"
+   },
+   {
+    "actor": "Nikki Reed",
+    "role": "Lizzette"
+   },
+   {
+    "actor": "Paul Ben-Victor",
+    "role": "Tommy Potamitis"
+   },
+   {
+    "actor": "Jerry Ferrara",
+    "role": "Jimmy \"The Greek\""
+   }
+  ]
+ },
+ {
+  "id": "hercules",
+  "title": "Hercules",
+  "year": 2014,
+  "wiki": "Hercules (2014 film)",
+  "role": "Hercules",
+  "genres": [
+   "action"
+  ],
+  "synopsis": "Haunted by his past, the demigod leads a band of mercenaries hired to train an army in Thrace, where myth and politics collide.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/0/09/Hercules_%282014_film%29.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Hercules_%282014_film%29",
+  "trailer": "GFqY089piQ4",
+  "rt": "58%",
+  "gross": 244819862.0,
+  "castCheck": true,
+  "wdChars": [
+   "Hercules",
+   "Heracles",
+   "Hercules"
+  ],
+  "trailerChannel": "Rotten Tomatoes Trailers",
+  "imdb": "tt1267297",
+  "director": [
+   "Brett Ratner"
+  ],
+  "runtime": 98,
+  "rating": "PG-13",
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BMTQ4ODA5MTA4OF5BMl5BanBnXkFtZTgwNjMyODM5MTE@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Irina Shayk",
+    "role": "Megara"
+   },
+   {
+    "actor": "Rebecca Ferguson",
+    "role": "Ergenia"
+   },
+   {
+    "actor": "Ian McShane",
+    "role": "Amphiaraus"
+   },
+   {
+    "actor": "Rufus Sewell",
+    "role": "Autolycus"
+   },
+   {
+    "actor": "Aksel Hennie",
+    "role": "Tydeus"
+   },
+   {
+    "actor": "Ingrid Bolsø Berdal",
+    "role": "Atalanta"
+   }
+  ]
+ },
+ {
+  "id": "furious-7",
+  "title": "Furious 7",
+  "year": 2015,
+  "wiki": "Furious 7",
+  "role": "Luke Hobbs",
+  "genres": [
+   "action"
+  ],
+  "synopsis": "Deckard Shaw hunts Dom’s crew to avenge his brother, and the team takes on a global mission to recover a surveillance program called God’s Eye. The film is also the series’ farewell to Paul Walker.",
+  "trailerAlt": "yISKeT6sDOg",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/b/b8/Furious_7_poster.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Furious_7",
+  "trailer": "yISKeT6sDOg",
+  "rt": "81%",
+  "gross": 1515047671.0,
+  "castCheck": true,
+  "wdChars": [
+   "Luke Hobbs"
+  ],
+  "imdb": "tt2820852",
+  "director": [
+   "James Wan"
+  ],
+  "runtime": 137,
+  "rating": "PG-13",
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BMTQxOTA2NDUzOV5BMl5BanBnXkFtZTgwNzY2MTMxMzE@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Vin Diesel",
+    "role": "Dominic Toretto"
+   },
+   {
+    "actor": "Paul Walker",
+    "role": "Brian O'Conner"
+   },
+   {
+    "actor": "Michelle Rodriguez",
+    "role": "Letty Ortiz-Toretto"
+   },
+   {
+    "actor": "Tyrese Gibson",
+    "role": "Roman Pearce"
+   },
+   {
+    "actor": "Ludacris",
+    "role": "Tej Parker"
+   },
+   {
+    "actor": "Jordana Brewster",
+    "role": "Mia Toretto"
+   }
+  ]
+ },
+ {
+  "id": "san-andreas",
+  "title": "San Andreas",
+  "year": 2015,
+  "wiki": "San Andreas (film)",
+  "role": "Ray Gaines",
+  "genres": [
+   "action"
+  ],
+  "synopsis": "When the San Andreas Fault triggers a massive earthquake, a Los Angeles fire department rescue pilot crosses a shattered California to save his daughter.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/3/38/San_Andreas_poster.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/San_Andreas_%28film%29",
+  "trailer": "yftHosO0eUo",
+  "rt": "48%",
+  "gross": 474009154.0,
+  "castCheck": true,
+  "wdChars": [],
+  "trailerChannel": "Rotten Tomatoes Trailers",
+  "imdb": "tt2126355",
+  "director": [
+   "Brad Peyton"
+  ],
+  "runtime": 114,
+  "rating": "PG-13",
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BYmQzNDEzMzMtM2U5OS00YTUzLWI2NDYtYjI2NjAyNWE5YzMzXkEyXkFqcGc@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Carla Gugino",
+    "role": "Emma Gaines"
+   },
+   {
+    "actor": "Alexandra Daddario",
+    "role": "Blake Gaines"
+   },
+   {
+    "actor": "Hugo Johnstone-Burt",
+    "role": "Ben Taylor"
+   },
+   {
+    "actor": "Art Parkinson",
+    "role": "Ollie Taylor"
+   },
+   {
+    "actor": "Paul Giamatti",
+    "role": "Dr. Lawrence Hayes"
+   },
+   {
+    "actor": "Ioan Gruffudd",
+    "role": "Daniel Riddick"
+   }
+  ]
+ },
+ {
+  "id": "jem",
+  "title": "Jem and the Holograms",
+  "year": 2015,
+  "wiki": "Jem and the Holograms (film)",
+  "role": "Himself",
+  "genres": [
+   "comedy",
+   "drama"
+  ],
+  "tag": "Cameo",
+  "synopsis": "A small-town teenager becomes an online music sensation and is swept into the industry with her sisters. Johnson appears briefly as himself.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/3/32/Jem_and_the_Holograms_%28film%29.png",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Jem_and_the_Holograms_%28film%29",
+  "trailer": "pifhszsZKg4",
+  "rt": "22%",
+  "gross": null,
+  "castCheck": true,
+  "wdChars": [],
+  "deadTrailer": [
+   "ym0XI4TX8hw"
+  ],
+  "trailerChannel": "Universal Pictures",
+  "imdb": "tt3614530",
+  "director": [
+   "Jon M. Chu"
+  ],
+  "runtime": 118,
+  "rating": null,
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BMjIxMDI1MTI2M15BMl5BanBnXkFtZTgwODYzODc2NTE@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Aubrey Peeples",
+    "role": "Jerrica \"Jem\" Benton"
+   },
+   {
+    "actor": "Stefanie Scott",
+    "role": "Kimber Benton"
+   },
+   {
+    "actor": "Hayley Kiyoko",
+    "role": "Aja Leith"
+   },
+   {
+    "actor": "Aurora Perrineau",
+    "role": "Shana Elmsford"
+   },
+   {
+    "actor": "Juliette Lewis",
+    "role": "Erica Raymond"
+   },
+   {
+    "actor": "Ryan Guzman",
+    "role": "Mario \"Rio\" Raymond"
+   }
+  ]
+ },
+ {
+  "id": "central-intelligence",
+  "title": "Central Intelligence",
+  "year": 2016,
+  "wiki": "Central Intelligence (film)",
+  "role": "Bob Stone",
+  "genres": [
+   "comedy",
+   "action"
+  ],
+  "synopsis": "A bullied high-school kid turned CIA agent pulls his old classmate, now an accountant (Kevin Hart), into a dangerous case. It launched his screen partnership with Hart.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/8/8a/CentralIntelligencePoster.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Central_Intelligence",
+  "trailer": "MxEw3elSJ8M",
+  "rt": "71%",
+  "gross": 217000000.0,
+  "castCheck": true,
+  "wdChars": [
+   "Bob Stone"
+  ],
+  "deadTrailer": [
+   "uMkLGLTBOHU"
+  ],
+  "trailerChannel": "Warner Bros.",
+  "imdb": "tt1489889",
+  "director": [
+   "Rawson Marshall Thurber"
+  ],
+  "runtime": 107,
+  "rating": "PG-13",
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BMjA2NzEzNjIwNl5BMl5BanBnXkFtZTgwNzgwMTEzNzE@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Kevin Hart",
+    "role": "Calvin \"Golden Jet\" Joyner"
+   },
+   {
+    "actor": "Amy Ryan",
+    "role": "Agent Pamela Harris"
+   },
+   {
+    "actor": "Aaron Paul",
+    "role": "Philip \"Phil\" Stanton"
+   },
+   {
+    "actor": "Jason Bateman",
+    "role": "Trevor Olson"
+   },
+   {
+    "actor": "Danielle Nicolet",
+    "role": "Maggie Joyner"
+   },
+   {
+    "actor": "Tim Griffin",
+    "role": "Agent Stan Mitchell"
+   }
+  ]
+ },
+ {
+  "id": "moana",
+  "title": "Moana",
+  "year": 2016,
+  "wiki": "Moana (2016 film)",
+  "role": "Maui (voice)",
+  "genres": [
+   "comedy"
+  ],
+  "synopsis": "A chief’s daughter sails beyond the reef to restore the heart of the goddess Te Fiti, with the reluctant help of the shape-shifting demigod Maui. Johnson sings “You’re Welcome”.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/2/26/Moana_Teaser_Poster.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Moana_%282016_film%29",
+  "trailer": "LKFuXETZUsI",
+  "rt": "95%",
+  "gross": 690845539.0,
+  "castCheck": true,
+  "wdChars": [],
+  "imdb": "tt3521164",
+  "director": [
+   "John Musker",
+   "Ron Clements",
+   "Chris Williams",
+   "Don Hall"
+  ],
+  "runtime": 107,
+  "rating": "PG",
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BMjI4MzU5NTExNF5BMl5BanBnXkFtZTgwNzY1MTEwMDI@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Auliʻi Cravalho",
+    "role": "Moana"
+   },
+   {
+    "actor": "Rachel House",
+    "role": "Tala"
+   },
+   {
+    "actor": "Temuera Morrison",
+    "role": "Tui"
+   },
+   {
+    "actor": "Jemaine Clement",
+    "role": "Tamatoa"
+   },
+   {
+    "actor": "Nicole Scherzinger",
+    "role": "Sina"
+   },
+   {
+    "actor": "Alan Tudyk",
+    "role": "Heihei"
+   }
+  ]
+ },
+ {
+  "id": "fate-furious",
+  "title": "The Fate of the Furious",
+  "year": 2017,
+  "wiki": "The Fate of the Furious",
+  "role": "Luke Hobbs",
+  "genres": [
+   "action"
+  ],
+  "synopsis": "The cyberterrorist Cipher forces Dom to turn on his own crew, and Hobbs teams up with old enemy Deckard Shaw to bring him back.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/2/2d/The_Fate_of_The_Furious_Theatrical_Poster.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/The_Fate_of_the_Furious",
+  "trailer": "5XBmsl7wbIQ",
+  "rt": "67%",
+  "gross": 1236005118.0,
+  "castCheck": true,
+  "wdChars": [
+   "Luke Hobbs"
+  ],
+  "deadTrailer": [
+   "s60g2-Fxfn4"
+  ],
+  "trailerChannel": "Rotten Tomatoes Trailers",
+  "imdb": "tt4630562",
+  "director": [
+   "F. Gary Gray"
+  ],
+  "runtime": 136,
+  "rating": "PG-13",
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BMjMxODI2NDM5Nl5BMl5BanBnXkFtZTgwNjgzOTk1MTI@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Vin Diesel",
+    "role": "Dominic Toretto"
+   },
+   {
+    "actor": "Jason Statham",
+    "role": "Deckard Shaw"
+   },
+   {
+    "actor": "Michelle Rodriguez",
+    "role": "Letty Ortiz"
+   },
+   {
+    "actor": "Tyrese Gibson",
+    "role": "Roman Pearce"
+   },
+   {
+    "actor": "Ludacris",
+    "role": "Tej Parker"
+   },
+   {
+    "actor": "Scott Eastwood",
+    "role": "Little Nobody"
+   }
+  ]
+ },
+ {
+  "id": "baywatch",
+  "title": "Baywatch",
+  "year": 2017,
+  "wiki": "Baywatch (film)",
+  "role": "Mitch Buchannon",
+  "genres": [
+   "comedy",
+   "action"
+  ],
+  "synopsis": "A devoted lifeguard and a cocky new recruit (Zac Efron) uncover a criminal plot that threatens their beach, in this comedy take on the TV series.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/1/13/Baywatch_poster.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Baywatch_%28film%29",
+  "trailer": "eyKOgnaf0BU",
+  "rt": "17%",
+  "gross": null,
+  "castCheck": true,
+  "wdChars": [
+   "Mitch Buchannon"
+  ],
+  "deadTrailer": [
+   "3pt97p6kZa0"
+  ],
+  "trailerChannel": "Paramount Pictures",
+  "imdb": "tt1469304",
+  "director": [
+   "Seth Gordon"
+  ],
+  "runtime": 119,
+  "rating": "R",
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BNTA4MjQ0ODQzNF5BMl5BanBnXkFtZTgwNzA5NjYzMjI@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Zac Efron",
+    "role": "Matt Brody"
+   },
+   {
+    "actor": "Priyanka Chopra",
+    "role": "Victoria Leeds"
+   },
+   {
+    "actor": "Alexandra Daddario",
+    "role": "Summer Quinn"
+   },
+   {
+    "actor": "Kelly Rohrbach",
+    "role": "C"
+   },
+   {
+    "actor": "Jon Bass",
+    "role": "Ronnie Greenbaum"
+   },
+   {
+    "actor": "Ilfenesh Hadera",
+    "role": "Stephanie Holden"
+   }
+  ]
+ },
+ {
+  "id": "jumanji-wttj",
+  "title": "Jumanji: Welcome to the Jungle",
+  "year": 2017,
+  "wiki": "Jumanji: Welcome to the Jungle",
+  "role": "Dr. Smolder Bravestone",
+  "genres": [
+   "action",
+   "comedy"
+  ],
+  "synopsis": "Four teenagers are pulled into a video game and become its adult avatars. Johnson plays the heroic archaeologist Bravestone, inhabited by a nervous, gangly gamer.",
+  "grossManual": 963000000,
+  "trailerAlt": "2QKg5SZ_35I",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/d/dc/Jumanji_Welcome_to_the_Jungle.png",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Jumanji%3A_Welcome_to_the_Jungle",
+  "trailer": "2QKg5SZ_35I",
+  "rt": "77%",
+  "gross": 962102237.0,
+  "castCheck": true,
+  "wdChars": [
+   "Dr. Smolder Bravestone"
+  ],
+  "imdb": "tt2283362",
+  "director": [
+   "Jake Kasdan"
+  ],
+  "runtime": 119,
+  "rating": "PG-13",
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BZjI5MzdmODctYjA4NS00ZmMxLWJlOWUtOGVhMjA0OGMxMWYzXkEyXkFqcGc@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Jack Black",
+    "role": "Bethany"
+   },
+   {
+    "actor": "Kevin Hart",
+    "role": "Fridge"
+   },
+   {
+    "actor": "Karen Gillan",
+    "role": "Martha"
+   },
+   {
+    "actor": "Nick Jonas",
+    "role": "Alex"
+   },
+   {
+    "actor": "Bobby Cannavale",
+    "role": "Van Pelt"
+   },
+   {
+    "actor": "Rhys Darby",
+    "role": "Nigel"
+   }
+  ]
+ },
+ {
+  "id": "rampage",
+  "title": "Rampage",
+  "year": 2018,
+  "wiki": "Rampage (2018 film)",
+  "role": "Davis Okoye",
+  "genres": [
+   "action"
+  ],
+  "synopsis": "A primatologist races to save his gorilla friend, mutated to giant size by a genetic experiment, as other monsters tear through Chicago.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/6/6b/Rampage_teaser_film_poster.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Rampage_%282018_film%29",
+  "trailer": "coOKvrsmQiI",
+  "rt": "51%",
+  "gross": 428028233.0,
+  "castCheck": true,
+  "wdChars": [],
+  "deadTrailer": [
+   "MJmfesMUvJE"
+  ],
+  "trailerChannel": "Warner Bros.",
+  "imdb": "tt2231461",
+  "director": [
+   "Brad Peyton"
+  ],
+  "runtime": 107,
+  "rating": "PG-13",
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BNDA1NjA3ODU3OV5BMl5BanBnXkFtZTgwOTg3MTIwNTM@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Naomie Harris",
+    "role": "Katherine \"Kate\" Caldwell"
+   },
+   {
+    "actor": "Malin Akerman",
+    "role": "Claire Wyden"
+   },
+   {
+    "actor": "Jeffrey Dean Morgan",
+    "role": "Harvey Russell"
+   },
+   {
+    "actor": "Jake Lacy",
+    "role": "Brett Wyden"
+   },
+   {
+    "actor": "Joe Manganiello",
+    "role": "Burke"
+   },
+   {
+    "actor": "Marley Shelton",
+    "role": "Kerry Atkins"
+   }
+  ]
+ },
+ {
+  "id": "skyscraper",
+  "title": "Skyscraper",
+  "year": 2018,
+  "wiki": "Skyscraper (2018 film)",
+  "role": "Will Sawyer",
+  "genres": [
+   "action"
+  ],
+  "synopsis": "A former FBI hostage-rescue leader, now a security consultant, has to get into the world’s tallest building, set on fire by criminals, to save his family.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/6/6e/Skyscraper_%282018%29_film_poster.png",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Skyscraper_%282018_film%29",
+  "trailer": "t9QePUT-Yt8",
+  "rt": "48%",
+  "gross": 304868961.0,
+  "castCheck": true,
+  "wdChars": [],
+  "deadTrailer": [
+   "FSDyjjo0nqo"
+  ],
+  "trailerChannel": "Universal Pictures",
+  "imdb": "tt5758778",
+  "director": [
+   "Rawson Marshall Thurber"
+  ],
+  "runtime": 102,
+  "rating": "PG-13",
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BNWYyYTExNWMtZGYyYy00YTEzLTg5MzEtY2YyMDI3MDNlMjcwXkEyXkFqcGc@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Neve Campbell",
+    "role": "Sarah Sawyer"
+   },
+   {
+    "actor": "Chin Han",
+    "role": "Zhao Long Ji"
+   },
+   {
+    "actor": "Roland Møller",
+    "role": "Kores Botha"
+   },
+   {
+    "actor": "Noah Taylor",
+    "role": "Mr. Pierce"
+   },
+   {
+    "actor": "Byron Mann",
+    "role": "Inspector Wu"
+   },
+   {
+    "actor": "Hannah Quinlivan",
+    "role": "Xia"
+   }
+  ]
+ },
+ {
+  "id": "fighting-family",
+  "title": "Fighting with My Family",
+  "year": 2019,
+  "wiki": "Fighting with My Family",
+  "role": "Himself",
+  "genres": [
+   "drama",
+   "comedy"
+  ],
+  "tag": "Producer & cameo",
+  "synopsis": "Based on the true story of WWE wrestler Paige and her wrestling family from Norwich, England. Johnson produced the film and appears as himself.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/5/55/Fighting_With_My_Family_poster.png",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Fighting_with_My_Family",
+  "trailer": null,
+  "rt": "93%",
+  "gross": null,
+  "castCheck": true,
+  "wdChars": [],
+  "trailerChannel": null,
+  "imdb": "tt6513120",
+  "director": [
+   "Stephen Merchant"
+  ],
+  "runtime": 108,
+  "rating": "PG-13",
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BYjliMDY3N2YtOTI2NS00MjQ0LWFjOGItMjQ1MzYyZGVlMDJiXkEyXkFqcGc@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Florence Pugh",
+    "role": "Saraya Knight / Paige"
+   },
+   {
+    "actor": "Lena Headey",
+    "role": "Julia Knight / Sweet Saraya"
+   },
+   {
+    "actor": "Nick Frost",
+    "role": "Ricky Knight"
+   },
+   {
+    "actor": "Jack Lowden",
+    "role": "Zak Knight / Zak Zodiac"
+   },
+   {
+    "actor": "Kim Matula",
+    "role": "Jeri-Lynn"
+   },
+   {
+    "actor": "Ellie Gonsalves",
+    "role": "Madison"
+   }
+  ]
+ },
+ {
+  "id": "hobbs-shaw",
+  "title": "Fast & Furious Presents: Hobbs & Shaw",
+  "year": 2019,
+  "wiki": "Hobbs & Shaw",
+  "role": "Luke Hobbs",
+  "genres": [
+   "action"
+  ],
+  "synopsis": "Hobbs and Deckard Shaw are forced to team up against a cybernetically enhanced terrorist (Idris Elba) to stop a deadly virus.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/0/00/Fast_%26_Furious_Presents_Hobbs_%26_Shaw_-_theatrical_poster.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Hobbs_%26_Shaw",
+  "trailer": null,
+  "rt": "67%",
+  "gross": 759056935.0,
+  "castCheck": true,
+  "wdChars": [
+   "Luke Hobbs"
+  ],
+  "deadTrailer": [
+   "9NnDLeoMj_o"
+  ],
+  "trailerChannel": null,
+  "imdb": "tt6806448",
+  "director": [
+   "David Leitch"
+  ],
+  "runtime": 137,
+  "rating": "PG-13",
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BNmU4OTA5NGYtMTFjMS00MzgxLWFjNTMtYjdlMThlYzc4M2M4XkEyXkFqcGc@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Jason Statham",
+    "role": "Deckard Shaw"
+   },
+   {
+    "actor": "Idris Elba",
+    "role": "Brixton Lore"
+   },
+   {
+    "actor": "Vanessa Kirby",
+    "role": "Hattie Shaw"
+   },
+   {
+    "actor": "Eiza González",
+    "role": "Margarita / Madame M"
+   },
+   {
+    "actor": "Cliff Curtis",
+    "role": "Jonah Hobbs"
+   },
+   {
+    "actor": "Helen Mirren",
+    "role": "Magdalene \"Queenie\" Shaw"
+   }
+  ]
+ },
+ {
+  "id": "jumanji-next",
+  "title": "Jumanji: The Next Level",
+  "year": 2019,
+  "wiki": "Jumanji: The Next Level",
+  "role": "Dr. Smolder Bravestone",
+  "genres": [
+   "action",
+   "comedy"
+  ],
+  "synopsis": "The friends go back into the game to rescue Spencer, but glitches put his grandfather into Bravestone. Johnson does a running impression of Danny DeVito.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/1/12/Jumanji_-The_Next_Level_film_poster.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Jumanji%3A_The_Next_Level",
+  "trailer": "rBxcF-r9Ibs",
+  "rt": "72%",
+  "gross": 800059707.0,
+  "castCheck": true,
+  "wdChars": [
+   "Dr. Smolder Bravestone"
+  ],
+  "deadTrailer": [
+   "yp0HE9PVbHU"
+  ],
+  "trailerChannel": "Sony Pictures Entertainment",
+  "imdb": "tt7975244",
+  "director": [
+   "Jake Kasdan"
+  ],
+  "runtime": 122,
+  "rating": "PG-13",
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BYWFjODExZWEtYzIwYS00M2YwLTk4YTktNDQ5ZmVmOThiNmI1XkEyXkFqcGc@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Jack Black",
+    "role": "Professor Sheldon \"Shelly\" Oberon"
+   },
+   {
+    "actor": "Kevin Hart",
+    "role": "Franklin \"Mouse\" Finbar"
+   },
+   {
+    "actor": "Karen Gillan",
+    "role": "Ruby Roundhouse"
+   },
+   {
+    "actor": "Nick Jonas",
+    "role": "Jefferson \"Seaplane\" McDonough"
+   },
+   {
+    "actor": "Awkwafina",
+    "role": "Ming Fleetfoot"
+   },
+   {
+    "actor": "Rory McCann",
+    "role": "Jurgen the Brutal"
+   }
+  ]
+ },
+ {
+  "id": "jungle-cruise",
+  "title": "Jungle Cruise",
+  "year": 2021,
+  "wiki": "Jungle Cruise (film)",
+  "role": "Frank Wolff",
+  "genres": [
+   "action",
+   "comedy"
+  ],
+  "synopsis": "In 1916 a wisecracking riverboat captain takes a scientist (Emily Blunt) and her brother up the Amazon in search of a tree with legendary healing powers.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/c/c6/Jungle_Cruise_-_theatrical_poster.png",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Jungle_Cruise_%28film%29",
+  "trailer": "f_HvoipFcA8",
+  "rt": "62%",
+  "gross": null,
+  "castCheck": true,
+  "wdChars": [],
+  "deadTrailer": [
+   "c_3EmK34Nzw"
+  ],
+  "trailerChannel": "Disney",
+  "imdb": "tt0870154",
+  "director": [
+   "Jaume Collet-Serra"
+  ],
+  "runtime": 127,
+  "rating": "PG-13",
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BMWU5ZTBkMjQtMzg2Yi00ZmJlLTk4YWEtYTc0ZjU1YzE1NGNkXkEyXkFqcGc@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Emily Blunt",
+    "role": "Dr. Lily Houghton"
+   },
+   {
+    "actor": "Édgar Ramírez",
+    "role": "Aguirre"
+   },
+   {
+    "actor": "Jack Whitehall",
+    "role": "MacGregor Houghton"
+   },
+   {
+    "actor": "Jesse Plemons",
+    "role": "Prince Joachim"
+   },
+   {
+    "actor": "Paul Giamatti",
+    "role": "Nilo Nemolato"
+   }
+  ]
+ },
+ {
+  "id": "free-guy",
+  "title": "Free Guy",
+  "year": 2021,
+  "wiki": "Free Guy",
+  "role": "Bank Robber #2 (voice)",
+  "genres": [
+   "comedy",
+   "action"
+  ],
+  "tag": "Cameo",
+  "synopsis": "A bank teller discovers he is a background character in an open-world video game and decides to become its hero. Johnson lends a brief voice cameo.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/1/1c/Free_Guy_2021_Poster.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Free_Guy",
+  "trailer": "X2m-08cOAbc",
+  "rt": "80%",
+  "gross": 330600000.0,
+  "castCheck": false,
+  "wdChars": [],
+  "deadTrailer": [
+   "yAoOFKv71ao"
+  ],
+  "trailerChannel": "20th Century Studios",
+  "imdb": "tt6264654",
+  "director": [
+   "Shawn Levy"
+  ],
+  "runtime": 115,
+  "rating": "PG-13",
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BN2I0MGMxYjUtZTZiMS00MzMxLTkzNWYtMDUyZmUwY2ViYTljXkEyXkFqcGc@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Ryan Reynolds",
+    "role": "Guy / Blue Shirt Guy"
+   },
+   {
+    "actor": "Jodie Comer",
+    "role": "Millie Rusk"
+   },
+   {
+    "actor": "Lil Rel Howery",
+    "role": "Buddy"
+   },
+   {
+    "actor": "Joe Keery",
+    "role": "Walter \"Keys\" McKey"
+   },
+   {
+    "actor": "Utkarsh Ambudkar",
+    "role": "Mouser"
+   },
+   {
+    "actor": "Taika Waititi",
+    "role": "Antwan Hovachelik"
+   }
+  ]
+ },
+ {
+  "id": "red-notice",
+  "title": "Red Notice",
+  "year": 2021,
+  "wiki": "Red Notice (film)",
+  "role": "John Hartley",
+  "genres": [
+   "action",
+   "comedy"
+  ],
+  "tag": "Netflix",
+  "synopsis": "An FBI profiler is forced to team up with a rival art thief (Ryan Reynolds) to catch the world’s most wanted thief (Gal Gadot) in a hunt for Cleopatra’s jeweled eggs.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/0/0c/Red_Notice_-_film_promotional_image.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Red_Notice_%28film%29",
+  "trailer": "Pj0wz7zu3Ms",
+  "rt": "36%",
+  "gross": null,
+  "castCheck": true,
+  "wdChars": [
+   "John Hartley"
+  ],
+  "trailerChannel": "Netflix",
+  "imdb": "tt7991608",
+  "director": [
+   "Rawson Marshall Thurber"
+  ],
+  "runtime": 118,
+  "rating": "PG-13",
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BOGNjNGQ3MmItYTM5NS00NjBiLWI0ZTItZDE5ZjQyNjg3ODBjXkEyXkFqcGc@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Ryan Reynolds",
+    "role": "Nolan Booth"
+   },
+   {
+    "actor": "Gal Gadot",
+    "role": "Sarah Black / The Bishop"
+   },
+   {
+    "actor": "Chris Diamantopoulos",
+    "role": "Sotto Voce"
+   },
+   {
+    "actor": "Ritu Arya",
+    "role": "Inspector Urvashi Das"
+   },
+   {
+    "actor": "Ivan Mbakop",
+    "role": "Tambwe"
+   },
+   {
+    "actor": "Vincenzo Amato",
+    "role": "Director Gallo"
+   }
+  ]
+ },
+ {
+  "id": "super-pets",
+  "title": "DC League of Super-Pets",
+  "year": 2022,
+  "wiki": "DC League of Super-Pets",
+  "role": "Krypto (voice)",
+  "genres": [
+   "comedy"
+  ],
+  "tag": "Voice role",
+  "synopsis": "When the Justice League is captured, Superman’s dog Krypto has to lead a group of shelter animals with new superpowers to the rescue.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/0/09/DC_League_of_Super-Pets.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/DC_League_of_Super-Pets",
+  "trailer": "1jkw2JPCl18",
+  "rt": "73%",
+  "gross": 207357117.0,
+  "castCheck": true,
+  "wdChars": [],
+  "deadTrailer": [
+   "vGhQkDvqULg"
+  ],
+  "trailerChannel": "Warner Bros.",
+  "imdb": "tt8912936",
+  "director": [
+   "Jared Stern"
+  ],
+  "runtime": 105,
+  "rating": "PG",
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BY2RkOTM1ZTQtNWQ3NS00YzdjLWIyMmQtYzMzNzI2ZjQwZjlmXkEyXkFqcGc@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Kevin Hart",
+    "role": "Ace"
+   },
+   {
+    "actor": "Kate McKinnon",
+    "role": "Lulu"
+   },
+   {
+    "actor": "John Krasinski",
+    "role": "Clark Kent / Superman"
+   },
+   {
+    "actor": "Vanessa Bayer",
+    "role": "PB"
+   },
+   {
+    "actor": "Natasha Lyonne",
+    "role": "Merton"
+   },
+   {
+    "actor": "Diego Luna",
+    "role": "Chip"
+   }
+  ]
+ },
+ {
+  "id": "black-adam",
+  "title": "Black Adam",
+  "year": 2022,
+  "wiki": "Black Adam (film)",
+  "role": "Teth-Adam / Black Adam",
+  "genres": [
+   "action"
+  ],
+  "synopsis": "Nearly 5,000 years after he was given the powers of the gods, Teth-Adam is freed from his tomb in Kahndaq and clashes with the Justice Society. A project he championed for more than a decade.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/a/a9/Black_Adam_%28film%29_poster.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Black_Adam_%28film%29",
+  "trailer": "X0tOpBuYasI",
+  "rt": "38%",
+  "gross": 392952111.0,
+  "castCheck": true,
+  "wdChars": [
+   "Black Adam"
+  ],
+  "deadTrailer": [
+   "svcmuSv3KrQ"
+  ],
+  "trailerChannel": "Warner Bros.",
+  "imdb": "tt6443346",
+  "director": [
+   "Jaume Collet-Serra"
+  ],
+  "runtime": 124,
+  "rating": "PG-13",
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BYmM3OTM4NDktMmI2NS00OWU0LTg4OTQtNjZhMmFkYjhmOGY1XkEyXkFqcGc@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Aldis Hodge",
+    "role": "Carter Hall / Hawkman"
+   },
+   {
+    "actor": "Noah Centineo",
+    "role": "Albert \"Al\" Rothstein / Atom Smasher"
+   },
+   {
+    "actor": "Sarah Shahi",
+    "role": "Adrianna Tomaz"
+   },
+   {
+    "actor": "Marwan Kenzari",
+    "role": "Ishmael Gregor / Sabbac"
+   },
+   {
+    "actor": "Quintessa Swindell",
+    "role": "Maxine Hunkel / Cyclone"
+   },
+   {
+    "actor": "Bodhi Sabongui",
+    "role": "Amon Tomaz"
+   }
+  ]
+ },
+ {
+  "id": "fast-x",
+  "title": "Fast X",
+  "year": 2023,
+  "wiki": "Fast X",
+  "role": "Luke Hobbs",
+  "genres": [
+   "action"
+  ],
+  "tag": "Mid-credits return",
+  "synopsis": "Dante Reyes, the son of the drug lord from Fast Five, sets out to destroy Dom’s family. Johnson returns as Hobbs in a mid-credits scene.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/f/f2/Fast_X_poster.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Fast_X",
+  "trailer": "VVbIrBSlBvo",
+  "rt": "56%",
+  "gross": null,
+  "castCheck": false,
+  "wdChars": [],
+  "deadTrailer": [
+   "YPU-CDwRKBk"
+  ],
+  "trailerChannel": "Universal Pictures UK",
+  "imdb": "tt5433140",
+  "director": [
+   "Louis Leterrier"
+  ],
+  "runtime": 141,
+  "rating": "PG-13",
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BYzEwZjczOTktYzU1OS00YjJlLTgyY2UtNWEzODBlN2RjZDEwXkEyXkFqcGc@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Vin Diesel",
+    "role": "Dominic Toretto"
+   },
+   {
+    "actor": "Michelle Rodriguez",
+    "role": "Letty Ortiz"
+   },
+   {
+    "actor": "Tyrese Gibson",
+    "role": "Roman Pearce"
+   },
+   {
+    "actor": "Ludacris",
+    "role": "Tej Parker"
+   },
+   {
+    "actor": "John Cena",
+    "role": "Jakob Toretto"
+   },
+   {
+    "actor": "Nathalie Emmanuel",
+    "role": "Ramsey"
+   }
+  ]
+ },
+ {
+  "id": "red-one",
+  "title": "Red One",
+  "year": 2024,
+  "wiki": "Red One (film)",
+  "role": "Callum Drift",
+  "genres": [
+   "action",
+   "comedy"
+  ],
+  "synopsis": "When Santa Claus is kidnapped, the head of North Pole security teams up with a cynical bounty hunter (Chris Evans) to save Christmas.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/2/25/Red_One_poster.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Red_One_%28film%29",
+  "trailer": "U8XH3W0cMss",
+  "rt": "30%",
+  "gross": null,
+  "castCheck": true,
+  "wdChars": [
+   "Callum Drift"
+  ],
+  "deadTrailer": [
+   "bWu5v_1MRzo"
+  ],
+  "trailerChannel": "Amazon MGM Studios",
+  "imdb": "tt14948432",
+  "director": [
+   "Jake Kasdan"
+  ],
+  "runtime": 102,
+  "rating": "PG-13",
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BZmFkMjE4NjQtZTVmZS00MDZjLWE2ZmEtZTkzODljNjhlNWUxXkEyXkFqcGc@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Chris Evans",
+    "role": "Jack \"the Wolf\" O'Malley"
+   },
+   {
+    "actor": "Lucy Liu",
+    "role": "Zoe Harlow"
+   },
+   {
+    "actor": "Kiernan Shipka",
+    "role": "Grýla"
+   },
+   {
+    "actor": "Bonnie Hunt",
+    "role": "Mrs. Claus"
+   },
+   {
+    "actor": "Kristofer Hivju",
+    "role": "Krampus"
+   },
+   {
+    "actor": "Nick Kroll",
+    "role": "Ted"
+   }
+  ]
+ },
+ {
+  "id": "moana-2",
+  "title": "Moana 2",
+  "year": 2024,
+  "wiki": "Moana 2",
+  "role": "Maui (voice)",
+  "genres": [
+   "comedy"
+  ],
+  "synopsis": "Three years after her first voyage, Moana answers a call from her ancestors and sets out to find a lost island, with Maui by her side again.",
+  "grossManual": 1059000000,
+  "poster": "https://upload.wikimedia.org/wikipedia/en/7/73/Moana_2_poster.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Moana_2",
+  "trailer": "hDZ7y8RP5HE",
+  "rt": "61%",
+  "gross": 1059000000,
+  "castCheck": true,
+  "wdChars": [],
+  "deadTrailer": [
+   "oYY0z4qFin0"
+  ],
+  "trailerChannel": "Walt Disney Animation Studios",
+  "imdb": "tt13622970",
+  "director": [
+   "David Derrick Jr.",
+   "Dana Ledoux Miller"
+  ],
+  "runtime": 100,
+  "rating": "PG",
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BZDUxNThhYTUtYjgxNy00MGQ4LTgzOTEtZjg1YTU5NTcwNThlXkEyXkFqcGc@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Auliʻi Cravalho",
+    "role": "Moana"
+   },
+   {
+    "actor": "Hualālai Chung",
+    "role": "Moni"
+   },
+   {
+    "actor": "Rose Matafeo",
+    "role": "Loto"
+   },
+   {
+    "actor": "David Fane",
+    "role": "Kele"
+   },
+   {
+    "actor": "Awhimai Fraser",
+    "role": "Matangi"
+   },
+   {
+    "actor": "Khaleesi Lambert-Tsuda",
+    "role": "Simea"
+   }
+  ]
+ },
+ {
+  "id": "smashing-machine",
+  "title": "The Smashing Machine",
+  "year": 2025,
+  "wiki": "The Smashing Machine (2025 film)",
+  "role": "Mark Kerr",
+  "genres": [
+   "drama"
+  ],
+  "tag": "Golden Globe nominee",
+  "synopsis": "Benny Safdie’s A24 drama follows MMA champion Mark Kerr through fights, addiction and his relationship with Dawn Staples (Emily Blunt). Johnson’s transformation earned him a Golden Globe nomination for Best Actor – Drama.",
+  "grossManual": 21000000,
+  "trailerAlt": "fEQ4lN1KxXA",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/4/47/The_Smashing_Machine_%282025_film%29.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/The_Smashing_Machine_%282025_film%29",
+  "trailer": "aRpnP3LZ99g",
+  "rt": "70%",
+  "gross": 21000000,
+  "castCheck": true,
+  "wdChars": [
+   "Mark Kerr"
+  ],
+  "imdb": "tt11214558",
+  "director": [
+   "Benny Safdie"
+  ],
+  "runtime": 123,
+  "rating": "R",
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BOWYxZTM1ZGMtMjg5MC00NzcyLTk0ZTEtZWI0ZThkNDJiYjZmXkEyXkFqcGc@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Emily Blunt",
+    "role": "Dawn Staples"
+   },
+   {
+    "actor": "Ryan Bader",
+    "role": "Mark Coleman"
+   },
+   {
+    "actor": "Bas Rutten",
+    "role": "himself"
+   },
+   {
+    "actor": "Oleksandr Usyk",
+    "role": "Igor Vovchanchyn"
+   },
+   {
+    "actor": "Olga Dzyurak",
+    "role": "Igor's translator"
+   },
+   {
+    "actor": "Lyndsey Gavin",
+    "role": "Elizabeth Coleman"
+   }
+  ]
+ },
+ {
+  "id": "moana-live",
+  "title": "Moana",
+  "year": 2026,
+  "wiki": "Moana (2026 film)",
+  "role": "Maui",
+  "genres": [
+   "comedy",
+   "action"
+  ],
+  "tag": "Live-action",
+  "synopsis": "Disney’s live-action remake of the 2016 film, with Johnson playing the demigod Maui in person.",
+  "grossManual": 323600000,
+  "trailerAlt": "QKYFfYLe5rs",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/c/c1/Moana_%282026_film%29_poster.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Moana_%282026_film%29",
+  "trailer": "QKYFfYLe5rs",
+  "rt": null,
+  "gross": 323600000,
+  "castCheck": true,
+  "wdChars": [
+   "Maui"
+  ],
+  "imdb": "tt27419466",
+  "director": [
+   "Thomas Kail"
+  ],
+  "runtime": 115,
+  "rating": "PG",
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BMTQ1OTQ2Y2UtMzllNS00ODFiLWFkNGItNGRjOWRlMjIwNTRlXkEyXkFqcGc@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Catherine Laga'aia",
+    "role": "Moana"
+   },
+   {
+    "actor": "Rena Owen",
+    "role": "Gramma Tala"
+   },
+   {
+    "actor": "John Tui",
+    "role": "Chief Tui"
+   },
+   {
+    "actor": "Frankie Adams",
+    "role": "Sina"
+   },
+   {
+    "actor": "Jemaine Clement",
+    "role": "Tamatoa (voice)"
+   }
+  ]
+ },
+ {
+  "id": "jumanji-3",
+  "title": "Jumanji: Open World",
+  "year": 2026,
+  "wiki": "Jumanji: Open World",
+  "role": "Dr. Xander “Smolder” Bravestone",
+  "genres": [
+   "action",
+   "comedy"
+  ],
+  "tag": "In cinemas Dec 25, 2026",
+  "synopsis": "The final chapter of the Jumanji series, reuniting Johnson, Jack Black, Kevin Hart and Karen Gillan with director Jake Kasdan. Johnson also produces.",
+  "poster": "https://upload.wikimedia.org/wikipedia/en/1/1d/Jumanji_Open_World_poster.jpg",
+  "wikiUrl": "https://en.wikipedia.org/wiki/Jumanji%3A_Open_World",
+  "trailer": "zhApeaHMvfs",
+  "rt": null,
+  "gross": null,
+  "castCheck": true,
+  "wdChars": [],
+  "imdb": "tt26735127",
+  "director": [
+   "Jake Kasdan"
+  ],
+  "runtime": null,
+  "rating": null,
+  "posterHD": "https://m.media-amazon.com/images/M/MV5BMTkxNTFlMzktMmE4MS00MzE1LWIzYTEtYTY1OWVjZDRiZDdkXkEyXkFqcGc@._V1_.jpg",
+  "cast": [
+   {
+    "actor": "Jack Black",
+    "role": "Professor Sheldon \"Shelly\" Oberon"
+   },
+   {
+    "actor": "Kevin Hart",
+    "role": "Franklin \"Mouse\" Finbar"
+   },
+   {
+    "actor": "Karen Gillan",
+    "role": "Ruby Roundhouse"
+   },
+   {
+    "actor": "Nick Jonas",
+    "role": "Jefferson \"Seaplane\" McDonough"
+   },
+   {
+    "actor": "Awkwafina",
+    "role": "Ming Fleetfoot"
+   },
+   {
+    "actor": "Alex Wolff",
+    "role": "Spencer Gilpin"
+   }
+  ]
+ }
+]

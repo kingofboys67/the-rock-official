@@ -1,0 +1,37 @@
+{
+  "canvas": [1024, 1024],
+  "eras": [
+    {
+      "stage": 1,
+      "file": "media/eras/stage-01.png?v=2",
+      "age": 24,
+      "year": 1996,
+      "yearDisplay": "1996",
+      "label": "Rookie Wrestler"
+    },
+    {
+      "stage": 2,
+      "file": "media/eras/stage-02.png?v=2",
+      "age": 29,
+      "year": 2001,
+      "yearDisplay": "2001",
+      "label": "Early Hollywood"
+    },
+    {
+      "stage": 3,
+      "file": "media/eras/stage-03.png?v=2",
+      "age": 30,
+      "year": 2002,
+      "yearDisplay": "2002",
+      "label": "The Rock · WWE"
+    },
+    {
+      "stage": 4,
+      "file": "media/eras/stage-04.png?v=2",
+      "age": 52,
+      "year": 2024,
+      "yearDisplay": "2024+",
+      "label": "Hollywood Mogul"
+    }
+  ]
+}

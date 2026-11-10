@@ -1,0 +1,165 @@
+/* contact.html (.contact-*) and fanclub.html (.fanclub-*). Nav, menu, pills and footer come from styles.css. */
+
+/* ---------- contact: intro + letterhead form ---------- */
+.contact-main{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(40px,6vw,96px);align-items:start;padding:clamp(120px,15vh,170px) var(--pad) clamp(64px,8vw,120px);max-width:1440px;margin:0 auto;overflow:hidden}
+.contact-intro{min-width:0}
+.contact-kicker,.fanclub-kicker{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lime-off)}
+.contact-title{font-weight:900;font-size:clamp(56px,9vw,136px);line-height:.84;letter-spacing:-.05em;text-transform:uppercase;margin:14px 0 24px}
+.contact-lede{font-size:17px;max-width:38ch;color:var(--tint)}
+.contact-facts{margin-top:40px;border-top:1px solid rgba(40,44,32,.14)}
+.contact-facts div{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid rgba(40,44,32,.14);font-size:14px}
+.contact-facts dt{font-weight:800;text-transform:uppercase;font-size:11px;letter-spacing:.1em;padding-top:2px}
+.contact-facts dd{margin:0;color:var(--tint)}
+
+/* the sheet of paper */
+.contact-letter{position:relative;background:#fffef8;border-radius:6px;padding:clamp(28px,4vw,56px);box-shadow:0 1px 0 rgba(40,44,32,.06),0 30px 60px -30px rgba(40,44,32,.35);scroll-margin-top:100px}
+.contact-letter::before{content:"";position:absolute;inset:0 0 auto;height:6px;background:var(--lime);border-radius:6px 6px 0 0}
+.contact-letterhead{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;padding-bottom:20px;border-bottom:2px solid var(--green)}
+.contact-letterhead-mark{display:flex;flex-direction:column;font-weight:900;font-size:30px;line-height:.86;letter-spacing:-.04em}
+.contact-letterhead-meta{display:flex;flex-direction:column;align-items:flex-end;gap:4px;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--tint);text-align:right}
+.contact-letter-body{padding-top:28px}
+.contact-letter-body[hidden],.contact-sent[hidden]{display:none}
+
+.contact-field{display:flex;flex-direction:column;gap:6px}
+.contact-field>span{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--tint)}
+.contact-field input,.contact-field select,.contact-field textarea{font:inherit;color:var(--green);background:transparent;border:0;border-bottom:1.5px solid rgba(40,44,32,.3);border-radius:0;padding:8px 0;outline:none;transition:border-color .2s}
+.contact-field input:focus,.contact-field select:focus,.contact-field textarea:focus{border-color:var(--green)}
+.contact-field input:focus-visible,.contact-field select:focus-visible{box-shadow:0 2px 0 var(--lime)}
+.contact-field-inline{flex-direction:row;align-items:baseline;gap:14px}
+.contact-field-inline select{flex:1;font-weight:700;cursor:pointer}
+
+.contact-salute,.contact-signoff{font-family:var(--serif);font-size:clamp(28px,3vw,38px);line-height:1;margin:32px 0 10px}
+.contact-signoff{margin-top:24px}
+/* lined paper: the rule lines move with the text */
+.contact-field-message textarea{border:0;resize:none;min-height:calc(34px * 8);line-height:34px;padding:0;font-size:17px;
+  background-image:linear-gradient(transparent 33px,rgba(40,44,32,.14) 33px);background-size:100% 34px;background-attachment:local}
+.contact-field-message textarea:focus{box-shadow:none}
+.contact-count{align-self:flex-end;font-size:11px;color:var(--off2)}
+.contact-sign{display:grid;grid-template-columns:1fr 1fr;gap:18px 24px}
+.contact-sign .contact-field:first-child{grid-column:1/-1}
+.contact-sign .contact-field:first-child input{font-family:var(--serif);font-size:30px;padding:2px 0}
+.contact-check{display:flex;gap:10px;align-items:flex-start;margin-top:24px;font-size:13px;color:var(--tint);cursor:pointer}
+.contact-check input{accent-color:var(--green);width:16px;height:16px;margin-top:1px}
+.contact-error{min-height:20px;margin-top:16px;font-size:13px;font-weight:700;color:#a3361f}
+.contact-send{margin-top:8px;background:var(--green);color:var(--white)}
+.contact-send:hover{background:var(--lime);color:var(--green)}
+.contact-send:disabled{opacity:.6;cursor:wait}
+.contact-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+.contact-sent{padding:56px 0 24px;text-align:center;outline:none}
+.contact-stamp{display:inline-block;padding:10px 22px;border:3px solid var(--lime-off);border-radius:8px;color:var(--lime-off);font-weight:900;font-size:28px;letter-spacing:.12em;text-transform:uppercase;transform:rotate(-6deg);margin-bottom:28px}
+.contact-sent h2{font-weight:900;font-size:clamp(30px,4vw,48px);line-height:.95;letter-spacing:-.03em;text-transform:uppercase}
+.contact-sent p{margin:14px auto 28px;max-width:36ch;color:var(--tint)}
+
+/* ---------- fan club (placeholder until we build it) ---------- */
+.fanclub-page{background:var(--green)}
+.fanclub-main{min-height:min(88svh,820px);display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(32px,5vw,80px);align-items:center;padding:clamp(130px,16vh,180px) var(--pad) 80px;color:var(--white);overflow:hidden}
+.fanclub-title{font-weight:900;font-size:clamp(64px,13vw,210px);line-height:.82;letter-spacing:-.05em;text-transform:uppercase;margin:16px 0 28px}
+.fanclub-lede{font-size:18px;max-width:40ch;color:var(--off1)}
+.fanclub-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
+.fanclub-ghost{border-color:rgba(244,244,237,.4);color:var(--white)}
+.fanclub-ghost:hover{border-color:var(--lime);color:var(--lime)}
+
+@media(max-width:860px){
+  .contact-main{grid-template-columns:minmax(0,1fr)}
+  .contact-intro{position:static}
+  .contact-facts div{grid-template-columns:1fr;gap:4px}
+  .contact-sign{grid-template-columns:1fr}
+  .contact-letterhead-mark{font-size:24px}
+}
+
+/* ---------- fan club: free membership card ---------- */
+.fanclub-join{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(40px,6vw,96px);align-items:center;padding:clamp(72px,9vw,140px) var(--pad);background:var(--white);color:var(--green);scroll-margin-top:40px}
+.fanclub-join-title{font-weight:900;font-size:clamp(44px,5.4vw,84px);line-height:.88;max-width:11ch;letter-spacing:-.05em;text-transform:uppercase;margin:14px 0 22px}
+.fanclub-join .fanclub-kicker{color:var(--lime-off)}
+.fanclub-join-lede{font-size:17px;max-width:40ch;color:var(--tint)}
+.fanclub-form{margin-top:36px;display:flex;flex-direction:column;gap:22px}
+.fanclub-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.fanclub-field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.fanclub-field>span,.fanclub-styles legend{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--tint)}
+.fanclub-field input,.fanclub-field select{font:inherit;font-size:17px;color:var(--green);background:transparent;border:0;border-bottom:1.5px solid rgba(40,44,32,.3);border-radius:0;padding:8px 0;outline:none;width:100%;transition:border-color .2s}
+.fanclub-field input:focus,.fanclub-field select:focus{border-color:var(--green);box-shadow:0 2px 0 var(--lime)}
+.fanclub-field select{cursor:pointer;text-overflow:ellipsis}
+.fanclub-styles{border:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.fanclub-styles legend{margin-bottom:10px}
+.fanclub-styles label{display:flex;align-items:center;gap:10px;height:44px;padding:0 16px 0 8px;border:1.5px solid rgba(40,44,32,.2);border-radius:10px;font-weight:700;font-size:14px;cursor:pointer;transition:border-color .2s}
+.fanclub-styles label:has(input:checked){border-color:var(--green)}
+.fanclub-styles label:has(input:focus-visible){box-shadow:0 0 0 3px var(--lime)}
+.fanclub-styles input{position:absolute;opacity:0;pointer-events:none}
+.fanclub-swatch{width:26px;height:26px;border-radius:7px;border:1px solid rgba(40,44,32,.2)}
+.fanclub-swatch-field{background:var(--green)}
+.fanclub-swatch-volt{background:var(--lime)}
+.fanclub-swatch-paper{background:var(--white);box-shadow:inset 0 3px 0 var(--lime)}
+.fanclub-error{min-height:18px;margin:-6px 0 -10px;font-size:13px;font-weight:700;color:#a3361f}
+.fanclub-form-actions{display:flex;flex-wrap:wrap;gap:10px}
+.fanclub-join .fanclub-ghost{border-color:var(--green);color:var(--green)}
+.fanclub-join .fanclub-ghost:hover{background:var(--green);color:var(--white)}
+.fanclub-join .fanclub-ghost[hidden]{display:none}
+.fanclub-note{font-size:12px;color:var(--tint);opacity:.8}
+.fanclub-card-wrap{perspective:1600px;padding:0 clamp(0px,1.5vw,24px)}
+.fanclub-card{display:block;width:100%;height:auto;aspect-ratio:1012/638;border-radius:clamp(14px,2.2vw,30px);box-shadow:0 2px 0 rgba(40,44,32,.06),0 40px 80px -36px rgba(40,44,32,.55);transform:rotateY(-6deg) rotateX(3deg);transition:transform .8s var(--ease)}
+.fanclub-card-wrap:hover .fanclub-card{transform:none}
+.fanclub-card-caption{margin-top:18px;text-align:center;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--off2)}
+.fanclub-page .footer-wrap{background:linear-gradient(var(--white),var(--lime))}
+@media(max-width:860px){
+  .fanclub-join{grid-template-columns:1fr}
+  .fanclub-card-wrap{order:-1}
+  .fanclub-card{transform:none}
+  .fanclub-row{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){.fanclub-card{transform:none;transition:none}}
+.fanclub-photo{display:flex;flex-direction:column;gap:10px}
+.fanclub-photo-label{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--tint)}
+.fanclub-photo-label small{font-size:inherit;letter-spacing:inherit;opacity:.65}
+.fanclub-photo-row{display:flex;align-items:center;gap:12px}
+.fanclub-photo-thumb{width:44px;height:53px;object-fit:cover;border-radius:8px;box-shadow:0 0 0 2px var(--lime)}
+.fanclub-photo-thumb[hidden]{display:none}
+.fanclub-photo-pick{position:relative;cursor:pointer}
+.fanclub-photo-pick input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%}
+.fanclub-photo-pick:has(input:focus-visible){box-shadow:0 0 0 3px var(--lime)}
+.fanclub-photo-remove{font-size:13px;font-weight:700;text-decoration:underline;text-underline-offset:3px;color:var(--tint)}
+.fanclub-photo-remove:hover{color:var(--green)}
+.fanclub-photo-remove[hidden]{display:none}
+
+/* ---------- home page fan club teaser (index.html #fanclub) ---------- */
+.fanclub-home{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(36px,6vw,96px);align-items:center;background:var(--green);color:var(--white);padding:clamp(80px,10vw,140px) max(var(--pad),calc((100vw - 1320px)/2));overflow:hidden}
+.fanclub-home-kicker{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lime)}
+.fanclub-home-title{font-weight:900;font-size:clamp(30px,max(5.2vw,min(10vw,44px)),80px);overflow-wrap:anywhere;line-height:.9;letter-spacing:-.045em;text-transform:uppercase;margin:16px 0 22px;max-width:12ch}
+.fanclub-home-title em{color:var(--lime)}
+.fanclub-home-lede{font-size:17px;color:var(--off1);max-width:38ch}
+.fanclub-home-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.fanclub-home-ghost{border-color:rgba(244,244,237,.4);color:var(--white)}
+.fanclub-home-ghost:hover{border-color:var(--lime);color:var(--lime)}
+.fanclub-home>*{min-width:0}
+.fanclub-home-card{display:block;perspective:1600px}
+.fanclub-home-card canvas{display:block;width:100%;height:auto;aspect-ratio:1012/638;border-radius:clamp(14px,2.2vw,30px);box-shadow:0 40px 90px -40px rgba(0,0,0,.7);transform:rotateY(-7deg) rotateX(4deg) rotateZ(-1deg);transition:transform .8s var(--ease)}
+.fanclub-home-card:hover canvas,.fanclub-home-card:focus-visible canvas{transform:none}
+@media(max-width:860px){
+  .fanclub-home{grid-template-columns:1fr}
+  .fanclub-home-card canvas{transform:none}
+}
+@media(prefers-reduced-motion:reduce){.fanclub-home-card canvas{transform:none;transition:none}}
+
+/* contact: official social links */
+.contact-socials-wrap{margin-top:40px}
+.contact-socials-title{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}
+.contact-socials{display:flex;flex-direction:column;border-top:1px solid rgba(40,44,32,.14)}
+.contact-social{display:grid;grid-template-columns:150px 1fr auto;gap:16px;align-items:center;padding:16px 0;border-bottom:1px solid rgba(40,44,32,.14);transition:padding .3s var(--ease),background .3s}
+.contact-social:hover{padding-left:10px;background:var(--lime)}
+.contact-social-name{font-weight:800;font-size:18px;text-transform:uppercase;letter-spacing:-.01em}
+.contact-social-handle{font-size:15px;color:var(--tint)}
+.contact-social-arrow{font-size:18px;padding-right:10px}
+.contact-socials-note{margin-top:10px;font-size:12px;color:var(--tint);opacity:.8}
+@media(max-width:860px){.contact-social{grid-template-columns:1fr auto}.contact-social-handle{grid-row:2;font-size:13px}}
+
+/* fan club hero: the card beside the title */
+.fanclub-hero-copy{min-width:0}
+.fanclub-hero-card{display:block;perspective:1600px;min-width:0}
+.fanclub-hero-card canvas{display:block;width:100%;height:auto;aspect-ratio:1012/638;border-radius:clamp(14px,2.2vw,30px);box-shadow:0 40px 90px -40px rgba(0,0,0,.7);transform:rotateY(-8deg) rotateX(4deg) rotateZ(2deg);transition:transform .8s var(--ease)}
+.fanclub-hero-card:hover canvas,.fanclub-hero-card:focus-visible canvas{transform:none}
+.fanclub-main .fanclub-title{font-size:clamp(56px,9vw,170px)}
+@media(max-width:860px){
+  .fanclub-main{grid-template-columns:minmax(0,1fr)}
+  .fanclub-hero-card canvas{transform:rotateZ(-2deg)}
+}
+@media(prefers-reduced-motion:reduce){.fanclub-hero-card canvas{transform:none;transition:none}}

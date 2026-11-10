@@ -1,0 +1,203 @@
+/* About section (home #about-section) + about.html. Every selector is .about-* so nothing here reaches the hero. */
+
+/* ---------- shared ---------- */
+.about-kicker{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--tint);margin:0 0 14px}
+.about-link{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--green);padding:14px 22px;border:1.5px solid var(--green);border-radius:999px;transition:background .25s,color .25s}
+.about-link::after{content:"→";transition:transform .3s var(--ease)}
+.about-link:hover{background:var(--green);color:var(--white)}
+.about-link:hover::after{transform:translateX(3px)}
+.about-reveal{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.about-reveal.in{opacity:1;transform:none}
+/* every photo uses the same 4:5 frame; sources are pre-cropped around his face */
+.about-teaser img,.about-page main img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%;background:var(--off1)}
+
+/* ---------- home: #about-section ---------- */
+.about-teaser{background:var(--white);border-top:1px solid rgba(40,44,32,.12);display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,96px);align-items:center;padding:clamp(80px,10vw,140px) max(var(--pad),calc((100vw - 1320px)/2))}
+.about-teaser-title{font-weight:800;font-size:clamp(34px,4.2vw,60px);line-height:1.02;letter-spacing:-.03em;margin:0 0 22px}
+.about-teaser-copy>p:not(.about-kicker){font-size:clamp(15px,1.15vw,17px);line-height:1.65;color:#3b3e33;max-width:46ch;margin:0 0 28px}
+.about-teaser-pics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+
+/* ---------- about page ---------- */
+.about-page{background:var(--white)}
+.about-page main{max-width:1320px;margin:0 auto;padding:0 var(--pad)}
+.about-page h2{font-weight:800;font-size:clamp(32px,3.6vw,52px);line-height:1.04;letter-spacing:-.03em;margin:0}
+.about-page h3{font-weight:800;font-size:clamp(18px,1.4vw,21px);line-height:1.25;letter-spacing:-.01em;margin:0 0 8px}
+:where(.about-page main p){margin:0}
+
+.about-intro{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(32px,5vw,80px);align-items:end;padding:clamp(130px,16vh,180px) 0 clamp(48px,6vw,80px)}
+.about-title{font-weight:900;font-size:clamp(56px,8.4vw,128px);line-height:.9;letter-spacing:-.05em;text-transform:uppercase;margin:0 0 28px}
+.about-lede{font-size:clamp(17px,1.45vw,21px);line-height:1.55;color:#3b3e33;max-width:40ch}
+.about-intro-pics{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+
+.about-facts{display:grid;grid-template-columns:repeat(4,1fr);margin:0;border-top:1px solid rgba(40,44,32,.15);border-bottom:1px solid rgba(40,44,32,.15)}
+.about-facts>div{padding:22px 20px 22px 0}
+.about-facts>div+div{padding-left:20px;border-left:1px solid rgba(40,44,32,.15)}
+.about-facts dt{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--tint);margin-bottom:6px}
+.about-facts dd{margin:0;font-size:16px;font-weight:600}
+
+/* on this page the shared nav gets a solid bar so text never shows through it (scoped by body.about-page) */
+.about-page .nav{background:rgba(244,244,237,.96);backdrop-filter:blur(8px);border-bottom:1px solid rgba(40,44,32,.1);height:84px}
+.about-toc{position:sticky;top:84px;z-index:40;display:flex;justify-content:center;gap:clamp(14px,2vw,28px);overflow-x:auto;scrollbar-width:none;padding:16px var(--pad) 12px;margin:0 calc(-1 * var(--pad));background:rgba(244,244,237,.94);backdrop-filter:blur(8px);border-bottom:1px solid rgba(40,44,32,.1)}
+.about-toc::-webkit-scrollbar{display:none}
+.about-toc a{flex:none;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--tint);padding:4px 0;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+.about-toc a:hover{color:var(--green)}
+.about-toc a.on{color:var(--green);border-color:var(--green)}
+
+.about-chapter{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,5fr) minmax(0,3fr);gap:clamp(24px,4vw,64px);align-items:start;padding:clamp(64px,8vw,112px) 0;border-bottom:1px solid rgba(40,44,32,.12);scroll-margin-top:130px}
+.about-chapter-head{position:sticky;top:150px}
+.about-text p{font-size:clamp(15px,1.1vw,17px);line-height:1.72;color:#33362c;margin-bottom:18px}
+.about-chapter-wide{grid-template-columns:minmax(0,4fr) minmax(0,8fr)}
+
+/* wrestling timeline (one dark band, full width) */
+.about-ring{background:var(--green);color:var(--white);margin:0 calc(50% - 50vw);padding:clamp(72px,9vw,128px) max(var(--pad),calc((100vw - 1320px)/2 + var(--pad)));scroll-margin-top:130px}
+.about-ring .about-kicker{color:var(--off2)}
+.about-ring-head{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,5fr) minmax(0,3fr);gap:clamp(24px,4vw,64px);align-items:end;margin-bottom:clamp(40px,5vw,64px)}
+.about-ring-head .about-kicker,.about-ring-head h2{grid-column:1}
+.about-ring-head>p:not(.about-kicker){grid-column:2;grid-row:1 / span 2;font-size:clamp(15px,1.15vw,17px);line-height:1.7;color:var(--off1);max-width:56ch;align-self:end}
+.about-timeline{list-style:none;margin:0;padding:0;border-top:1px solid rgba(244,244,237,.16)}
+.about-timeline li{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,5fr) minmax(0,3fr);gap:clamp(24px,4vw,64px);padding:32px 0;border-bottom:1px solid rgba(244,244,237,.16);align-items:start}
+.about-timeline .about-year{font-size:clamp(28px,2.6vw,40px);font-weight:800;letter-spacing:-.03em;font-variant-numeric:tabular-nums;color:var(--white)}
+.about-timeline .about-entry{grid-column:2}
+.about-timeline .about-timeline-media,.about-ring-head .about-timeline-media{grid-column:3;width:100%;max-width:260px;justify-self:end}
+.about-ring-head .about-timeline-media{grid-row:1 / span 2}
+.about-entry p{font-size:15px;line-height:1.7;color:var(--off1)}
+.about-tag-low{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#f0a58f!important;margin-bottom:6px!important}
+.about-honors{display:grid;grid-template-columns:repeat(5,1fr);margin:clamp(40px,5vw,64px) 0 0}
+.about-honors>div{padding:0 20px 0 0}
+.about-honors>div+div{padding-left:20px;border-left:1px solid rgba(244,244,237,.16)}
+.about-honors dt{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--off2);margin-bottom:8px}
+.about-honors dd{margin:0;font-size:clamp(28px,2.6vw,40px);font-weight:800;letter-spacing:-.03em;color:var(--lime)}
+
+/* highs & lows */
+.about-columns{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px)}
+.about-list h3{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--tint);padding-bottom:12px;border-bottom:1.5px solid var(--green);margin-bottom:0}
+.about-list ul{list-style:none;margin:0;padding:0}
+.about-list li{display:grid;grid-template-columns:96px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid rgba(40,44,32,.12);font-size:15px;line-height:1.55;color:#33362c}
+.about-list li span{font-weight:700;font-variant-numeric:tabular-nums;color:var(--green)}
+.about-list li p{margin:0}
+
+/* reinvention & defining pivots */
+.about-note{font-size:16px;line-height:1.6;color:var(--tint);max-width:56ch;margin-bottom:28px!important}
+.about-rows article{display:grid;grid-template-columns:96px 1fr;gap:16px;padding:22px 0;border-top:1px solid rgba(40,44,32,.12)}
+.about-rows article:last-child{border-bottom:1px solid rgba(40,44,32,.12)}
+.about-rows .about-year{font-weight:700;font-size:15px;font-variant-numeric:tabular-nums;padding-top:2px}
+.about-rows p{font-size:15px;line-height:1.7;color:#33362c;max-width:68ch}
+
+/* hollywood photos */
+.about-pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+
+
+/* ---------- image slots (figure.about-timeline-media) ----------
+   One 4:5 frame everywhere. Files in /assets/story/ can be dropped in later; until then the frame keeps
+   its size and shows a quiet tonal frame, so nothing shifts when the photo arrives. */
+.about-timeline-media{position:relative;margin:0;aspect-ratio:4/5;overflow:hidden;background:#2f3327;outline:1px solid rgba(40,44,32,.14);outline-offset:-1px}
+.about-ring .about-timeline-media{outline-color:rgba(244,244,237,.14);background:#33382b}
+.about-timeline-media img{position:absolute;inset:0;height:100%!important}
+.about-timeline-media::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.07;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.about-timeline-media.is-empty img{visibility:hidden}
+.about-timeline-media.is-empty::before{content:attr(data-slot);position:absolute;left:14px;right:14px;bottom:14px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,244,237,.55)}
+.about-timeline-media.is-empty::after{opacity:.16}
+.about-sr{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.about-head-media{margin-top:28px;max-width:260px}
+
+/* football numbers */
+.about-stats-inline{display:grid;grid-template-columns:repeat(4,1fr);margin:6px 0 24px;border-top:1px solid rgba(40,44,32,.15);border-bottom:1px solid rgba(40,44,32,.15)}
+.about-stats-inline>div{padding:14px 0}
+.about-stats-inline>div+div{padding-left:16px;border-left:1px solid rgba(40,44,32,.15)}
+.about-stats-inline dt{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--tint)}
+.about-stats-inline dd{margin:2px 0 0;font-size:clamp(24px,2.2vw,32px);font-weight:800;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+
+/* hollywood: eras, filmography, business */
+.about-hollywood{padding:clamp(64px,8vw,112px) 0;border-bottom:1px solid rgba(40,44,32,.12);scroll-margin-top:130px}
+.about-hollywood>.about-chapter-head{position:static;margin-bottom:clamp(32px,4vw,56px)}
+.about-eras{display:grid;grid-template-columns:repeat(4,1fr);border-top:1.5px solid var(--green)}
+.about-era{padding:22px 22px 26px 0}
+.about-era+.about-era{padding-left:22px;border-left:1px solid rgba(40,44,32,.12)}
+.about-era-years{display:block;font-size:12px;font-weight:700;letter-spacing:.08em;font-variant-numeric:tabular-nums;color:var(--tint);margin-bottom:10px}
+.about-era p{font-size:14.5px;line-height:1.68;color:#33362c}
+.about-films{margin-top:clamp(48px,6vw,80px)}
+.about-films-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-bottom:14px;border-bottom:1.5px solid var(--green)}
+.about-films-head h3{font-size:clamp(24px,2.4vw,34px)!important;letter-spacing:-.025em;margin:0!important}
+.about-films-filters{display:flex;gap:4px;flex-wrap:wrap}
+.about-films-filters button{font-size:12px;font-weight:700;letter-spacing:.04em;font-variant-numeric:tabular-nums;color:var(--tint);padding:7px 12px;border:1px solid rgba(40,44,32,.2);border-radius:999px;transition:.2s}
+.about-films-filters button:hover{color:var(--green);border-color:var(--green)}
+.about-films-filters button[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:var(--white)}
+.about-films-list{list-style:none;margin:0;padding:0;columns:2;column-gap:clamp(24px,4vw,56px)}
+.about-films-list li{display:grid;grid-template-columns:52px minmax(0,1.3fr) minmax(0,1fr);column-gap:14px;padding:12px 0;border-bottom:1px solid rgba(40,44,32,.1);break-inside:avoid;font-size:14px;line-height:1.4}
+.about-film-year{font-weight:700;font-variant-numeric:tabular-nums}
+.about-film-title i{font-style:italic;font-weight:600}
+.about-film-role{color:var(--tint)}
+.about-film-note{grid-column:2 / -1;font-size:12px;color:var(--lime-off);font-weight:600}
+.about-film-note:empty{display:none}
+.about-business{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,4fr);gap:clamp(24px,4vw,64px);align-items:start;margin-top:clamp(48px,6vw,80px)}
+
+/* values */
+.about-values{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(24px,4vw,64px);padding:clamp(64px,8vw,112px) 0;border-bottom:1px solid rgba(40,44,32,.12);scroll-margin-top:130px}
+.about-values-body{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,3fr);gap:clamp(24px,4vw,64px);align-items:start}
+.about-values-list{list-style:none;margin:0;padding:0;counter-reset:v}
+.about-values-list li{counter-increment:v;display:grid;grid-template-columns:40px 1fr;column-gap:12px;padding:20px 0;border-top:1px solid rgba(40,44,32,.12)}
+.about-values-list li::before{content:counter(v,decimal-leading-zero);grid-row:span 2;font-size:13px;font-weight:700;color:var(--tint);padding-top:3px;font-variant-numeric:tabular-nums}
+.about-values-list p{font-size:15px;line-height:1.7;color:#33362c}
+.about-values-pics{display:grid;gap:10px;position:sticky;top:150px}
+
+.about-end{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;padding:clamp(64px,8vw,104px) 0}
+.about-end p{font-weight:800;font-size:clamp(24px,2.4vw,34px);letter-spacing:-.02em;margin-right:12px!important}
+
+@media(max-width:1000px){
+  .about-chapter{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .about-chapter-head{grid-column:1 / -1;position:static}
+  .about-chapter-wide{grid-template-columns:1fr}
+  .about-timeline li{grid-template-columns:110px minmax(0,1fr) 180px}
+  .about-ring-head{grid-template-columns:minmax(0,1fr) 180px}
+  .about-ring-head>p:not(.about-kicker){grid-column:1;grid-row:auto}
+  .about-ring-head .about-timeline-media{grid-column:2;grid-row:1 / span 3}
+  .about-honors{grid-template-columns:repeat(3,1fr);row-gap:24px}
+  .about-honors>div:nth-child(4){border-left:0;padding-left:0}
+  .about-values{grid-template-columns:1fr}
+  .about-toc{justify-content:flex-start}
+}
+@media(max-width:1000px){
+  .about-eras{grid-template-columns:1fr 1fr}
+  .about-era:nth-child(3){border-left:0;padding-left:0}
+  .about-era:nth-child(n+3){border-top:1px solid rgba(40,44,32,.12)}
+  .about-films-list{columns:1}
+  .about-business{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+  .about-eras{grid-template-columns:1fr}
+  .about-era{padding:20px 0!important;border-left:0!important}
+  .about-era+.about-era{border-top:1px solid rgba(40,44,32,.12)}
+  .about-films-list li{grid-template-columns:44px minmax(0,1fr)}
+  .about-film-role{grid-column:2}
+  .about-stats-inline{grid-template-columns:1fr 1fr}
+  .about-stats-inline>div:nth-child(3){border-left:0;padding-left:0}
+  .about-stats-inline>div:nth-child(n+3){border-top:1px solid rgba(40,44,32,.15)}
+  .about-head-media{max-width:220px}
+  .about-teaser{grid-template-columns:1fr}
+  .about-teaser-pics{gap:6px}
+  .about-intro{grid-template-columns:1fr;padding-top:120px}
+  .about-facts{grid-template-columns:1fr 1fr}
+  .about-facts>div:nth-child(3){border-left:0;padding-left:0}
+  .about-facts>div:nth-child(n+3){border-top:1px solid rgba(40,44,32,.15)}
+  .about-page .nav{height:72px}
+  .about-toc{top:72px}
+  .about-chapter{grid-template-columns:1fr}
+  .about-photo{max-width:420px}
+  .about-timeline li{grid-template-columns:1fr;gap:10px}
+  .about-timeline .about-entry,.about-timeline .about-timeline-media{grid-column:1}
+  .about-timeline .about-timeline-media,.about-ring-head .about-timeline-media{justify-self:start;max-width:220px}
+  .about-ring-head{grid-template-columns:1fr}
+  .about-ring-head .about-timeline-media{grid-column:1;grid-row:auto}
+  .about-honors{grid-template-columns:1fr 1fr}
+  .about-honors>div{border-left:0!important;padding-left:0!important}
+  .about-columns,.about-values-body{grid-template-columns:1fr}
+  .about-values-pics{position:static;grid-template-columns:1fr 1fr}
+  .about-list li,.about-rows article{grid-template-columns:76px 1fr}
+}
+@media(prefers-reduced-motion:reduce){
+  .about-reveal{opacity:1;transform:none;transition:none}
+  .about-link::after{transition:none}
+}
+
+/* a story slot with no photo yet collapses instead of showing an empty dark frame */
+.about-timeline-media.is-empty{display:none}

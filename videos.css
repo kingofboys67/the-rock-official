@@ -1,0 +1,9 @@
+/* videos.html only. Reuses the site's .block / .vgrid / .tile / .chip / lightbox styles from styles.css. */
+.videos-page{background:var(--green)}
+.videos-block{min-height:100svh;padding-top:clamp(120px,14vh,160px)}
+.videos-back{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--off1);margin-bottom:24px;opacity:.8}
+.videos-back:hover{opacity:1;color:var(--lime)}
+.videos-title{font-weight:900;font-size:clamp(56px,13vw,200px);line-height:.8;letter-spacing:-.05em;text-transform:uppercase;margin:0}
+@media(max-width:760px){
+  .videos-page .vgrid{grid-template-columns:repeat(2,1fr);gap:8px}
+}

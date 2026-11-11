@@ -4,9 +4,9 @@
   const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // ---- loader
+  // ---- loader (fast reveal for crisp Core Web Vitals LCP)
   const done = () => document.body.classList.remove('is-loading');
-  setTimeout(done, reduce ? 0 : 1100);
+  setTimeout(done, reduce ? 0 : 480);
 
   // ---- topographic contour lines (generated, per section)
   function topo(w, h, seed) {
@@ -67,12 +67,23 @@
       };
       im.src = src;
     });
-    const imgs = await Promise.all(ERAS.map(e => loadImg(e.file, e.fallback)));
-    if (!imgs.every(Boolean)) return;
+    const firstImg = await loadImg(ERAS[0].file, ERAS[0].fallback);
+    if (!firstImg) return;
+    const imgs = [firstImg, firstImg, firstImg, firstImg];
 
     // Initialize WebGL shader for real-time facial optical warp + alpha blend (with 2D canvas fallback)
     let gl = cv.getContext('webgl', { alpha: true, premultipliedAlpha: true, antialias: true });
     let glProg = null, glTexs = [], uLocs = {};
+    const uploadGlTex = (tex, im) => {
+      if (!gl || !tex || !im) return;
+      gl.bindTexture(gl.TEXTURE_2D, tex);
+      gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, true);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, im);
+    };
 
     if (gl) {
       const vsSrc = `
@@ -144,13 +155,7 @@
 
           glTexs = imgs.map(im => {
             const t = gl.createTexture();
-            gl.bindTexture(gl.TEXTURE_2D, t);
-            gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, true);
-            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
-            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
-            gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, im);
+            uploadGlTex(t, im);
             return t;
           });
           uLocs = {
@@ -401,6 +406,22 @@
 
     renderAt(0, 0);
     requestAnimationFrame(tick);
+
+    // Preload Stages 2–4 asynchronously right after initial Stage 1 LCP paint
+    const deferIdle = window.requestIdleCallback || (fn => setTimeout(fn, 60));
+    deferIdle(() => {
+      ERAS.slice(1).forEach((era, idx) => {
+        const slot = idx + 1;
+        if (domImgs[slot] && domImgs[slot].dataset.src && !domImgs[slot].getAttribute('src')) {
+          domImgs[slot].src = domImgs[slot].dataset.src;
+        }
+        loadImg(era.file, era.fallback).then(loaded => {
+          if (!loaded) return;
+          imgs[slot] = loaded;
+          if (gl && glTexs[slot]) uploadGlTex(glTexs[slot], loaded);
+        });
+      });
+    });
   })();
 
   // ---- menu
@@ -536,14 +557,32 @@
 
     const buildEmbedUrl = (ytId, muted) => {
       const m = muted ? 1 : 0;
-      return `https://www.youtube.com/embed/${ytId}?autoplay=1&mute=${m}&loop=1&controls=1&rel=0&playsinline=1&modestbranding=1&playlist=${ytId}`;
+      return `https://www.youtube-nocookie.com/embed/${ytId}?autoplay=1&mute=${m}&loop=1&controls=1&rel=0&playsinline=1&modestbranding=1&playlist=${ytId}`;
+    };
+
+    const setPosterPreview = (wrapEl, ytId) => {
+      if (!wrapEl || wrapEl.dataset.posterId === ytId) return;
+      wrapEl.dataset.posterId = ytId;
+      const maxUrl = `https://i.ytimg.com/vi/${ytId}/maxresdefault.jpg`;
+      const hqUrl = `https://i.ytimg.com/vi/${ytId}/hqdefault.jpg`;
+      wrapEl.style.backgroundImage = `url("${maxUrl}"), url("${hqUrl}")`;
+      const probe = new Image();
+      probe.onload = () => {
+        if (probe.naturalWidth <= 120 && wrapEl.dataset.posterId === ytId) {
+          wrapEl.style.backgroundImage = `url("${hqUrl}")`;
+        }
+      };
+      probe.onerror = () => {
+        if (wrapEl.dataset.posterId === ytId) wrapEl.style.backgroundImage = `url("${hqUrl}")`;
+      };
+      probe.src = maxUrl;
     };
 
     const syncSlotPlayer = (slotIdx, forceReload = false) => {
       const iframe = $(`#moviesIframe${slotIdx}`);
       if (!iframe) return;
       const st = slotState[slotIdx];
-      iframe.parentElement.style.backgroundImage = `url(https://i.ytimg.com/vi/${st.ytId}/hqdefault.jpg)`;
+      setPosterPreview(iframe.parentElement, st.ytId);
       if (!stageInView) {
         if (iframe.src && iframe.src !== 'about:blank') { iframe.classList.remove('is-ready'); iframe.src = 'about:blank'; }
         return;
@@ -700,6 +739,9 @@
         im.src = p.thumb;
         im.alt = 'Dwayne Johnson';
         im.loading = 'lazy';
+        im.decoding = 'async';
+        im.width = p.w || 800;
+        im.height = p.h || 1000;
         card.append(im);
         card.onclick = () => open(featuredTen, i);
         return card;

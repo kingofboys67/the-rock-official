@@ -49,7 +49,8 @@
   const poster = (f, w = 600, cls = 'catalog-poster') => {
     const src = hd(f.posterHD, w) || f.poster || '';
     const fb = f.posterHD && f.poster ? f.poster : '';
-    return `<div class="${cls}"><img src="${esc(src)}" data-fallback="${esc(fb)}" alt="${esc(f.title)} (${f.year}) poster" loading="lazy" decoding="async" referrerpolicy="no-referrer"><div class="catalog-poster-alt" aria-hidden="true"><b>${esc(f.title)}</b><span>${f.year}</span></div></div>`;
+    const h = Math.round(w * 1.5);
+    return `<div class="${cls}"><img src="${esc(src)}" data-fallback="${esc(fb)}" alt="${esc(f.title)} (${f.year}) poster" width="${w}" height="${h}" loading="lazy" decoding="async" referrerpolicy="no-referrer"><div class="catalog-poster-alt" aria-hidden="true"><b>${esc(f.title)}</b><span>${f.year}</span></div></div>`;
   };
   const wirePosters = root => root.querySelectorAll('.catalog-poster img, .movie-detail-poster img').forEach(img => {
     const fail = () => {
@@ -163,8 +164,13 @@
     $$('#catalogFilters button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
     renderCatalog();
   });
+  const initialQuery = new URLSearchParams(location.search).get('q');
+  if (initialQuery) search.value = initialQuery;
   search.addEventListener('input', renderCatalog);
   renderCatalog();
+  if (initialQuery && !location.hash) {
+    $('#catalog')?.scrollIntoView({ behavior: 'auto', block: 'start' });
+  }
 
   // ---- movie detail view (#movie/<id>): cover trailer, overlapping poster, details, cast, trailer, related
   const listView = $('#moviesList'), detail = $('#movieDetail');
@@ -234,7 +240,7 @@
       <section class="movie-detail-trailer" id="detailTrailer">
         <h2>Watch Official Trailer</h2>
         ${f.trailer ? `<div class="movie-detail-player" id="detailPlayer">
-            <button type="button" class="movie-detail-player-start" id="detailStart" style="background-image:url('${esc(`https://i.ytimg.com/vi/${encodeURIComponent(f.trailer)}/hqdefault.jpg`)}')"><span>▶ Play Official Trailer with Sound</span></button>
+            <button type="button" class="movie-detail-player-start" id="detailStart" style="background-image:url('${esc(`https://i.ytimg.com/vi/${encodeURIComponent(f.trailer)}/maxresdefault.jpg`)}'),url('${esc(`https://i.ytimg.com/vi/${encodeURIComponent(f.trailer)}/hqdefault.jpg`)}')"><span>▶ Play Official Trailer with Sound</span></button>
           </div>
           <a class="movie-detail-yt" href="https://www.youtube.com/watch?v=${encodeURIComponent(f.trailer)}" target="_blank" rel="noopener noreferrer">Open on YouTube ↗</a>`
         : `<p class="movie-detail-none">No embedded trailer is currently queued for this title. <a href="${searchUrl(f)}" target="_blank" rel="noopener noreferrer">Watch on YouTube ↗</a></p>`}

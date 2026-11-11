@@ -49,21 +49,26 @@
   }), { rootMargin: '-45% 0px -50% 0px' });
   links.forEach(a => { const t = $(a.getAttribute('href')); if (t) tocObs.observe(t); });
 
-  // image slots: /assets/story/* files are dropped in later. Until one exists, fall back to an existing
-  // licensed photo (data-fallback) or show an empty frame of the same size, so nothing shifts.
-  const slotReady = $$('figure.about-timeline-media img').map(img => new Promise(done => {
+  // image slots: preserve native loading="lazy" below the fold; update credits if any slot falls back.
+  let creditsMap = null;
+  const renderCredits = () => {
+    if (!creditsMap || !$('#credits')) return;
+    const used = [...new Set($$('main img[data-credit]').filter(i => !i.closest('.is-empty')).map(i => i.dataset.credit))].map(k => creditsMap[k]).filter(Boolean);
+    $('#credits').innerHTML = 'Photos via Wikimedia Commons: ' + used.map(c => '<a href="' + esc(c.page) + '" target="_blank" rel="noopener noreferrer">' + esc(c.artist || 'contributor') + '</a> (' + esc(c.license) + ')').join(', ') + '. Other photos shared by @therock.';
+  };
+  $$('figure.about-timeline-media img').forEach(img => {
     const fig = img.closest('figure');
     const fail = () => {
       if (img.dataset.fallback && img.getAttribute('src') !== img.dataset.fallback) {
         img.src = img.dataset.fallback;
         if (img.dataset.fallbackCredit) img.dataset.credit = img.dataset.fallbackCredit;
-      } else { fig.classList.add('is-empty'); done(); }
+      } else { fig.classList.add('is-empty'); }
+      renderCredits();
     };
     img.addEventListener('error', fail);
-    img.addEventListener('load', () => { fig.classList.remove('is-empty'); done(); });
-    if (img.complete) img.naturalWidth ? done() : fail();
-    else if (img.loading === 'lazy') img.loading = 'eager'; // resolve every slot now so credits are right
-  }));
+    img.addEventListener('load', () => fig.classList.remove('is-empty'));
+    if (img.complete && !img.naturalWidth) fail();
+  });
 
   // filmography, filterable by era (titles and years checked against public filmographies)
   const ERAS = [
@@ -125,8 +130,8 @@
   }
 
   // photo credits (licences require attribution): one line in the footer, nothing under the photos
-  Promise.all([fetch('media/about/credits.json').then(r => r.json()), ...slotReady]).then(([cr]) => {
-    const used = [...new Set($$('main img[data-credit]').filter(i => !i.closest('.is-empty')).map(i => i.dataset.credit))].map(k => cr[k]).filter(Boolean);
-    $('#credits').innerHTML = 'Photos via Wikimedia Commons: ' + used.map(c => '<a href="' + esc(c.page) + '" target="_blank" rel="noopener">' + esc(c.artist || 'contributor') + '</a> (' + esc(c.license) + ')').join(', ') + '. Other photos shared by @therock.';
+  fetch('media/about/credits.json').then(r => r.json()).then(cr => {
+    creditsMap = cr;
+    renderCredits();
   }).catch(() => {});
 })();

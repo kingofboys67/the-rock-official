@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <rect width="128" height="128" rx="26" fill="#282c20"/>
+  <path d="M0 26C0 11.64 11.64 0 26 0h76c14.36 0 26 11.64 26 26v-10H0V26z" fill="#D4FF00"/>
+  <rect x="0" y="0" width="128" height="14" rx="4" fill="#D4FF00" clip-path="url(#r)"/>
+  <defs>
+    <clipPath id="r">
+      <rect width="128" height="128" rx="26"/>
+    </clipPath>
+  </defs>
+  <text x="64" y="62" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="30" letter-spacing="-1" fill="#D4FF00">THE</text>
+  <text x="64" y="96" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="33" letter-spacing="-1.2" fill="#F7F7F2">ROCK</text>
+</svg>

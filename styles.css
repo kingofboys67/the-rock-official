@@ -366,3 +366,21 @@ body:not(.is-loading) .loader{transform:translateY(-100%)}
 
 /* top button stays on one line on narrow phones */
 .nav-right .pill{white-space:nowrap}
+
+
+/* ---------- Official Legal / Privacy / Terms Modal (.legal-modal) ---------- */
+.legal-modal{position:fixed;inset:0;z-index:110;background:rgba(15,17,12,.86);backdrop-filter:blur(8px);display:grid;place-items:center;padding:var(--pad)}
+.legal-modal[hidden]{display:none}
+.legal-modal-card{width:min(680px,100%);max-height:86svh;background:#181a14;color:var(--white);border:1.5px solid rgba(212,255,0,.35);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 28px 72px rgba(0,0,0,.6)}
+.legal-modal-bar{height:6px;background:var(--lime);flex:none}
+.legal-modal-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:24px 28px 18px;border-bottom:1px solid rgba(247,247,242,.12)}
+.legal-modal-kicker{font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--lime);margin:0 0 6px}
+.legal-modal-title{font-weight:900;font-size:clamp(24px,3vw,34px);line-height:1;letter-spacing:-.03em;text-transform:uppercase;margin:0}
+.legal-modal-meta{font-size:12px;color:var(--off2);margin:6px 0 0}
+.legal-modal-close{width:40px;height:40px;border-radius:10px;background:var(--lime);color:var(--green);font-weight:900;flex:none}
+.legal-modal-body{padding:22px 28px;overflow-y:auto;display:flex;flex-direction:column;gap:18px}
+.legal-modal-sec h3{font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--lime);margin:0 0 6px}
+.legal-modal-sec p{font-size:14.5px;line-height:1.65;color:var(--off1);margin:0}
+.legal-modal-foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding:16px 28px 22px;border-top:1px solid rgba(247,247,242,.12);background:#12140f}
+.legal-modal-done{border-color:rgba(247,247,242,.35);color:var(--white)}
+.legal-modal-done:hover{border-color:var(--lime);color:var(--lime)}

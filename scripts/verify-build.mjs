@@ -9,22 +9,6 @@ const jsFiles = fs.readdirSync(root).filter(f => f.endsWith('.js'));
 
 console.log(`Verifying ${htmlFiles.length} HTML pages and ${jsFiles.length} JS modules...`);
 
-// Fill in the site's address. Pages use the token __SITE_URL__ so the domain lives in one place:
-// set SITE_URL in Vercel (e.g. https://yourfansite.com); otherwise the Vercel production URL is used.
-const SITE_URL = (process.env.SITE_URL
-  || (process.env.VERCEL_PROJECT_PRODUCTION_URL && `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`)
-  || (process.env.VERCEL_URL && `https://${process.env.VERCEL_URL}`)
-  || '').replace(/\/$/, '');
-const tokenFiles = [...htmlFiles, 'sitemap.xml', 'robots.txt', 'llms.txt', 'llms-full.txt'];
-if (SITE_URL) {
-  for (const f of tokenFiles) {
-    const p = path.join(root, f);
-    fs.writeFileSync(p, fs.readFileSync(p, 'utf8').replaceAll('__SITE_URL__', SITE_URL));
-  }
-  console.log(`Site address set to ${SITE_URL}`);
-} else {
-  console.log('SITE_URL not set (local check): leaving __SITE_URL__ tokens in place.');
-}
 
 for (const jf of jsFiles) {
   execFileSync('node', ['--check', path.join(root, jf)], { stdio: 'inherit' });
@@ -128,6 +112,23 @@ for (const m of movieList) {
   if (localPoster && !localPoster.startsWith('http://') && !localPoster.startsWith('https://') && !fs.existsSync(path.join(root, localPoster))) {
     throw new Error(`Missing movie poster asset: ${localPoster}`);
   }
+}
+
+// Fill in the site's address (after all checks, so the checks only ever see the source text). Pages use the token __SITE_URL__ so the domain lives in one place:
+// set SITE_URL in Vercel (e.g. https://yourfansite.com); otherwise the Vercel production URL is used.
+const SITE_URL = (process.env.SITE_URL
+  || (process.env.VERCEL_PROJECT_PRODUCTION_URL && `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`)
+  || (process.env.VERCEL_URL && `https://${process.env.VERCEL_URL}`)
+  || '').replace(/\/$/, '');
+const tokenFiles = [...htmlFiles, 'sitemap.xml', 'robots.txt', 'llms.txt', 'llms-full.txt'];
+if (SITE_URL) {
+  for (const f of tokenFiles) {
+    const p = path.join(root, f);
+    fs.writeFileSync(p, fs.readFileSync(p, 'utf8').replaceAll('__SITE_URL__', SITE_URL));
+  }
+  console.log(`Site address set to ${SITE_URL}`);
+} else {
+  console.log('SITE_URL not set (local check): leaving __SITE_URL__ tokens in place.');
 }
 
 console.log(`Production build check passed with 0 errors (${htmlFiles.length} pages, ${gallery.length} gallery photos, ${movieList.length} films).`);

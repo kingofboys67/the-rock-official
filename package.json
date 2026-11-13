@@ -1,9 +1,9 @@
 {
-  "name": "dwayne-johnson-official",
+  "name": "the-rock-fan-club",
   "version": "2026.1.0",
   "private": true,
   "type": "module",
-  "description": "Dwayne 'The Rock' Johnson — Official Website (2026)",
+  "description": "The Rock Fan Club — an unofficial Dwayne Johnson fan site",
   "scripts": {
     "build": "node scripts/verify-build.mjs",
     "start": "python3 -m http.server 8765"

@@ -271,13 +271,13 @@
     const watch = $('#watchTrailer');
     if (watch) watch.onclick = () => { $('#detailTrailer').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }); startMain(); };
 
-    document.title = `${f.title} (${f.year}) | Dwayne "The Rock" Johnson Official Website`;
+    document.title = `${f.title} (${f.year}) — The Rock Fan Club`;
     listView.hidden = true; detail.hidden = false;
     scrollTo(0, 0);
   }
   function showList(target) {
     detail.hidden = true; detail.replaceChildren(); listView.hidden = false;
-    document.title = 'Filmography & Movies | Dwayne "The Rock" Johnson Official Website';
+    document.title = 'Movies — The Rock Fan Club';
     const t = target && document.getElementById(target);
     if (t) t.scrollIntoView({ block: target.startsWith('film-') ? 'center' : 'start' });
   }

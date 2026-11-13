@@ -1,7 +1,7 @@
-// Home page Official Fan Club Application (#fan-club):
+// Home page fan club sign-up (#fan-club):
 // Live-updates the 3D membership card as the visitor types, posts the application to /api/fan-club
 // (delivering to Zoho Mail + sending the Canva-style Resend auto-reply), and transitions into the
-// on-screen Canva-style VIP Pass card with one-click PNG download.
+// on-screen membership pass with one-click PNG download.
 (async () => {
   const canvas = document.getElementById('fanclubHomeCard');
   if (!canvas || !window.RockCard) return;
@@ -121,9 +121,9 @@
 
     try {
       const res = await window.sendToInbox(
-        `[New Fan Club Application] ${fullName} — ${country}`,
+        `[New fan club member] ${fullName} — ${country}`,
         {
-          submissionType: 'Official Fan Club Application',
+          submissionType: 'Fan Club Membership',
           memberNumber: String(nextMember.number).padStart(6, '0'),
           fullName,
           email,
@@ -135,14 +135,14 @@
           website
         }
       );
-      const appId = res?.applicationId || `DJ-2026-${String(nextMember.number).slice(-4).padStart(4, '0')}`;
+      const appId = res?.applicationId || `RFC-2026-${String(nextMember.number).slice(-4).padStart(4, '0')}`;
       nextMember.applicationId = appId;
       member = nextMember;
       try { localStorage.setItem(KEY, JSON.stringify(member)); } catch {}
       renderCard();
       showCanvaPass(member, appId);
     } catch (err) {
-      errEl.textContent = err?.message || 'We could not process your application right now. Please try again.';
+      errEl.textContent = err?.message || 'We couldn’t sign you up just now. Please try again.';
     } finally {
       submitBtn.disabled = false;
       submitBtn.textContent = origText;
@@ -156,7 +156,7 @@
         if (!b) return;
         const a = document.createElement('a');
         a.href = URL.createObjectURL(b);
-        const idSlug = (member?.applicationId || 'DJ-2026').toLowerCase();
+        const idSlug = (member?.applicationId || 'RFC-2026').toLowerCase();
         a.download = `the-rock-fan-club-${idSlug}.png`;
         a.click();
         setTimeout(() => URL.revokeObjectURL(a.href), 1000);

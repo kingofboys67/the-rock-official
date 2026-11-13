@@ -67,7 +67,7 @@
     try {
       const to = form.topic.options[form.topic.selectedIndex].text;
       const res = await sendToInbox(`Letter: ${to} (from ${data.name.trim()})`, {
-        submissionType: `Official Correspondence · ${to}`,
+        submissionType: `Fan letter · ${to}`,
         fullName: data.name.trim(),
         email: data.email.trim(),
         country: data.from?.trim() || 'Global',

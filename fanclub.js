@@ -1,4 +1,4 @@
-// fanclub.html: the exclusive membership card & Official Fan Club Inner Circle application.
+// fanclub.html: the membership card and fan club sign-up (unofficial fan site).
 // Drawn on a canvas so the preview and the downloaded PNG are the same image.
 // Submitting delivers the applicant's data to Zoho Mail + sends the Canva-style Resend auto-reply via /api/fan-club.
 (async () => {
@@ -84,10 +84,10 @@
   }
 
   const joined = m => {
-    $('#joinSubmit').textContent = 'Update Application & Card →';
+    $('#joinSubmit').textContent = 'Update my card →';
     $('#joinDownload').hidden = false;
-    $('#joinLede').textContent = `Welcome to the Inner Circle, ${m.name.split(/\s+/)[0]}. Application ID #${m.applicationId || ('DJ-2026-' + String(m.number).slice(-4).padStart(4, '0'))}. Download your card and keep it.`;
-    $('#cardCaption').textContent = 'Your Official Membership Card';
+    $('#joinLede').textContent = `Welcome to the fan club, ${m.name.split(/\s+/)[0]}. Member ID #${m.applicationId || ('RFC-2026-' + String(m.number).slice(-4).padStart(4, '0'))}. Download your card and keep it.`;
+    $('#cardCaption').textContent = 'Your membership card';
   };
 
   if (member) {
@@ -126,10 +126,10 @@
     const next = { ...read(), email: form.email.value.trim() };
     const btn = $('#joinSubmit'), label = btn.textContent;
     btn.disabled = true; btn.textContent = 'Submitting Application…';
-    let appId = `DJ-2026-${String(next.number).slice(-4).padStart(4, '0')}`;
+    let appId = `RFC-2026-${String(next.number).slice(-4).padStart(4, '0')}`;
     try {
-      const res = await sendToInbox(`[New Fan Club Application] ${next.name} — ${next.city}`, {
-        submissionType: member ? 'Fan Club Membership Update' : 'Official Fan Club Application',
+      const res = await sendToInbox(`[New fan club member] ${next.name} — ${next.city}`, {
+        submissionType: member ? 'Fan Club Membership Update' : 'Fan Club Membership',
         memberNumber: String(next.number).padStart(6, '0'),
         fullName: next.name,
         email: next.email,
@@ -157,7 +157,7 @@
   const downloadCardPng = () => canvas.toBlob(b => {
     const a = document.createElement('a');
     a.href = URL.createObjectURL(b);
-    const slug = (member?.applicationId || `DJ-2026-${String(read().number).slice(-4).padStart(4, '0')}`).toLowerCase();
+    const slug = (member?.applicationId || `RFC-2026-${String(read().number).slice(-4).padStart(4, '0')}`).toLowerCase();
     a.download = `the-rock-fan-club-${slug}.png`;
     a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
   }, 'image/png');

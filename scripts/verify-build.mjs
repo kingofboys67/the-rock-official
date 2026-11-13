@@ -9,6 +9,23 @@ const jsFiles = fs.readdirSync(root).filter(f => f.endsWith('.js'));
 
 console.log(`Verifying ${htmlFiles.length} HTML pages and ${jsFiles.length} JS modules...`);
 
+// Fill in the site's address. Pages use the token __SITE_URL__ so the domain lives in one place:
+// set SITE_URL in Vercel (e.g. https://yourfansite.com); otherwise the Vercel production URL is used.
+const SITE_URL = (process.env.SITE_URL
+  || (process.env.VERCEL_PROJECT_PRODUCTION_URL && `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`)
+  || (process.env.VERCEL_URL && `https://${process.env.VERCEL_URL}`)
+  || '').replace(/\/$/, '');
+const tokenFiles = [...htmlFiles, 'sitemap.xml', 'robots.txt', 'llms.txt', 'llms-full.txt'];
+if (SITE_URL) {
+  for (const f of tokenFiles) {
+    const p = path.join(root, f);
+    fs.writeFileSync(p, fs.readFileSync(p, 'utf8').replaceAll('__SITE_URL__', SITE_URL));
+  }
+  console.log(`Site address set to ${SITE_URL}`);
+} else {
+  console.log('SITE_URL not set (local check): leaving __SITE_URL__ tokens in place.');
+}
+
 for (const jf of jsFiles) {
   execFileSync('node', ['--check', path.join(root, jf)], { stdio: 'inherit' });
 }
@@ -48,12 +65,15 @@ for (const hf of htmlFiles) {
   }
 
   // 3. Ensure canonical, OG card, and favicon links exist
-  if (!content.includes('<link rel="canonical" href="https://dwaynejohnsonofficial.com')) {
+  if (!/<link rel="canonical" href="[^"]+">/.test(content)) {
     throw new Error(`Missing canonical link in ${hf}`);
   }
-  if (!content.includes('https://dwaynejohnsonofficial.com/og-image.jpg')) {
+  if (!content.includes('/og-image.jpg')) {
     throw new Error(`Missing 1200x630 og-image.jpg reference in ${hf}`);
   }
+  // 5. It must stay clearly an unofficial fan site
+  if (!/Unofficial fan site/i.test(content)) throw new Error(`Missing unofficial fan site notice in ${hf}`);
+  if (/Official Website|All Rights Reserved|dwaynejohnsonofficial/i.test(content)) throw new Error(`Page presents itself as official: ${hf}`);
   if (!content.includes('/favicon.ico') || !content.includes('/site.webmanifest')) {
     throw new Error(`Missing favicon/webmanifest tags in ${hf}`);
   }

@@ -1,8 +1,22 @@
 // Vercel Serverless Function: POST /api/fan-club
-// Delivers structured applicant/inquiry data to Zoho Mail (@dwaynejohnsonofficial.com)
-// and sends an automated Canva-style VIP Membership Pass confirmation email via Resend.
+// The Rock Fan Club (unofficial fan site): sends each sign-up or letter to the fan club's own inbox,
+// and a short welcome email to the fan, both via Resend. Emails always go out as "The Rock Fan Club"
+// and say plainly that this is an unofficial fan site, not Dwayne Johnson or his team.
+//
+// Env: RESEND_API_KEY, FANCLUB_INBOX (where sign-ups land), RESEND_FROM_EMAIL (address only;
+// a display name in it is ignored), SITE_URL (e.g. https://yourfansite.com).
 
 const RESEND_ENDPOINT = 'https://api.resend.com/emails';
+const CLUB = 'The Rock Fan Club';
+const DISCLAIMER = 'The Rock Fan Club is an unofficial fan site. It is not run by, affiliated with or endorsed by Dwayne Johnson or his team, and messages sent here do not reach him.';
+const siteUrl = () => (process.env.SITE_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : '')).replace(/\/$/, '');
+// Always send as the fan club, whatever display name is set in the environment.
+const fromHeader = () => {
+  const raw = process.env.RESEND_FROM_EMAIL || '';
+  const addr = (raw.match(/<([^>]+)>/) || [, raw])[1].trim();
+  return addr ? `${CLUB} <${addr}>` : '';
+};
+const clip = (v, n) => String(v ?? '').trim().slice(0, n);
 
 function escapeHtml(str) {
   return String(str ?? '')
@@ -15,10 +29,10 @@ function escapeHtml(str) {
 
 function generateApplicationId(seedNumber) {
   if (seedNumber && /^\d+$/.test(String(seedNumber))) {
-    return `DJ-2026-${String(seedNumber).slice(-4).padStart(4, '0')}`;
+    return `RFC-2026-${String(seedNumber).slice(-4).padStart(4, '0')}`;
   }
   const rand = Math.floor(1000 + Math.random() * 9000);
-  return `DJ-2026-${rand}`;
+  return `RFC-2026-${rand}`;
 }
 
 function buildAdminZohoEmailHtml({
@@ -35,7 +49,7 @@ function buildAdminZohoEmailHtml({
   timestamp
 }) {
   const rows = [
-    ['Application ID', `#${applicationId}`],
+    ['Member ID', `#${applicationId}`],
     ['Submission Type', submissionType],
     ['Full Name', fullName],
     ['Email Address', email],
@@ -61,7 +75,7 @@ function buildAdminZohoEmailHtml({
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>[New Fan Club Application] ${escapeHtml(fullName)}</title>
+  <title>${escapeHtml(submissionType)}: ${escapeHtml(fullName)}</title>
 </head>
 <body style="margin:0;padding:24px;background-color:#0F110C;font-family:'Helvetica Neue',Arial,sans-serif;color:#F7F7F2;">
   <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:640px;margin:0 auto;background-color:#141612;border:1px solid #2A2D24;border-radius:12px;overflow:hidden;">
@@ -71,13 +85,13 @@ function buildAdminZohoEmailHtml({
     <tr>
       <td style="padding:28px 32px 20px 32px;border-bottom:1px solid #2A2D24;">
         <div style="font-size:11px;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;color:#D4FF00;margin-bottom:8px;">
-          DWAYNE JOHNSON OFFICIAL · ZOHO DATA DISPATCH
+          THE ROCK FAN CLUB · NEW SUBMISSION
         </div>
         <h1 style="margin:0;font-size:24px;font-weight:900;letter-spacing:-0.02em;color:#F7F7F2;text-transform:uppercase;">
           ${escapeHtml(submissionType)}
         </h1>
         <p style="margin:6px 0 0 0;font-size:13px;color:#A7AC96;">
-          Application Reference: <strong style="color:#D4FF00;">#${escapeHtml(applicationId)}</strong> · Reply directly to this email to contact <strong style="color:#F7F7F2;">${escapeHtml(fullName)}</strong>.
+          Member ID: <strong style="color:#D4FF00;">#${escapeHtml(applicationId)}</strong> · Reply directly to this email to contact <strong style="color:#F7F7F2;">${escapeHtml(fullName)}</strong>.
         </p>
       </td>
     </tr>
@@ -92,7 +106,7 @@ function buildAdminZohoEmailHtml({
       <td style="padding:0 32px 28px 32px;">
         <div style="padding:18px 20px;background-color:#191B15;border-left:4px solid #D4FF00;border-radius:6px;">
           <div style="font-size:11px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:#D4FF00;margin-bottom:8px;">
-            PERSONAL NOTE / APPLICATION MESSAGE
+            NOTE / LETTER
           </div>
           <div style="font-size:15px;line-height:1.6;color:#F7F7F2;white-space:pre-wrap;">${escapeHtml(message || 'No personal note provided.')}</div>
         </div>
@@ -100,7 +114,7 @@ function buildAdminZohoEmailHtml({
     </tr>
     <tr>
       <td style="padding:18px 32px;background-color:#0F110C;border-top:1px solid #2A2D24;font-size:12px;color:#858A76;text-align:center;">
-        Delivered from <a href="https://dwaynejohnsonofficial.com" style="color:#D4FF00;text-decoration:none;">dwaynejohnsonofficial.com</a> · Official Zoho Mail Receiver Pipeline
+        Sent by the fan club website form · ${escapeHtml(siteUrl() || 'site')}
       </td>
     </tr>
   </table>
@@ -108,169 +122,49 @@ function buildAdminZohoEmailHtml({
 </html>`;
 }
 
-function buildApplicantCanvaEmailHtml({
-  applicationId,
-  fullName,
-  firstName,
-  country,
-  instagram,
-  favoriteEra,
-  message,
-  submissionType
-}) {
-  const isInquiry = submissionType && submissionType.toLowerCase().includes('correspondence');
-  const notePreview = message
-    ? message.length > 280
-      ? `${message.slice(0, 280)}…`
-      : message
-    : 'Always bringing the energy — proud member of The Rock Official Fan Club.';
-
+function buildApplicantCanvaEmailHtml({ applicationId, fullName, firstName, country, favoriteEra, submissionType }) {
+  const isLetter = /letter/i.test(submissionType || '');
+  const url = siteUrl();
+  const lead = isLetter
+    ? 'Thanks for writing to the fan club. Your letter arrived, and if you asked a question we’ll reply to this email address.'
+    : 'You’re in. Welcome to the fan club. We’ll send you fan club news now and then, and you can ask us to remove you any time.';
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Welcome to the Official Fan Club — #${escapeHtml(applicationId)}</title>
+  <title>${CLUB} — ${isLetter ? 'letter received' : 'welcome'}</title>
 </head>
 <body style="margin:0;padding:0;background-color:#F7F7F2;font-family:'Helvetica Neue',Arial,sans-serif;color:#141612;">
   <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color:#F7F7F2;padding:32px 16px;">
-    <tr>
-      <td align="center">
-        <!-- Main Canva-Style VIP Editorial Poster Container -->
-        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:600px;background-color:#141612;border-radius:20px;overflow:hidden;box-shadow:0 24px 60px rgba(20,22,18,0.28);border:1px solid #2A2D24;">
-          
-          <!-- Neon-Lime Top Accent Bar -->
-          <tr>
-            <td style="height:8px;background-color:#D4FF00;font-size:0;line-height:0;">&nbsp;</td>
-          </tr>
-
-          <!-- Top Graphic Hero Banner -->
-          <tr>
-            <td style="padding:36px 36px 28px 36px;background:linear-gradient(180deg,#1E2019 0%,#141612 100%);border-bottom:1px solid #262920;">
-              <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
-                <tr>
-                  <td>
-                    <span style="display:inline-block;padding:6px 12px;background-color:#D4FF00;color:#141612;font-size:10px;font-weight:900;letter-spacing:0.18em;text-transform:uppercase;border-radius:999px;">
-                      THE ROCK · OFFICIAL FAN CLUB
-                    </span>
-                  </td>
-                  <td align="right" style="font-size:11px;font-weight:800;letter-spacing:0.14em;color:#A7AC96;text-transform:uppercase;">
-                    ID #${escapeHtml(applicationId)}
-                  </td>
-                </tr>
-              </table>
-
-              <h1 style="margin:22px 0 12px 0;font-size:34px;line-height:0.98;font-weight:900;letter-spacing:-0.03em;text-transform:uppercase;color:#F7F7F2;">
-                WELCOME TO THE FAMILY, <span style="color:#D4FF00;">${escapeHtml(firstName.toUpperCase())}.</span>
-              </h1>
-
-              <p style="margin:0;font-size:15px;line-height:1.6;color:#C8CCBA;">
-                ${
-                  isInquiry
-                    ? 'Your official correspondence and Fan Club profile have been received! Our team has logged your dispatch and you will be contacted directly regarding your message and inner-circle updates.'
-                    : 'Your Official Fan Club application has been received! Our team has logged your profile and you will be contacted directly regarding upcoming drops, screenings, and inner-circle updates.'
-                }
-              </p>
-            </td>
-          </tr>
-
-          <!-- Canva-Style Visual Membership Pass Block -->
-          <tr>
-            <td style="padding:28px 36px;">
-              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color:#1E2019;border:2px solid #D4FF00;border-radius:16px;overflow:hidden;">
-                <tr>
-                  <td style="padding:18px 22px;background-color:#25281F;border-bottom:1px solid #32362A;">
-                    <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
-                      <tr>
-                        <td>
-                          <div style="font-size:10px;font-weight:800;letter-spacing:0.16em;text-transform:uppercase;color:#D4FF00;">
-                            OFFICIAL INNER CIRCLE PASS · 2026
-                          </div>
-                          <div style="margin-top:4px;font-size:22px;font-weight:900;letter-spacing:-0.02em;text-transform:uppercase;color:#F7F7F2;">
-                            ${escapeHtml(fullName)}
-                          </div>
-                        </td>
-                        <td align="right" valign="top">
-                          <span style="display:inline-block;padding:5px 10px;border:1px solid #D4FF00;border-radius:6px;font-size:10px;font-weight:800;letter-spacing:0.12em;color:#D4FF00;text-transform:uppercase;">
-                            #${escapeHtml(applicationId)}
-                          </span>
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td style="padding:20px 22px;">
-                    <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
-                      <tr>
-                        <td width="50%" valign="top" style="padding-bottom:16px;padding-right:10px;">
-                          <div style="font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#8E947E;">LOCATION</div>
-                          <div style="margin-top:4px;font-size:15px;font-weight:700;color:#F7F7F2;">${escapeHtml(country || 'Global Member')}</div>
-                        </td>
-                        <td width="50%" valign="top" style="padding-bottom:16px;padding-left:10px;">
-                          <div style="font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#8E947E;">SELECTED ERA / FILM</div>
-                          <div style="margin-top:4px;font-size:15px;font-weight:700;color:#D4FF00;">${escapeHtml(favoriteEra || 'Attitude Era / The Final Boss')}</div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td width="50%" valign="top" style="padding-bottom:16px;padding-right:10px;">
-                          <div style="font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#8E947E;">SOCIAL HANDLE</div>
-                          <div style="margin-top:4px;font-size:14px;font-weight:600;color:#F7F7F2;">${escapeHtml(instagram || '—')}</div>
-                        </td>
-                        <td width="50%" valign="top" style="padding-bottom:16px;padding-left:10px;">
-                          <div style="font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#8E947E;">STATUS</div>
-                          <div style="margin-top:4px;font-size:12px;font-weight:800;letter-spacing:0.08em;color:#D4FF00;text-transform:uppercase;">
-                            APPLICATION RECEIVED — PENDING REVIEW
-                          </div>
-                        </td>
-                      </tr>
-                    </table>
-
-                    <div style="margin-top:6px;padding-top:14px;border-top:1px solid #32362A;">
-                      <div style="font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#8E947E;margin-bottom:6px;">
-                        SUBMITTED MESSAGE PREVIEW
-                      </div>
-                      <div style="font-size:14px;line-height:1.55;color:#E2E5D8;font-style:italic;">
-                        “${escapeHtml(notePreview)}”
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-
-          <!-- CTA & Branded Footer -->
-          <tr>
-            <td align="center" style="padding:4px 36px 32px 36px;">
-              <a href="https://dwaynejohnsonofficial.com" style="display:inline-block;padding:14px 28px;background-color:#D4FF00;color:#141612;font-size:13px;font-weight:900;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;border-radius:999px;">
-                RETURN TO DWAYNEJOHNSONOFFICIAL.COM →
-              </a>
-            </td>
-          </tr>
-
-          <tr>
-            <td style="padding:24px 36px;background-color:#0E100C;border-top:1px solid #262920;text-align:center;">
-              <div style="font-size:11px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:#A7AC96;margin-bottom:12px;">
-                VERIFIED OFFICIAL CHANNELS · @THEROCK
-              </div>
-              <div style="margin-bottom:16px;font-size:12px;">
-                <a href="https://www.instagram.com/therock/" style="color:#D4FF00;text-decoration:none;margin:0 8px;">Instagram</a> ·
-                <a href="https://www.youtube.com/@therock" style="color:#D4FF00;text-decoration:none;margin:0 8px;">YouTube</a> ·
-                <a href="https://x.com/TheRock" style="color:#D4FF00;text-decoration:none;margin:0 8px;">X</a> ·
-                <a href="https://www.tiktok.com/@therock" style="color:#D4FF00;text-decoration:none;margin:0 8px;">TikTok</a> ·
-                <a href="https://www.facebook.com/DwayneJohnson" style="color:#D4FF00;text-decoration:none;margin:0 8px;">Facebook</a>
-              </div>
-              <div style="font-size:11px;color:#6E7362;">
-                © 2026 Dwayne Johnson. All Rights Reserved. · <a href="https://dwaynejohnsonofficial.com" style="color:#8E947E;text-decoration:none;">dwaynejohnsonofficial.com</a>
-              </div>
-            </td>
-          </tr>
-
-        </table>
-      </td>
-    </tr>
+    <tr><td align="center">
+      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:560px;background-color:#141612;border-radius:20px;overflow:hidden;border:1px solid #2A2D24;">
+        <tr><td style="height:8px;background-color:#D4FF00;font-size:0;line-height:0;">&nbsp;</td></tr>
+        <tr><td style="padding:32px 32px 8px 32px;">
+          <span style="display:inline-block;padding:6px 12px;background-color:#D4FF00;color:#141612;font-size:10px;font-weight:900;letter-spacing:0.16em;text-transform:uppercase;border-radius:999px;">THE ROCK FAN CLUB · UNOFFICIAL</span>
+          <h1 style="margin:22px 0 12px 0;font-size:30px;line-height:1;font-weight:900;letter-spacing:-0.02em;text-transform:uppercase;color:#F7F7F2;">
+            ${isLetter ? 'Thanks' : 'Welcome'}, <span style="color:#D4FF00;">${escapeHtml(firstName)}</span>.
+          </h1>
+          <p style="margin:0;font-size:15px;line-height:1.6;color:#C8CCBA;">${lead}</p>
+        </td></tr>
+        ${isLetter ? '' : `
+        <tr><td style="padding:20px 32px 8px 32px;">
+          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color:#1E2019;border:2px solid #D4FF00;border-radius:14px;">
+            <tr><td style="padding:18px 20px;">
+              <div style="font-size:10px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:#8E947E;">MEMBER</div>
+              <div style="margin-top:4px;font-size:20px;font-weight:900;text-transform:uppercase;color:#F7F7F2;">${escapeHtml(fullName)}</div>
+              <div style="margin-top:12px;font-size:13px;color:#C8CCBA;">#${escapeHtml(applicationId)}${country ? ` · ${escapeHtml(country)}` : ''}${favoriteEra ? ` · Favourite: ${escapeHtml(favoriteEra)}` : ''}</div>
+            </td></tr>
+          </table>
+        </td></tr>`}
+        ${url ? `<tr><td align="center" style="padding:24px 32px 8px 32px;">
+          <a href="${url}" style="display:inline-block;padding:13px 26px;background-color:#D4FF00;color:#141612;font-size:13px;font-weight:900;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border-radius:999px;">Back to the fan club →</a>
+        </td></tr>` : ''}
+        <tr><td style="padding:24px 32px;font-size:12px;line-height:1.6;color:#8E947E;border-top:1px solid #262920;">
+          ${DISCLAIMER} You got this email because this address was entered on the fan club website. If that wasn’t you, ignore this email or reply and we’ll delete it.
+        </td></tr>
+      </table>
+    </td></tr>
   </table>
 </body>
 </html>`;
@@ -290,7 +184,7 @@ async function sendResendEmail(apiKey, payload) {
 }
 
 export default async function handler(req, res) {
-  // CORS headers for dwaynejohnsonofficial.com and preview URLs
+  // CORS: same-site form posts
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -316,21 +210,19 @@ export default async function handler(req, res) {
   if (body.website || body._gotcha || body.honeypot) {
     return res.status(200).json({
       ok: true,
-      applicationId: 'DJ-2026-0000',
+      applicationId: 'RFC-2026-0000',
       status: 'filtered'
     });
   }
 
-  const fullName = String(body.fullName || body.name || '').trim();
-  const email = String(body.email || '').trim();
-  const country = String(body.country || body.city || body.from || '').trim();
-  const instagram = String(body.instagram || body.social || '').trim();
-  const favoriteEra = String(
-    body.favoriteEra || body.favouriteMovie || body.movie || body.topic || 'Attitude Era / The Final Boss'
-  ).trim();
-  const message = String(body.message || body.note || '').trim();
-  const submissionType = String(body.submissionType || body.type || 'Official Fan Club Application').trim();
-  const cardStyle = String(body.cardStyle || body.style || body.to || 'Field').trim();
+  const fullName = clip(body.fullName || body.name, 60);
+  const email = clip(body.email, 120);
+  const country = clip(body.country || body.city || body.from, 60);
+  const instagram = clip(body.instagram || body.social, 50);
+  const favoriteEra = clip(body.favoriteEra || body.favouriteMovie || body.movie || body.topic, 80);
+  const message = clip(body.message || body.note, 4000);
+  const submissionType = clip(body.submissionType || body.type || 'Fan Club Membership', 80);
+  const cardStyle = clip(body.cardStyle || body.style || body.to || 'Field', 80);
   const mayShare = String(body.mayShare || (body.share ? 'yes' : 'no')).trim();
 
   if (!fullName) {
@@ -343,19 +235,18 @@ export default async function handler(req, res) {
     return res.status(400).json({ ok: false, error: 'Country / City is required.' });
   }
 
-  const applicationId = body.applicationId || generateApplicationId(body.memberNumber);
+  const applicationId = /^RFC-\d{4}-\d{4}$/.test(body.applicationId || '') ? body.applicationId : generateApplicationId(body.memberNumber);
   const firstName = fullName.split(/\s+/)[0] || fullName;
   const timestamp = new Date().toISOString();
 
   const resendApiKey = process.env.RESEND_API_KEY;
-  const zohoReceiver = process.env.ZOHO_RECEIVER_EMAIL || 'contact@dwaynejohnsonofficial.com';
-  const fromAddress =
-    process.env.RESEND_FROM_EMAIL || 'Dwayne Johnson Official <fanclub@dwaynejohnsonofficial.com>';
+  const zohoReceiver = process.env.FANCLUB_INBOX || process.env.ZOHO_RECEIVER_EMAIL;
+  const fromAddress = fromHeader();
 
-  if (!resendApiKey) {
+  if (!resendApiKey || !zohoReceiver || !fromAddress) {
     return res.status(503).json({
       ok: false,
-      error: 'RESEND_API_KEY is not configured in server environment variables.',
+      error: 'Email is not set up yet (RESEND_API_KEY, FANCLUB_INBOX and RESEND_FROM_EMAIL are needed).',
       applicationId
     });
   }
@@ -385,11 +276,12 @@ export default async function handler(req, res) {
     submissionType
   });
 
-  const adminSubject = submissionType.toLowerCase().includes('letter')
-    ? `[Official Correspondence] ${fullName} — ${country || 'Global'} (#${applicationId})`
-    : `[New Fan Club Application] ${fullName} — ${country} (#${applicationId})`;
+  const isLetter = /letter/i.test(submissionType);
+  const adminSubject = isLetter
+    ? `[Fan letter] ${fullName} — ${country || 'no city'} (#${applicationId})`
+    : `[New fan club member] ${fullName} — ${country} (#${applicationId})`;
 
-  const applicantSubject = `Welcome to the Official Fan Club — Application Received (#${applicationId})`;
+  const applicantSubject = isLetter ? `${CLUB}: we got your letter` : `Welcome to ${CLUB} (#${applicationId})`;
 
   const [adminResult, applicantResult] = await Promise.all([
     sendResendEmail(resendApiKey, {
@@ -436,8 +328,7 @@ export default async function handler(req, res) {
       country,
       instagram,
       favoriteEra,
-      message,
-      status: 'APPLICATION RECEIVED — PENDING REVIEW'
+      status: 'MEMBER'
     }
   });
 }

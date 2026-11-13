@@ -1,9 +1,9 @@
 // Site settings in one place. Loaded before community.js, fanclub.js, and fanclub-home.js.
 window.SITE_CONFIG = {
-  // Serverless Resend + Zoho Mail receiver endpoint on dwaynejohnsonofficial.com
+  // The fan club email function (api/fan-club.js): sends sign-ups and letters to the fan club inbox via Resend.
   formEndpoint: '/api/fan-club',
 
-  // Verified official social accounts shown on the Contact page and across the platform.
+  // His own social accounts, linked from the Contact page (this fan site does not run them).
   socials: [
     { name: 'Instagram', handle: '@therock', url: 'https://www.instagram.com/therock/' },
     { name: 'YouTube', handle: '@therock', url: 'https://www.youtube.com/@therock' },
@@ -13,7 +13,7 @@ window.SITE_CONFIG = {
   ],
 };
 
-// Sends a form submission to /api/fan-club (delivers to Zoho Mail + triggers Canva-style Resend auto-reply).
+// Sends a form submission to /api/fan-club (to the fan club inbox, plus a welcome email to the fan).
 window.sendToInbox = async (subject, fields) => {
   const url = window.SITE_CONFIG.formEndpoint || '/api/fan-club';
   const r = await fetch(url, {

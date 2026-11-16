@@ -3,16 +3,69 @@
 // and a short welcome email to the fan, both via Resend. Emails always go out as "The Rock Fan Club"
 // and say plainly that this is an unofficial fan site, not Dwayne Johnson or his team.
 //
-// Env: RESEND_API_KEY, FANCLUB_INBOX (where sign-ups land), RESEND_FROM_EMAIL (address only;
-// a display name in it is ignored), SITE_URL (e.g. https://yourfansite.com).
+// Env: RESEND_API_KEY, FANCLUB_INBOX / ZOHO_RECEIVER_EMAIL (where sign-ups land),
+// RESEND_FROM_EMAIL (verified sender address; display name is overridden to "The Rock Fan Club"),
+// SITE_URL (e.g. https://dwaynejohnsonofficial.com).
 
 const RESEND_ENDPOINT = 'https://api.resend.com/emails';
 const CLUB = 'The Rock Fan Club';
+const DEFAULT_FROM_ADDRESS = 'fanclub@dwaynejohnsonofficial.com';
 const DISCLAIMER = 'The Rock Fan Club is an unofficial fan site. It is not run by, affiliated with or endorsed by Dwayne Johnson or his team, and messages sent here do not reach him.';
-const siteUrl = () => (process.env.SITE_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : '')).replace(/\/$/, '');
-// Always send as the fan club, whatever display name is set in the environment.
+
+// Per-instance sliding-window rate limit (max 5 submissions per 10 minutes per IP)
+const RATE_WINDOW_MS = 10 * 60 * 1000;
+const RATE_MAX = 5;
+const ipHits = new Map();
+
+function isRateLimited(ip) {
+  if (!ip) return false;
+  const now = Date.now();
+  const prev = (ipHits.get(ip) || []).filter(ts => now - ts < RATE_WINDOW_MS);
+  if (prev.length >= RATE_MAX) {
+    ipHits.set(ip, prev);
+    return true;
+  }
+  prev.push(now);
+  ipHits.set(ip, prev);
+  if (ipHits.size > 2000) {
+    for (const [k, arr] of ipHits) {
+      if (!arr.some(ts => now - ts < RATE_WINDOW_MS)) ipHits.delete(k);
+    }
+  }
+  return false;
+}
+
+const siteUrl = () =>
+  (
+    process.env.SITE_URL ||
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : '') ||
+    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : '')
+  ).replace(/\/$/, '');
+
+function resolveAllowedOrigin(reqOrigin) {
+  if (!reqOrigin) return '';
+  try {
+    const u = new URL(reqOrigin);
+    const host = u.hostname.toLowerCase();
+    const configured = siteUrl();
+    const configuredHost = configured ? new URL(configured).hostname.toLowerCase() : '';
+    if (
+      host === 'localhost' ||
+      host === '127.0.0.1' ||
+      host === 'dwaynejohnsonofficial.com' ||
+      host === 'www.dwaynejohnsonofficial.com' ||
+      (configuredHost && (host === configuredHost || host === `www.${configuredHost}`)) ||
+      host.endsWith('.vercel.app')
+    ) {
+      return u.origin;
+    }
+  } catch {}
+  return null;
+}
+
+// Always send as the fan club, falling back to the verified domain sender if RESEND_FROM_EMAIL is unset.
 const fromHeader = () => {
-  const raw = process.env.RESEND_FROM_EMAIL || '';
+  const raw = process.env.RESEND_FROM_EMAIL || DEFAULT_FROM_ADDRESS;
   const addr = (raw.match(/<([^>]+)>/) || [, raw])[1].trim();
   return addr ? `${CLUB} <${addr}>` : '';
 };
@@ -184,17 +237,34 @@ async function sendResendEmail(apiKey, payload) {
 }
 
 export default async function handler(req, res) {
-  // CORS: same-site form posts
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  const reqOrigin = req.headers?.origin || '';
+  const allowedOrigin = resolveAllowedOrigin(reqOrigin);
+  if (reqOrigin && allowedOrigin === null) {
+    return res.status(403).json({ ok: false, error: 'Cross-origin requests are not allowed.' });
+  }
+  if (allowedOrigin) {
+    res.setHeader('Access-Control-Allow-Origin', allowedOrigin);
+    res.setHeader('Vary', 'Origin');
+  }
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
   if (req.method === 'OPTIONS') {
-    return res.status(200).end();
+    return res.status(204).end();
   }
 
   if (req.method !== 'POST') {
     return res.status(405).json({ ok: false, error: 'Method not allowed. Use POST.' });
+  }
+
+  const clientIp = String(req.headers?.['x-forwarded-for'] || req.socket?.remoteAddress || '')
+    .split(',')[0]
+    .trim();
+  if (isRateLimited(clientIp)) {
+    return res.status(429).json({
+      ok: false,
+      error: 'Too many submissions in a short time. Please wait a few minutes and try again.'
+    });
   }
 
   let body = req.body || {};
@@ -246,7 +316,7 @@ export default async function handler(req, res) {
   if (!resendApiKey || !zohoReceiver || !fromAddress) {
     return res.status(503).json({
       ok: false,
-      error: 'Email is not set up yet (RESEND_API_KEY, FANCLUB_INBOX and RESEND_FROM_EMAIL are needed).',
+      error: 'Email is not set up yet (RESEND_API_KEY and FANCLUB_INBOX / ZOHO_RECEIVER_EMAIL are needed).',
       applicationId
     });
   }
@@ -332,4 +402,3 @@ export default async function handler(req, res) {
     }
   });
 }
-

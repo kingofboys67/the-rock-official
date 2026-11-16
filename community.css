@@ -184,6 +184,16 @@
   border-color:var(--lime);box-shadow:0 0 0 2px rgba(212,255,0,.22)
 }
 .fanclub-inner-error{min-height:18px;margin:-4px 0;font-size:13px;font-weight:700;color:#D4FF00}
+.fanclub-inner-styles{border:0;padding:0;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.fanclub-inner-styles legend{width:100%;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--off1);margin-bottom:6px}
+.fanclub-inner-styles label{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 14px 0 8px;border:1.5px solid rgba(247,247,242,.24);border-radius:10px;font-weight:700;font-size:13px;color:var(--white);cursor:pointer;transition:border-color .2s,background .2s}
+.fanclub-inner-styles label:has(input:checked){border-color:var(--lime);background:rgba(212,255,0,.1)}
+.fanclub-inner-styles label:has(input:focus-visible){box-shadow:0 0 0 2px var(--lime)}
+.fanclub-inner-styles input{position:absolute;opacity:0;pointer-events:none}
+.fanclub-inner-photo{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.fanclub-inner-photo-remove{font-size:12px;font-weight:700;text-decoration:underline;text-underline-offset:3px;color:var(--off1)}
+.fanclub-inner-photo-remove:hover{color:var(--lime)}
+.fanclub-inner-photo-remove[hidden]{display:none}
 
 /* Canva-style Visual Fan Club Pass Card (Instant On-Screen Confirmation) */
 .canva-pass{

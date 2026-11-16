@@ -42,8 +42,9 @@
     stage.replaceChildren(im); cap.textContent = '';
     [photos[idx + 1], photos[idx - 1]].forEach(p => { if (p) new Image().src = p.file; }); // preload neighbours
   };
-  const open = i => { lb.hidden = false; document.body.style.overflow = 'hidden'; show(i); };
-  const close = () => { lb.hidden = true; stage.replaceChildren(); document.body.style.overflow = ''; };
+  let lbTrigger = null;
+  const open = i => { lbTrigger = document.activeElement; lb.hidden = false; document.body.style.overflow = 'hidden'; show(i); lb.querySelector('.lb-x')?.focus(); };
+  const close = () => { lb.hidden = true; stage.replaceChildren(); document.body.style.overflow = ''; if (lbTrigger?.focus) lbTrigger.focus(); };
   lb.querySelector('.lb-x').onclick = close;
   lb.querySelector('.prev').onclick = () => show(idx - 1);
   lb.querySelector('.next').onclick = () => show(idx + 1);

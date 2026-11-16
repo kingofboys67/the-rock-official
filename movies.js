@@ -47,8 +47,8 @@
   // ---- posters: high-resolution key art sized for the slot, then theatrical poster, then a typographic fallback
   const hd = (url, w) => url ? url.replace(/\._V1_.*\.jpg$/, `._V1_QL85_UX${w}_.jpg`) : null;
   const poster = (f, w = 600, cls = 'catalog-poster') => {
-    const src = hd(f.posterHD, w) || f.poster || '';
-    const fb = f.posterHD && f.poster ? f.poster : '';
+    const src = f.posterLocal || hd(f.posterHD, w) || f.poster || '';
+    const fb = f.posterLocal ? (hd(f.posterHD, w) || f.poster || '') : (f.posterHD && f.poster ? f.poster : '');
     const h = Math.round(w * 1.5);
     return `<div class="${cls}"><img src="${esc(src)}" data-fallback="${esc(fb)}" alt="${esc(f.title)} (${f.year}) poster" width="${w}" height="${h}" loading="lazy" decoding="async" referrerpolicy="no-referrer"><div class="catalog-poster-alt" aria-hidden="true"><b>${esc(f.title)}</b><span>${f.year}</span></div></div>`;
   };
@@ -199,7 +199,7 @@
     const cover = f.trailer
       ? `<iframe class="movie-detail-cover-video" src="${ytEmbed(f.trailer, `&autoplay=1&mute=1&controls=0&loop=1&playlist=${encodeURIComponent(f.trailer)}&disablekb=1&enablejsapi=1&iv_load_policy=3`)}" title="${esc(f.title)} trailer (background)" allow="autoplay; encrypted-media" tabindex="-1" aria-hidden="true"></iframe>
          <button type="button" class="movie-detail-mute" id="coverMute" aria-pressed="false" aria-label="Turn trailer sound on">🔇 Sound off</button>`
-      : `<div class="movie-detail-cover-still" style="background-image:url('${esc(hd(f.posterHD, 1200) || f.poster || '')}')"></div>`;
+      : `<div class="movie-detail-cover-still" style="background-image:url('${esc(f.posterLocal || hd(f.posterHD, 1200) || f.poster || '')}')"></div>`;
     detail.innerHTML = `
       <div class="movie-detail-bar"><a class="movie-detail-back" href="#catalog">← Back to movies</a></div>
       <header class="movie-detail-cover">${cover}<div class="movie-detail-vignette"></div></header>

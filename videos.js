@@ -49,8 +49,9 @@
     m.addEventListener('error', () => { if (m.src && !m.src.endsWith(it.file)) { m.src = it.file; m.play().catch(() => {}); } });
     stage.append(m); cap.textContent = `${fmt(it.ts)} · ${idx + 1} / ${list.length}`;
   }
-  const open = (l, i) => { list = l; lb.hidden = false; document.body.style.overflow = 'hidden'; show(i); };
-  const close = () => { lb.hidden = true; stage.replaceChildren(); document.body.style.overflow = ''; };
+  let lbTrigger = null;
+  const open = (l, i) => { lbTrigger = document.activeElement; list = l; lb.hidden = false; document.body.style.overflow = 'hidden'; show(i); lb.querySelector('.lb-x')?.focus(); };
+  const close = () => { lb.hidden = true; stage.replaceChildren(); document.body.style.overflow = ''; if (lbTrigger?.focus) lbTrigger.focus(); };
   lb.querySelector('.lb-x').onclick = close;
   lb.querySelector('.prev').onclick = () => show(idx - 1);
   lb.querySelector('.next').onclick = () => show(idx + 1);

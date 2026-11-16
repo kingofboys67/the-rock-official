@@ -15,6 +15,34 @@
     addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(run); } }, { passive: true });
   }
 
+  // Standalone fallback for pages without a page-specific script (e.g. 404.html): menu toggle + contour lines
+  const menu = document.getElementById('menu'), mb = document.getElementById('menuBtn');
+  if (menu && mb && !mb.onclick) {
+    const setMenu = o => { menu.hidden = !o; mb.setAttribute('aria-expanded', o); document.body.style.overflow = o ? 'hidden' : ''; };
+    mb.onclick = () => setMenu(menu.hidden);
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+    addEventListener('keydown', e => { if (e.key === 'Escape' && !menu.hidden) setMenu(false); });
+  }
+  document.querySelectorAll('.contours').forEach((s, i) => {
+    if (s.querySelector(':scope > svg.topo')) return;
+    let seed = 8831 + i * 977;
+    const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+    const w = 1440, h = 900, blobs = 2 + Math.floor(rnd() * 2), out = [];
+    for (let b = 0; b < blobs; b++) {
+      const cx = rnd() * w, cy = rnd() * h, p1 = rnd() * 6, p2 = rnd() * 6, p3 = rnd() * 6;
+      for (let r = 1; r <= 16; r++) {
+        const R = r * Math.min(w, h) * 0.055; let d = '';
+        for (let a = 0; a <= 64; a++) {
+          const t = a / 64 * Math.PI * 2;
+          const k = R * (1 + .22 * Math.sin(3 * t + p1) + .12 * Math.sin(5 * t + p2) + .06 * Math.sin(8 * t + p3 + r * .15));
+          d += (a ? 'L' : 'M') + (cx + Math.cos(t) * k * 1.5).toFixed(1) + ' ' + (cy + Math.sin(t) * k).toFixed(1);
+        }
+        out.push(`<path d="${d}Z"/>`);
+      }
+    }
+    s.insertAdjacentHTML('afterbegin', `<svg class="topo" viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMid slice" aria-hidden="true">${out.join('')}</svg>`);
+  });
+
   const LEGAL_COPY = {
     privacy: {
       kicker: 'The Rock Fan Club · unofficial fan site',

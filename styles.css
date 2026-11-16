@@ -384,3 +384,19 @@ body:not(.is-loading) .loader{transform:translateY(-100%)}
 .legal-modal-foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding:16px 28px 22px;border-top:1px solid rgba(247,247,242,.12);background:#12140f}
 .legal-modal-done{border-color:rgba(247,247,242,.35);color:var(--white)}
 .legal-modal-done:hover{border-color:var(--lime);color:var(--lime)}
+
+/* ---------- Keyboard Skip-to-Content Link ---------- */
+.skip-link{position:fixed;top:12px;left:12px;z-index:200;padding:10px 18px;border-radius:10px;background:var(--lime);color:var(--green);border:2px solid var(--green);font-weight:900;font-size:13px;letter-spacing:.04em;text-transform:uppercase;transform:translateY(-160%);transition:transform .2s var(--ease)}
+.skip-link:focus,.skip-link:focus-visible{transform:translateY(0);outline:3px solid var(--white);outline-offset:2px}
+
+/* ---------- Custom 404 Page (.notfound-*) ---------- */
+.notfound-page{background:var(--green);color:var(--white)}
+.notfound-main{min-height:84svh;display:grid;place-items:center;padding:clamp(120px,16vh,180px) var(--pad) 96px;text-align:center;overflow:hidden}
+.notfound-inner{max-width:680px;display:flex;flex-direction:column;align-items:center;gap:20px}
+.notfound-code{display:inline-block;padding:6px 14px;border-radius:999px;background:var(--lime);color:var(--green);font-size:11px;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
+.notfound-title{font-weight:900;font-size:clamp(44px,8vw,108px);line-height:.88;letter-spacing:-.04em;text-transform:uppercase;margin:4px 0}
+.notfound-title em{color:var(--lime)}
+.notfound-lede{font-size:clamp(16px,1.4vw,18px);line-height:1.6;color:var(--off1);max-width:46ch}
+.notfound-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:12px}
+.notfound-ghost{border-color:rgba(247,247,242,.38);color:var(--white)}
+.notfound-ghost:hover{border-color:var(--lime);color:var(--lime)}

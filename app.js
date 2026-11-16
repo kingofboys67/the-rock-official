@@ -490,8 +490,9 @@
       cap.textContent = it.gallery ? '' : `${it.ts ? fmt(it.ts) + ' · ' : ''}${idx + 1} / ${list.length}`; // gallery photos: picture only
     }
   }
-  const open = (l, i) => { list = l; lb.hidden = false; document.body.style.overflow = 'hidden'; show(i); };
-  const close = () => { lb.hidden = true; stage.replaceChildren(); document.body.style.overflow = ''; };
+  let lbTrigger = null;
+  const open = (l, i) => { lbTrigger = document.activeElement; list = l; lb.hidden = false; document.body.style.overflow = 'hidden'; show(i); lb.querySelector('.lb-x')?.focus(); };
+  const close = () => { lb.hidden = true; stage.replaceChildren(); document.body.style.overflow = ''; if (lbTrigger?.focus) lbTrigger.focus(); };
   lb.querySelector('.lb-x').onclick = close;
   lb.querySelector('.prev').onclick = () => show(idx - 1);
   lb.querySelector('.next').onclick = () => show(idx + 1);

@@ -9,13 +9,13 @@ const jsFiles = fs.readdirSync(root).filter(f => f.endsWith('.js'));
 
 console.log(`Verifying ${htmlFiles.length} HTML pages and ${jsFiles.length} JS modules...`);
 
-
 for (const jf of jsFiles) {
   execFileSync('node', ['--check', path.join(root, jf)], { stdio: 'inherit' });
 }
 execFileSync('node', ['--check', path.join(root, 'api/fan-club.js')], { stdio: 'inherit' });
 
 const requiredRootAssets = [
+  '404.html',
   'og-image.jpg',
   'favicon.ico',
   'icon.svg',
@@ -32,7 +32,7 @@ const requiredRootAssets = [
 
 for (const asset of requiredRootAssets) {
   const p = path.join(root, asset);
-  if (!fs.existsSync(p)) throw new Error(`Missing required SEO/GEO/icon root asset: ${asset}`);
+  if (!fs.existsSync(p)) throw new Error(`Missing required root asset: ${asset}`);
 }
 
 for (const hf of htmlFiles) {
@@ -48,21 +48,30 @@ for (const hf of htmlFiles) {
     throw new Error(`Found dead placeholder href="#" link in ${hf}`);
   }
 
-  // 3. Ensure canonical, OG card, and favicon links exist
+  // 3. Ensure canonical, OG card, skip-link, and favicon links exist
   if (!/<link rel="canonical" href="[^"]+">/.test(content)) {
     throw new Error(`Missing canonical link in ${hf}`);
   }
   if (!content.includes('/og-image.jpg')) {
     throw new Error(`Missing 1200x630 og-image.jpg reference in ${hf}`);
   }
-  // 5. It must stay clearly an unofficial fan site
+  if (!content.includes('class="skip-link"')) {
+    throw new Error(`Missing keyboard skip-link in ${hf}`);
+  }
+  if (content.includes('class="lightbox"') && !/class="lightbox"[^>]*role="dialog"/.test(content)) {
+    throw new Error(`Lightbox in ${hf} missing role="dialog"`);
+  }
+
+  // 4. It must stay clearly an unofficial fan site
   if (!/Unofficial fan site/i.test(content)) throw new Error(`Missing unofficial fan site notice in ${hf}`);
-  if (/Official Website|All Rights Reserved|dwaynejohnsonofficial/i.test(content)) throw new Error(`Page presents itself as official: ${hf}`);
+  if (/Official Website|All Rights Reserved|dwaynejohnsonofficial/i.test(content)) {
+    throw new Error(`Page presents itself as official: ${hf}`);
+  }
   if (!content.includes('/favicon.ico') || !content.includes('/site.webmanifest')) {
     throw new Error(`Missing favicon/webmanifest tags in ${hf}`);
   }
 
-  // 4. Verify local relative img src paths exist
+  // 5. Verify local relative img src paths exist
   const imgSrcs = [...content.matchAll(/<img[^>]+src="([^"]+)"/g)].map(m => m[1]);
   for (const src of imgSrcs) {
     if (!src || src.startsWith('http://') || src.startsWith('https://') || src.startsWith('data:')) continue;
@@ -83,9 +92,9 @@ for (const stage of ['stage-01.webp', 'stage-02.webp', 'stage-03.webp', 'stage-0
   if (!fs.existsSync(p)) throw new Error(`Missing Hero era portrait in media/eras: ${p}`);
 }
 
-// Verify image weight cap (<250KB) across Hero, Story, About, and Era directories
+// Verify image weight cap (<250KB) across Hero, Story, About, Era, and Posters directories
 const maxBytes = 250 * 1024;
-for (const dirRel of ['assets/hero', 'assets/story', 'media/about', 'media/eras', 'eras']) {
+for (const dirRel of ['assets/hero', 'assets/story', 'media/about', 'media/eras', 'eras', 'media/posters']) {
   const dir = path.join(root, dirRel);
   if (!fs.existsSync(dir)) continue;
   for (const f of fs.readdirSync(dir)) {
@@ -108,27 +117,32 @@ for (const g of gallery) {
 const moviesRaw = JSON.parse(fs.readFileSync(path.join(root, 'media/movies.json'), 'utf8'));
 const movieList = Array.isArray(moviesRaw) ? moviesRaw : (moviesRaw.movies || []);
 for (const m of movieList) {
-  const localPoster = m.posterLocal || m.poster;
-  if (localPoster && !localPoster.startsWith('http://') && !localPoster.startsWith('https://') && !fs.existsSync(path.join(root, localPoster))) {
-    throw new Error(`Missing movie poster asset: ${localPoster}`);
+  if (!m.posterLocal || !fs.existsSync(path.join(root, m.posterLocal))) {
+    throw new Error(`Missing local movie poster asset for ${m.title}: ${m.posterLocal}`);
+  }
+  if (!m.trailer) {
+    throw new Error(`Missing embedded YouTube trailer ID for ${m.title} (${m.year})`);
   }
 }
 
-// Fill in the site's address (after all checks, so the checks only ever see the source text). Pages use the token __SITE_URL__ so the domain lives in one place:
-// set SITE_URL in Vercel (e.g. https://yourfansite.com); otherwise the Vercel production URL is used.
-const SITE_URL = (process.env.SITE_URL
-  || (process.env.VERCEL_PROJECT_PRODUCTION_URL && `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`)
-  || (process.env.VERCEL_URL && `https://${process.env.VERCEL_URL}`)
-  || '').replace(/\/$/, '');
+// Fill in the site's address only during CI / Vercel builds (or when APPLY_SITE_URL=1) so local builds never dirty Git files.
+const shouldApplySiteUrl = Boolean(process.env.VERCEL || process.env.APPLY_SITE_URL === '1');
+const SITE_URL = (
+  process.env.SITE_URL ||
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL && `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`) ||
+  (process.env.VERCEL_URL && `https://${process.env.VERCEL_URL}`) ||
+  ''
+).replace(/\/$/, '');
+
 const tokenFiles = [...htmlFiles, 'sitemap.xml', 'robots.txt', 'llms.txt', 'llms-full.txt'];
-if (SITE_URL) {
+if (shouldApplySiteUrl && SITE_URL) {
   for (const f of tokenFiles) {
     const p = path.join(root, f);
     fs.writeFileSync(p, fs.readFileSync(p, 'utf8').replaceAll('__SITE_URL__', SITE_URL));
   }
   console.log(`Site address set to ${SITE_URL}`);
 } else {
-  console.log('SITE_URL not set (local check): leaving __SITE_URL__ tokens in place.');
+  console.log('Local check mode: verified __SITE_URL__ templates without modifying tracked source files.');
 }
 
-console.log(`Production build check passed with 0 errors (${htmlFiles.length} pages, ${gallery.length} gallery photos, ${movieList.length} films).`);
+console.log(`Production build check passed with 0 errors (${htmlFiles.length} pages, ${gallery.length} gallery photos, ${movieList.length} films with local posters & trailers).`);

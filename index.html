@@ -35,7 +35,15 @@
       "url": "__SITE_URL__/",
       "name": "The Rock Fan Club",
       "description": "An unofficial fan site about Dwayne “The Rock” Johnson. Not affiliated with or endorsed by Dwayne Johnson.",
-      "inLanguage": "en-US"
+      "inLanguage": "en-US",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "__SITE_URL__/movies.html?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
     },
     {
       "@type": "WebPage",
@@ -55,7 +63,9 @@
           "https://x.com/TheRock",
           "https://www.tiktok.com/@therock",
           "https://www.facebook.com/DwayneJohnson",
-          "https://en.wikipedia.org/wiki/Dwayne_Johnson"
+          "https://en.wikipedia.org/wiki/Dwayne_Johnson",
+          "https://www.imdb.com/name/nm0425005/",
+          "https://www.wwe.com/superstars/the-rock"
         ]
       }
     }
@@ -70,6 +80,7 @@
 <link rel="stylesheet" href="about.css">
 </head>
 <body class="is-loading">
+<a class="skip-link" href="#top">Skip to main content</a>
 
 <div class="loader" id="loader" aria-hidden="true">
   <div class="loader-mark"><span>THE</span><span>ROCK</span></div>
@@ -184,6 +195,23 @@
             <span>A note for the fan club <small>(optional)</small></span>
             <textarea name="message" rows="3" maxlength="800" placeholder="A favourite memory, a film you love, why you’re a fan…"></textarea>
           </label>
+          <div class="fanclub-inner-field">
+            <span>Card Photo <small>(optional, stays on your device)</small></span>
+            <div class="fanclub-inner-photo">
+              <img class="fanclub-photo-thumb" id="homePhotoThumb" width="44" height="53" decoding="async" alt="" hidden>
+              <label class="pill fanclub-home-ghost fanclub-photo-pick">
+                <input type="file" id="homePhotoInput" accept="image/*">
+                <span id="homePhotoPickText">Add photo</span>
+              </label>
+              <button class="fanclub-inner-photo-remove" type="button" id="homePhotoRemove" hidden>Remove</button>
+            </div>
+          </div>
+          <fieldset class="fanclub-inner-styles">
+            <legend>Card Style</legend>
+            <label><input type="radio" name="cardStyle" value="volt" checked><span class="fanclub-swatch fanclub-swatch-volt"></span>Volt</label>
+            <label><input type="radio" name="cardStyle" value="field"><span class="fanclub-swatch fanclub-swatch-field"></span>Field</label>
+            <label><input type="radio" name="cardStyle" value="paper"><span class="fanclub-swatch fanclub-swatch-paper"></span>Paper</label>
+          </fieldset>
         </div>
         <p class="fanclub-inner-error" id="homeFanClubError" role="alert"></p>
         <div class="fanclub-home-actions">
@@ -359,22 +387,22 @@
         </div>
         <div class="movies-spotlight-grid">
           <a class="movies-poster-card" href="movies.html#movie/scorpion-king">
-            <span class="movies-poster-frame"><img src="https://m.media-amazon.com/images/M/MV5BMjkxNTAwNTQ0M15BMl5BanBnXkFtZTYwMTQwMjM3._V1_QL85_UX700_.jpg" data-fallback="https://upload.wikimedia.org/wikipedia/en/1/1d/The_Scorpion_King_poster.jpg" alt="The Scorpion King poster" width="600" height="900" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="if(this.dataset.fallback&amp;&amp;this.src!==this.dataset.fallback){this.src=this.dataset.fallback}else{this.parentNode.classList.add('is-fallback')}"><span class="movies-poster-alt" aria-hidden="true">The Scorpion King</span></span>
+            <span class="movies-poster-frame"><img src="media/posters/scorpion-king.jpg" data-fallback="https://m.media-amazon.com/images/M/MV5BMjkxNTAwNTQ0M15BMl5BanBnXkFtZTYwMTQwMjM3._V1_QL85_UX700_.jpg" alt="The Scorpion King poster" width="600" height="900" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="if(this.dataset.fallback&amp;&amp;this.src!==this.dataset.fallback){this.src=this.dataset.fallback}else{this.parentNode.classList.add('is-fallback')}"><span class="movies-poster-alt" aria-hidden="true">The Scorpion King</span></span>
             <span class="movies-spot-year">2002</span>
             <span class="movies-poster-title">The Scorpion King</span>
           </a>
           <a class="movies-poster-card" href="movies.html#movie/fast-five">
-            <span class="movies-poster-frame"><img src="https://m.media-amazon.com/images/M/MV5BMTUxNTk5MTE0OF5BMl5BanBnXkFtZTcwMjA2NzY3NA@@._V1_QL85_UX700_.jpg" data-fallback="https://upload.wikimedia.org/wikipedia/en/0/0c/Fast_Five_poster.jpg" alt="Fast Five poster" width="600" height="900" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="if(this.dataset.fallback&amp;&amp;this.src!==this.dataset.fallback){this.src=this.dataset.fallback}else{this.parentNode.classList.add('is-fallback')}"><span class="movies-poster-alt" aria-hidden="true">Fast Five</span></span>
+            <span class="movies-poster-frame"><img src="media/posters/fast-five.jpg" data-fallback="https://m.media-amazon.com/images/M/MV5BMTUxNTk5MTE0OF5BMl5BanBnXkFtZTcwMjA2NzY3NA@@._V1_QL85_UX700_.jpg" alt="Fast Five poster" width="600" height="900" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="if(this.dataset.fallback&amp;&amp;this.src!==this.dataset.fallback){this.src=this.dataset.fallback}else{this.parentNode.classList.add('is-fallback')}"><span class="movies-poster-alt" aria-hidden="true">Fast Five</span></span>
             <span class="movies-spot-year">2011</span>
             <span class="movies-poster-title">Fast Five</span>
           </a>
           <a class="movies-poster-card" href="movies.html#movie/moana">
-            <span class="movies-poster-frame"><img src="https://m.media-amazon.com/images/M/MV5BMjI4MzU5NTExNF5BMl5BanBnXkFtZTgwNzY1MTEwMDI@._V1_QL85_UX700_.jpg" data-fallback="https://upload.wikimedia.org/wikipedia/en/2/26/Moana_Teaser_Poster.jpg" alt="Moana & Moana 2 poster" width="600" height="900" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="if(this.dataset.fallback&amp;&amp;this.src!==this.dataset.fallback){this.src=this.dataset.fallback}else{this.parentNode.classList.add('is-fallback')}"><span class="movies-poster-alt" aria-hidden="true">Moana &amp; Moana 2</span></span>
+            <span class="movies-poster-frame"><img src="media/posters/moana.jpg" data-fallback="https://m.media-amazon.com/images/M/MV5BMjI4MzU5NTExNF5BMl5BanBnXkFtZTgwNzY1MTEwMDI@._V1_QL85_UX700_.jpg" alt="Moana & Moana 2 poster" width="600" height="900" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="if(this.dataset.fallback&amp;&amp;this.src!==this.dataset.fallback){this.src=this.dataset.fallback}else{this.parentNode.classList.add('is-fallback')}"><span class="movies-poster-alt" aria-hidden="true">Moana &amp; Moana 2</span></span>
             <span class="movies-spot-year">2016 / 2024</span>
             <span class="movies-poster-title">Moana &amp; Moana 2</span>
           </a>
           <a class="movies-poster-card" href="movies.html#movie/black-adam">
-            <span class="movies-poster-frame"><img src="https://m.media-amazon.com/images/M/MV5BYmM3OTM4NDktMmI2NS00OWU0LTg4OTQtNjZhMmFkYjhmOGY1XkEyXkFqcGc@._V1_QL85_UX700_.jpg" data-fallback="https://upload.wikimedia.org/wikipedia/en/a/a9/Black_Adam_%28film%29_poster.jpg" alt="Black Adam poster" width="600" height="900" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="if(this.dataset.fallback&amp;&amp;this.src!==this.dataset.fallback){this.src=this.dataset.fallback}else{this.parentNode.classList.add('is-fallback')}"><span class="movies-poster-alt" aria-hidden="true">Black Adam</span></span>
+            <span class="movies-poster-frame"><img src="media/posters/black-adam.jpg" data-fallback="https://m.media-amazon.com/images/M/MV5BYmM3OTM4NDktMmI2NS00OWU0LTg4OTQtNjZhMmFkYjhmOGY1XkEyXkFqcGc@._V1_QL85_UX700_.jpg" alt="Black Adam poster" width="600" height="900" loading="lazy" referrerpolicy="no-referrer" decoding="async" onerror="if(this.dataset.fallback&amp;&amp;this.src!==this.dataset.fallback){this.src=this.dataset.fallback}else{this.parentNode.classList.add('is-fallback')}"><span class="movies-poster-alt" aria-hidden="true">Black Adam</span></span>
             <span class="movies-spot-year">2022</span>
             <span class="movies-poster-title">Black Adam</span>
           </a>
@@ -464,7 +492,7 @@
   </div>
 </footer>
 
-<div class="lightbox" id="lb" hidden>
+<div class="lightbox" id="lb" hidden role="dialog" aria-modal="true" aria-label="Media viewer">
   <button class="lb-x" aria-label="Close">✕</button>
   <button class="lb-nav prev" aria-label="Previous">‹</button>
   <div class="lb-stage" id="lbStage"></div>

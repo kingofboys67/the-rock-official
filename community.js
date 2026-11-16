@@ -73,7 +73,8 @@
         country: data.from?.trim() || 'Global',
         favoriteEra: to,
         message: data.message.trim(),
-        mayShare: data.share ? 'yes' : 'no'
+        mayShare: data.share ? 'yes' : 'no',
+        website: form.website?.value || ''
       });
       const first = data.name.trim().split(/\s+/)[0];
       $('#sentName').textContent = res?.applicationId ? `${first} (#${res.applicationId})` : first;

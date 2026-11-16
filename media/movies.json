@@ -13,7 +13,7 @@
   "wikiUrl": "https://en.wikipedia.org/wiki/The_Mummy_Returns",
   "trailer": "3yXjs7BUKYc",
   "rt": "46%",
-  "gross": 433013274.0,
+  "gross": 433013274,
   "castCheck": true,
   "wdChars": [
    "Mathayus"
@@ -54,7 +54,8 @@
     "actor": "Patricia Velásquez",
     "role": "Meela Nais / Anck-su-namun"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/mummy-returns.jpg"
  },
  {
   "id": "longshot",
@@ -69,12 +70,12 @@
   "synopsis": "A low-budget comedy produced by Lou Pearlman and packed with cameos from late-’90s pop acts. Johnson turns up briefly as a mugger.",
   "poster": "https://upload.wikimedia.org/wikipedia/en/5/54/Long_Shot_poster.jpg",
   "wikiUrl": "https://en.wikipedia.org/wiki/Longshot_%28film%29",
-  "trailer": null,
+  "trailer": "dM3Qj6DMHYw",
   "rt": null,
   "gross": null,
   "castCheck": true,
   "wdChars": [],
-  "trailerChannel": null,
+  "trailerChannel": "Von Gogan - Trailers",
   "imdb": "tt0201694",
   "director": [
    "Lionel C. Martin"
@@ -107,7 +108,8 @@
     "actor": "Jessica Wesson",
     "role": "Kelly Montgomery"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/longshot.jpg"
  },
  {
   "id": "scorpion-king",
@@ -124,7 +126,7 @@
   "wikiUrl": "https://en.wikipedia.org/wiki/The_Scorpion_King",
   "trailer": "b7nmYiZ6cAg",
   "rt": "41%",
-  "gross": 164996077.0,
+  "gross": 164996077,
   "castCheck": true,
   "wdChars": [
    "Mathayus",
@@ -166,7 +168,8 @@
     "actor": "Peter Facinelli",
     "role": "Takmet"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/scorpion-king.jpg"
  },
  {
   "id": "rundown",
@@ -181,12 +184,12 @@
   "synopsis": "A bounty hunter who dreams of opening a restaurant takes one last job: bringing his boss’s son (Seann William Scott) home from a lawless mining town in the Amazon. Arnold Schwarzenegger’s cameo plays as a passing of the action torch.",
   "poster": "https://upload.wikimedia.org/wikipedia/en/d/de/The_Rundown_Movie.jpg",
   "wikiUrl": "https://en.wikipedia.org/wiki/The_Rundown",
-  "trailer": null,
+  "trailer": "R2CPfA5eFa4",
   "rt": "69%",
-  "gross": 80916492.0,
+  "gross": 80916492,
   "castCheck": true,
   "wdChars": [],
-  "trailerChannel": null,
+  "trailerChannel": "HD Retro Trailers",
   "imdb": "tt0327850",
   "director": [
    "Peter Berg"
@@ -219,7 +222,8 @@
     "actor": "William Lucking",
     "role": "Billy Walker"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/rundown.jpg"
  },
  {
   "id": "walking-tall",
@@ -271,7 +275,8 @@
     "actor": "Ashley Scott",
     "role": "Deni"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/walking-tall.jpg"
  },
  {
   "id": "be-cool",
@@ -323,7 +328,8 @@
     "actor": "Robert Pastorelli",
     "role": "Joseph \"Joe Loop\" Lupino"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/be-cool.jpg"
  },
  {
   "id": "doom",
@@ -339,7 +345,7 @@
   "wikiUrl": "https://en.wikipedia.org/wiki/Doom_%28film%29",
   "trailer": "LljkKoPs1Gg",
   "rt": "18%",
-  "gross": 58072119.0,
+  "gross": 58072119,
   "castCheck": true,
   "wdChars": [],
   "deadTrailer": [
@@ -378,7 +384,8 @@
     "actor": "Raz Adoti",
     "role": "Gregory \"Duke\" Schofield"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/doom.jpg"
  },
  {
   "id": "gridiron-gang",
@@ -430,7 +437,8 @@
     "actor": "Setu Taase",
     "role": "Junior Palaita"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/gridiron-gang.jpg"
  },
  {
   "id": "southland-tales",
@@ -482,7 +490,8 @@
     "actor": "John Larroquette",
     "role": "Vaughn Smallhouse"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/southland-tales.jpg"
  },
  {
   "id": "reno-911",
@@ -535,7 +544,8 @@
     "actor": "Wendi McLendon-Covey",
     "role": "Deputy Clementine Johnson"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/reno-911.jpg"
  },
  {
   "id": "game-plan",
@@ -587,7 +597,8 @@
     "actor": "Paige Turco",
     "role": "Karen Kelly"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/game-plan.jpg"
  },
  {
   "id": "get-smart",
@@ -604,7 +615,7 @@
   "wikiUrl": "https://en.wikipedia.org/wiki/Get_Smart_%28film%29",
   "trailer": "K9WNBO3szgQ",
   "rt": "51%",
-  "gross": 230700000.0,
+  "gross": 230700000,
   "castCheck": true,
   "wdChars": [],
   "deadTrailer": [
@@ -643,7 +654,8 @@
     "actor": "David Koechner",
     "role": "Larabee"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/get-smart.jpg"
  },
  {
   "id": "witch-mountain",
@@ -660,7 +672,7 @@
   "wikiUrl": "https://en.wikipedia.org/wiki/Race_to_Witch_Mountain",
   "trailer": "SX2PWpcJlrY",
   "rt": "42%",
-  "gross": 106387141.0,
+  "gross": 106387141,
   "castCheck": true,
   "wdChars": [
    "Jack Bruno"
@@ -698,7 +710,8 @@
     "actor": "Garry Marshall",
     "role": "Dr. Donald Harlan"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/witch-mountain.jpg"
  },
  {
   "id": "planet-51",
@@ -753,7 +766,8 @@
     "actor": "John Cleese",
     "role": "Professor Kipple"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/planet-51.jpg"
  },
  {
   "id": "tooth-fairy",
@@ -805,7 +819,8 @@
     "actor": "Chase Ellison",
     "role": "Randy Harris"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/tooth-fairy.jpg"
  },
  {
   "id": "why-married-too",
@@ -859,7 +874,8 @@
     "actor": "Richard T. Jones",
     "role": "Mike"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/why-married-too.jpg"
  },
  {
   "id": "other-guys",
@@ -877,7 +893,7 @@
   "wikiUrl": "https://en.wikipedia.org/wiki/The_Other_Guys",
   "trailer": "D6WOoUG1eNo",
   "rt": "79%",
-  "gross": 170500000.0,
+  "gross": 170500000,
   "castCheck": true,
   "wdChars": [],
   "trailerChannel": "Sony Pictures Entertainment",
@@ -913,7 +929,8 @@
     "actor": "Ray Stevenson",
     "role": "Roger Wesley"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/other-guys.jpg"
  },
  {
   "id": "you-again",
@@ -966,7 +983,8 @@
     "actor": "Victor Garber",
     "role": "Mark Olsen"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/you-again.jpg"
  },
  {
   "id": "faster",
@@ -1021,7 +1039,8 @@
     "actor": "Adewale Akinnuoye-Agbaje",
     "role": "Alexander Jarod / Evangelist"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/faster.jpg"
  },
  {
   "id": "fast-five",
@@ -1037,7 +1056,7 @@
   "wikiUrl": "https://en.wikipedia.org/wiki/Fast_Five",
   "trailer": "vcn2GOuZCKI",
   "rt": "78%",
-  "gross": 626137675.0,
+  "gross": 626137675,
   "castCheck": true,
   "wdChars": [
    "Luke Hobbs"
@@ -1078,7 +1097,8 @@
     "actor": "Matt Schulze",
     "role": "Vince"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/fast-five.jpg"
  },
  {
   "id": "journey-2",
@@ -1095,7 +1115,7 @@
   "wikiUrl": "https://en.wikipedia.org/wiki/Journey_2%3A_The_Mysterious_Island",
   "trailer": "IVX7OidrkXQ",
   "rt": "45%",
-  "gross": 335300000.0,
+  "gross": 335300000,
   "castCheck": true,
   "wdChars": [],
   "deadTrailer": [
@@ -1134,7 +1154,8 @@
     "actor": "Anna Colwell",
     "role": "Jessica"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/journey-2.jpg"
  },
  {
   "id": "snitch",
@@ -1190,7 +1211,8 @@
     "actor": "Michael Kenneth Williams",
     "role": "Malik Anderson"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/snitch.jpg"
  },
  {
   "id": "gi-joe",
@@ -1206,7 +1228,7 @@
   "wikiUrl": "https://en.wikipedia.org/wiki/G.I._Joe%3A_Retaliation",
   "trailer": "2vAo4rJPqQ4",
   "rt": "29%",
-  "gross": 375700000.0,
+  "gross": 375700000,
   "castCheck": true,
   "wdChars": [
    "Roadblock"
@@ -1247,7 +1269,8 @@
     "actor": "Lee Byung-hun",
     "role": "Thomas Arashikage / Storm Shadow"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/gi-joe.jpg"
  },
  {
   "id": "pain-gain",
@@ -1302,7 +1325,8 @@
     "actor": "Rebel Wilson",
     "role": "Robin Peck"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/pain-gain.jpg"
  },
  {
   "id": "ff6",
@@ -1318,7 +1342,7 @@
   "wikiUrl": "https://en.wikipedia.org/wiki/Fast_%26_Furious_6",
   "trailer": "dKi5XoeTN0k",
   "rt": "71%",
-  "gross": 788680968.0,
+  "gross": 788680968,
   "castCheck": true,
   "wdChars": [
    "Luke Hobbs"
@@ -1359,7 +1383,8 @@
     "actor": "Ludacris",
     "role": "Tej Parker"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/ff6.jpg"
  },
  {
   "id": "empire-state",
@@ -1373,12 +1398,12 @@
   "synopsis": "Based on a real 1982 armored-car depot robbery in New York, two childhood friends pull off the heist and draw the attention of a determined detective.",
   "poster": "https://upload.wikimedia.org/wikipedia/en/f/f3/Empire_state_--_dvd_cover.jpg",
   "wikiUrl": "https://en.wikipedia.org/wiki/Empire_State_%282013_film%29",
-  "trailer": null,
+  "trailer": "BgBire-4f1Q",
   "rt": null,
   "gross": null,
   "castCheck": true,
   "wdChars": [],
-  "trailerChannel": null,
+  "trailerChannel": "FilmIsNow Movies",
   "imdb": "tt2171867",
   "director": [
    "Dito Montiel"
@@ -1411,7 +1436,8 @@
     "actor": "Jerry Ferrara",
     "role": "Jimmy \"The Greek\""
    }
-  ]
+  ],
+  "posterLocal": "media/posters/empire-state.jpg"
  },
  {
   "id": "hercules",
@@ -1427,7 +1453,7 @@
   "wikiUrl": "https://en.wikipedia.org/wiki/Hercules_%282014_film%29",
   "trailer": "GFqY089piQ4",
   "rt": "58%",
-  "gross": 244819862.0,
+  "gross": 244819862,
   "castCheck": true,
   "wdChars": [
    "Hercules",
@@ -1467,7 +1493,8 @@
     "actor": "Ingrid Bolsø Berdal",
     "role": "Atalanta"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/hercules.jpg"
  },
  {
   "id": "furious-7",
@@ -1484,7 +1511,7 @@
   "wikiUrl": "https://en.wikipedia.org/wiki/Furious_7",
   "trailer": "yISKeT6sDOg",
   "rt": "81%",
-  "gross": 1515047671.0,
+  "gross": 1515047671,
   "castCheck": true,
   "wdChars": [
    "Luke Hobbs"
@@ -1521,7 +1548,8 @@
     "actor": "Jordana Brewster",
     "role": "Mia Toretto"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/furious-7.jpg"
  },
  {
   "id": "san-andreas",
@@ -1537,7 +1565,7 @@
   "wikiUrl": "https://en.wikipedia.org/wiki/San_Andreas_%28film%29",
   "trailer": "yftHosO0eUo",
   "rt": "48%",
-  "gross": 474009154.0,
+  "gross": 474009154,
   "castCheck": true,
   "wdChars": [],
   "trailerChannel": "Rotten Tomatoes Trailers",
@@ -1573,7 +1601,8 @@
     "actor": "Ioan Gruffudd",
     "role": "Daniel Riddick"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/san-andreas.jpg"
  },
  {
   "id": "jem",
@@ -1630,7 +1659,8 @@
     "actor": "Ryan Guzman",
     "role": "Mario \"Rio\" Raymond"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/jem.jpg"
  },
  {
   "id": "central-intelligence",
@@ -1647,7 +1677,7 @@
   "wikiUrl": "https://en.wikipedia.org/wiki/Central_Intelligence",
   "trailer": "MxEw3elSJ8M",
   "rt": "71%",
-  "gross": 217000000.0,
+  "gross": 217000000,
   "castCheck": true,
   "wdChars": [
    "Bob Stone"
@@ -1688,7 +1718,8 @@
     "actor": "Tim Griffin",
     "role": "Agent Stan Mitchell"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/central-intelligence.jpg"
  },
  {
   "id": "moana",
@@ -1704,7 +1735,7 @@
   "wikiUrl": "https://en.wikipedia.org/wiki/Moana_%282016_film%29",
   "trailer": "LKFuXETZUsI",
   "rt": "95%",
-  "gross": 690845539.0,
+  "gross": 690845539,
   "castCheck": true,
   "wdChars": [],
   "imdb": "tt3521164",
@@ -1742,7 +1773,8 @@
     "actor": "Alan Tudyk",
     "role": "Heihei"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/moana.jpg"
  },
  {
   "id": "fate-furious",
@@ -1758,7 +1790,7 @@
   "wikiUrl": "https://en.wikipedia.org/wiki/The_Fate_of_the_Furious",
   "trailer": "5XBmsl7wbIQ",
   "rt": "67%",
-  "gross": 1236005118.0,
+  "gross": 1236005118,
   "castCheck": true,
   "wdChars": [
    "Luke Hobbs"
@@ -1799,7 +1831,8 @@
     "actor": "Scott Eastwood",
     "role": "Little Nobody"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/fate-furious.jpg"
  },
  {
   "id": "baywatch",
@@ -1857,7 +1890,8 @@
     "actor": "Ilfenesh Hadera",
     "role": "Stephanie Holden"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/baywatch.jpg"
  },
  {
   "id": "jumanji-wttj",
@@ -1876,7 +1910,7 @@
   "wikiUrl": "https://en.wikipedia.org/wiki/Jumanji%3A_Welcome_to_the_Jungle",
   "trailer": "2QKg5SZ_35I",
   "rt": "77%",
-  "gross": 962102237.0,
+  "gross": 962102237,
   "castCheck": true,
   "wdChars": [
    "Dr. Smolder Bravestone"
@@ -1913,7 +1947,8 @@
     "actor": "Rhys Darby",
     "role": "Nigel"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/jumanji-wttj.jpg"
  },
  {
   "id": "rampage",
@@ -1929,7 +1964,7 @@
   "wikiUrl": "https://en.wikipedia.org/wiki/Rampage_%282018_film%29",
   "trailer": "coOKvrsmQiI",
   "rt": "51%",
-  "gross": 428028233.0,
+  "gross": 428028233,
   "castCheck": true,
   "wdChars": [],
   "deadTrailer": [
@@ -1968,7 +2003,8 @@
     "actor": "Marley Shelton",
     "role": "Kerry Atkins"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/rampage.jpg"
  },
  {
   "id": "skyscraper",
@@ -1984,7 +2020,7 @@
   "wikiUrl": "https://en.wikipedia.org/wiki/Skyscraper_%282018_film%29",
   "trailer": "t9QePUT-Yt8",
   "rt": "48%",
-  "gross": 304868961.0,
+  "gross": 304868961,
   "castCheck": true,
   "wdChars": [],
   "deadTrailer": [
@@ -2023,7 +2059,8 @@
     "actor": "Hannah Quinlivan",
     "role": "Xia"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/skyscraper.jpg"
  },
  {
   "id": "fighting-family",
@@ -2039,12 +2076,12 @@
   "synopsis": "Based on the true story of WWE wrestler Paige and her wrestling family from Norwich, England. Johnson produced the film and appears as himself.",
   "poster": "https://upload.wikimedia.org/wikipedia/en/5/55/Fighting_With_My_Family_poster.png",
   "wikiUrl": "https://en.wikipedia.org/wiki/Fighting_with_My_Family",
-  "trailer": null,
+  "trailer": "5VgUt2OqK04",
   "rt": "93%",
   "gross": null,
   "castCheck": true,
   "wdChars": [],
-  "trailerChannel": null,
+  "trailerChannel": "LionsgateFilmsUK",
   "imdb": "tt6513120",
   "director": [
    "Stephen Merchant"
@@ -2077,7 +2114,8 @@
     "actor": "Ellie Gonsalves",
     "role": "Madison"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/fighting-family.jpg"
  },
  {
   "id": "hobbs-shaw",
@@ -2091,9 +2129,9 @@
   "synopsis": "Hobbs and Deckard Shaw are forced to team up against a cybernetically enhanced terrorist (Idris Elba) to stop a deadly virus.",
   "poster": "https://upload.wikimedia.org/wikipedia/en/0/00/Fast_%26_Furious_Presents_Hobbs_%26_Shaw_-_theatrical_poster.jpg",
   "wikiUrl": "https://en.wikipedia.org/wiki/Hobbs_%26_Shaw",
-  "trailer": null,
+  "trailer": "p0msEbFufH8",
   "rt": "67%",
-  "gross": 759056935.0,
+  "gross": 759056935,
   "castCheck": true,
   "wdChars": [
    "Luke Hobbs"
@@ -2101,7 +2139,7 @@
   "deadTrailer": [
    "9NnDLeoMj_o"
   ],
-  "trailerChannel": null,
+  "trailerChannel": "KinoCheck.com",
   "imdb": "tt6806448",
   "director": [
    "David Leitch"
@@ -2134,7 +2172,8 @@
     "actor": "Helen Mirren",
     "role": "Magdalene \"Queenie\" Shaw"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/hobbs-shaw.jpg"
  },
  {
   "id": "jumanji-next",
@@ -2151,7 +2190,7 @@
   "wikiUrl": "https://en.wikipedia.org/wiki/Jumanji%3A_The_Next_Level",
   "trailer": "rBxcF-r9Ibs",
   "rt": "72%",
-  "gross": 800059707.0,
+  "gross": 800059707,
   "castCheck": true,
   "wdChars": [
    "Dr. Smolder Bravestone"
@@ -2192,7 +2231,8 @@
     "actor": "Rory McCann",
     "role": "Jurgen the Brutal"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/jumanji-next.jpg"
  },
  {
   "id": "jungle-cruise",
@@ -2244,7 +2284,8 @@
     "actor": "Paul Giamatti",
     "role": "Nilo Nemolato"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/jungle-cruise.jpg"
  },
  {
   "id": "free-guy",
@@ -2262,7 +2303,7 @@
   "wikiUrl": "https://en.wikipedia.org/wiki/Free_Guy",
   "trailer": "X2m-08cOAbc",
   "rt": "80%",
-  "gross": 330600000.0,
+  "gross": 330600000,
   "castCheck": false,
   "wdChars": [],
   "deadTrailer": [
@@ -2301,7 +2342,8 @@
     "actor": "Taika Waititi",
     "role": "Antwan Hovachelik"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/free-guy.jpg"
  },
  {
   "id": "red-notice",
@@ -2357,7 +2399,8 @@
     "actor": "Vincenzo Amato",
     "role": "Director Gallo"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/red-notice.jpg"
  },
  {
   "id": "super-pets",
@@ -2374,7 +2417,7 @@
   "wikiUrl": "https://en.wikipedia.org/wiki/DC_League_of_Super-Pets",
   "trailer": "1jkw2JPCl18",
   "rt": "73%",
-  "gross": 207357117.0,
+  "gross": 207357117,
   "castCheck": true,
   "wdChars": [],
   "deadTrailer": [
@@ -2413,7 +2456,8 @@
     "actor": "Diego Luna",
     "role": "Chip"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/super-pets.jpg"
  },
  {
   "id": "black-adam",
@@ -2429,7 +2473,7 @@
   "wikiUrl": "https://en.wikipedia.org/wiki/Black_Adam_%28film%29",
   "trailer": "X0tOpBuYasI",
   "rt": "38%",
-  "gross": 392952111.0,
+  "gross": 392952111,
   "castCheck": true,
   "wdChars": [
    "Black Adam"
@@ -2470,7 +2514,8 @@
     "actor": "Bodhi Sabongui",
     "role": "Amon Tomaz"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/black-adam.jpg"
  },
  {
   "id": "fast-x",
@@ -2526,7 +2571,8 @@
     "actor": "Nathalie Emmanuel",
     "role": "Ramsey"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/fast-x.jpg"
  },
  {
   "id": "red-one",
@@ -2584,7 +2630,8 @@
     "actor": "Nick Kroll",
     "role": "Ted"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/red-one.jpg"
  },
  {
   "id": "moana-2",
@@ -2641,7 +2688,8 @@
     "actor": "Khaleesi Lambert-Tsuda",
     "role": "Simea"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/moana-2.jpg"
  },
  {
   "id": "smashing-machine",
@@ -2697,7 +2745,8 @@
     "actor": "Lyndsey Gavin",
     "role": "Elizabeth Coleman"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/smashing-machine.jpg"
  },
  {
   "id": "moana-live",
@@ -2750,7 +2799,8 @@
     "actor": "Jemaine Clement",
     "role": "Tamatoa (voice)"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/moana-live.jpg"
  },
  {
   "id": "jumanji-3",
@@ -2803,6 +2853,7 @@
     "actor": "Alex Wolff",
     "role": "Spencer Gilpin"
    }
-  ]
+  ],
+  "posterLocal": "media/posters/jumanji-3.jpg"
  }
 ]

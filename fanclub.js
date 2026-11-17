@@ -1,6 +1,6 @@
 // fanclub.html: the membership card and fan club sign-up (unofficial fan site).
 // Drawn on a canvas so the preview and the downloaded PNG are the same image.
-// Submitting delivers the applicant's data to Zoho Mail + sends the Canva-style Resend auto-reply via /api/fan-club.
+// Submitting delivers the applicant's data to Hostinger Email + sends the Canva-style Resend auto-reply via /api/fan-club.
 (async () => {
   const $ = s => document.querySelector(s);
   const form = $('#joinForm'), canvas = $('#card'), err = $('#joinError');

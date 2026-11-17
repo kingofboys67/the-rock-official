@@ -1,6 +1,6 @@
 // Home page fan club sign-up (#fan-club):
 // Live-updates the 3D membership card (including optional device-only photo + Volt/Field/Paper themes)
-// as the visitor types, posts the application to /api/fan-club (delivering to Zoho Mail + sending the
+// as the visitor types, posts the application to /api/fan-club (delivering to Hostinger Email + sending the
 // Canva-style Resend auto-reply), and transitions into the on-screen membership pass with PNG download.
 (async () => {
   const canvas = document.getElementById('fanclubHomeCard');

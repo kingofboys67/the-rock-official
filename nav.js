@@ -59,7 +59,7 @@
         },
         {
           h: 'How we use it',
-          p: 'To add you to the fan club, send you a welcome email and fan club news, and reply to letters. Emails are sent with Resend and received in a Zoho Mail inbox run by the fan club. We never sell or rent your details.'
+          p: 'To add you to the fan club, send you a welcome email and fan club news, and reply to letters. Emails are sent with Resend and received in a Hostinger Email inbox run by the fan club. We never sell or rent your details.'
         },
         {
           h: 'On your device',

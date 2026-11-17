@@ -1,14 +1,19 @@
 // Vercel Serverless Function: POST /api/fan-club
-// The Rock Fan Club (unofficial fan site): sends each sign-up or letter to the fan club's own inbox,
-// and a short welcome email to the fan, both via Resend. Emails always go out as "The Rock Fan Club"
-// and say plainly that this is an unofficial fan site, not Dwayne Johnson or his team.
+// The Rock Fan Club (unofficial fan site): sends each sign-up or letter to the fan club's Hostinger Email inbox,
+// and a short welcome email to the fan via Resend (with built-in Hostinger SMTP 465 fallback if configured).
+// Emails always go out as "The Rock Fan Club" and say plainly that this is an unofficial fan site.
 //
-// Env: RESEND_API_KEY, FANCLUB_INBOX / ZOHO_RECEIVER_EMAIL (where sign-ups land),
-// RESEND_FROM_EMAIL (verified sender address; display name is overridden to "The Rock Fan Club"),
-// SITE_URL (e.g. https://dwaynejohnsonofficial.com).
+// Env:
+//   - RESEND_API_KEY (or HOSTINGER_SMTP_USER + HOSTINGER_SMTP_PASS for direct smtp.hostinger.com:465)
+//   - FANCLUB_INBOX / HOSTINGER_RECEIVER_EMAIL (Hostinger mailbox where sign-ups & letters land)
+//   - RESEND_FROM_EMAIL (verified sender address; display name is overridden to "The Rock Fan Club")
+//   - SITE_URL (e.g. https://dwaynejohnsonofficial.com)
+
+import tls from 'node:tls';
 
 const RESEND_ENDPOINT = 'https://api.resend.com/emails';
 const CLUB = 'The Rock Fan Club';
+const DEFAULT_INBOX_ADDRESS = 'contact@dwaynejohnsonofficial.com';
 const DEFAULT_FROM_ADDRESS = 'fanclub@dwaynejohnsonofficial.com';
 const DISCLAIMER = 'The Rock Fan Club is an unofficial fan site. It is not run by, affiliated with or endorsed by Dwayne Johnson or his team, and messages sent here do not reach him.';
 
@@ -64,10 +69,10 @@ function resolveAllowedOrigin(reqOrigin) {
 }
 
 // Always send as the fan club, falling back to the verified domain sender if RESEND_FROM_EMAIL is unset.
-const fromHeader = () => {
-  const raw = process.env.RESEND_FROM_EMAIL || DEFAULT_FROM_ADDRESS;
+const fromHeader = fallbackAddr => {
+  const raw = process.env.RESEND_FROM_EMAIL || fallbackAddr || DEFAULT_FROM_ADDRESS;
   const addr = (raw.match(/<([^>]+)>/) || [, raw])[1].trim();
-  return addr ? `${CLUB} <${addr}>` : '';
+  return addr ? { header: `${CLUB} <${addr}>`, addr } : { header: '', addr: '' };
 };
 const clip = (v, n) => String(v ?? '').trim().slice(0, n);
 
@@ -88,7 +93,7 @@ function generateApplicationId(seedNumber) {
   return `RFC-2026-${rand}`;
 }
 
-function buildAdminZohoEmailHtml({
+function buildAdminHostingerEmailHtml({
   applicationId,
   submissionType,
   fullName,
@@ -167,7 +172,7 @@ function buildAdminZohoEmailHtml({
     </tr>
     <tr>
       <td style="padding:18px 32px;background-color:#0F110C;border-top:1px solid #2A2D24;font-size:12px;color:#858A76;text-align:center;">
-        Sent by the fan club website form · ${escapeHtml(siteUrl() || 'site')}
+        Delivered to Hostinger Email inbox · ${escapeHtml(siteUrl() || 'site')}
       </td>
     </tr>
   </table>
@@ -234,6 +239,64 @@ async function sendResendEmail(apiKey, payload) {
   });
   const data = await response.json().catch(() => ({}));
   return { ok: response.ok, status: response.status, data };
+}
+
+// Direct Hostinger implicit-TLS SMTP sender (smtp.hostinger.com:465) used when HOSTINGER_SMTP_USER/PASS are set without RESEND_API_KEY
+function sendHostingerSmtpEmail({ host, port, user, pass }, { fromHeaderStr, fromAddr, toAddr, replyTo, subject, html }) {
+  return new Promise(resolve => {
+    const socket = tls.connect({ host, port, servername: host, timeout: 12000 });
+    let buf = '';
+    let step = 0;
+    const finish = (ok, status, message) => {
+      try { socket.end(); } catch {}
+      resolve({ ok, status, data: { message } });
+    };
+    socket.on('timeout', () => finish(false, 504, 'Hostinger SMTP connection timed out.'));
+    socket.on('error', err => finish(false, 502, err.message || 'Hostinger SMTP socket error.'));
+
+    const sendLine = line => socket.write(line + '\r\n');
+    const b64Subject = `=?UTF-8?B?${Buffer.from(subject, 'utf8').toString('base64')}?=`;
+    const b64Html = Buffer.from(html, 'utf8').toString('base64').replace(/(.{76})/g, '$1\r\n');
+
+    socket.on('data', chunk => {
+      buf += chunk.toString('utf8');
+      const lines = buf.split('\r\n');
+      buf = lines.pop() || '';
+      for (const line of lines) {
+        if (!/^\d{3} /.test(line)) continue;
+        const code = Number(line.slice(0, 3));
+        if (code >= 400) return finish(false, code, line);
+        if (step === 0 && code === 220) { step = 1; sendLine('EHLO dwaynejohnsonofficial.com'); }
+        else if (step === 1 && code === 250) { step = 2; sendLine('AUTH LOGIN'); }
+        else if (step === 2 && code === 334) { step = 3; sendLine(Buffer.from(user, 'utf8').toString('base64')); }
+        else if (step === 3 && code === 334) { step = 4; sendLine(Buffer.from(pass, 'utf8').toString('base64')); }
+        else if (step === 4 && code === 235) { step = 5; sendLine(`MAIL FROM:<${fromAddr}>`); }
+        else if (step === 5 && code === 250) { step = 6; sendLine(`RCPT TO:<${toAddr}>`); }
+        else if (step === 6 && code === 250) { step = 7; sendLine('DATA'); }
+        else if (step === 7 && code === 354) {
+          step = 8;
+          const rawMsg = [
+            `From: ${fromHeaderStr}`,
+            `To: <${toAddr}>`,
+            replyTo ? `Reply-To: <${replyTo}>` : null,
+            `Subject: ${b64Subject}`,
+            `Date: ${new Date().toUTCString()}`,
+            'MIME-Version: 1.0',
+            'Content-Type: text/html; charset=UTF-8',
+            'Content-Transfer-Encoding: base64',
+            '',
+            b64Html,
+            '.'
+          ].filter(v => v !== null).join('\r\n');
+          sendLine(rawMsg);
+        } else if (step === 8 && code === 250) {
+          step = 9;
+          sendLine('QUIT');
+          return finish(true, 200, 'Delivered via Hostinger SMTP');
+        }
+      }
+    });
+  });
 }
 
 export default async function handler(req, res) {
@@ -310,18 +373,23 @@ export default async function handler(req, res) {
   const timestamp = new Date().toISOString();
 
   const resendApiKey = process.env.RESEND_API_KEY;
-  const zohoReceiver = process.env.FANCLUB_INBOX || process.env.ZOHO_RECEIVER_EMAIL;
-  const fromAddress = fromHeader();
+  const smtpUser = process.env.HOSTINGER_SMTP_USER || '';
+  const smtpPass = process.env.HOSTINGER_SMTP_PASS || '';
+  const smtpHost = process.env.HOSTINGER_SMTP_HOST || 'smtp.hostinger.com';
+  const smtpPort = Number(process.env.HOSTINGER_SMTP_PORT || 465);
 
-  if (!resendApiKey || !zohoReceiver || !fromAddress) {
+  const hostingerReceiver = process.env.FANCLUB_INBOX || process.env.HOSTINGER_RECEIVER_EMAIL || smtpUser || DEFAULT_INBOX_ADDRESS;
+  const { header: fromAddress, addr: fromRawAddr } = fromHeader(smtpUser || DEFAULT_FROM_ADDRESS);
+
+  if ((!resendApiKey && (!smtpUser || !smtpPass)) || !hostingerReceiver || !fromAddress) {
     return res.status(503).json({
       ok: false,
-      error: 'Email is not set up yet (RESEND_API_KEY and FANCLUB_INBOX / ZOHO_RECEIVER_EMAIL are needed).',
+      error: 'Email is not set up yet (configure RESEND_API_KEY or HOSTINGER_SMTP_USER/PASS, plus FANCLUB_INBOX).',
       applicationId
     });
   }
 
-  const adminHtml = buildAdminZohoEmailHtml({
+  const adminHtml = buildAdminHostingerEmailHtml({
     applicationId,
     submissionType,
     fullName,
@@ -353,22 +421,45 @@ export default async function handler(req, res) {
 
   const applicantSubject = isLetter ? `${CLUB}: we got your letter` : `Welcome to ${CLUB} (#${applicationId})`;
 
-  const [adminResult, applicantResult] = await Promise.all([
-    sendResendEmail(resendApiKey, {
-      from: fromAddress,
-      to: [zohoReceiver],
-      reply_to: email,
-      subject: adminSubject,
-      html: adminHtml
-    }),
-    sendResendEmail(resendApiKey, {
-      from: fromAddress,
-      to: [email],
-      reply_to: zohoReceiver,
-      subject: applicantSubject,
-      html: applicantHtml
-    })
-  ]);
+  let adminResult, applicantResult;
+  if (resendApiKey) {
+    [adminResult, applicantResult] = await Promise.all([
+      sendResendEmail(resendApiKey, {
+        from: fromAddress,
+        to: [hostingerReceiver],
+        reply_to: email,
+        subject: adminSubject,
+        html: adminHtml
+      }),
+      sendResendEmail(resendApiKey, {
+        from: fromAddress,
+        to: [email],
+        reply_to: hostingerReceiver,
+        subject: applicantSubject,
+        html: applicantHtml
+      })
+    ]);
+  } else {
+    const smtpCfg = { host: smtpHost, port: smtpPort, user: smtpUser, pass: smtpPass };
+    [adminResult, applicantResult] = await Promise.all([
+      sendHostingerSmtpEmail(smtpCfg, {
+        fromHeaderStr: `${CLUB} <${smtpUser}>`,
+        fromAddr: smtpUser,
+        toAddr: hostingerReceiver,
+        replyTo: email,
+        subject: adminSubject,
+        html: adminHtml
+      }),
+      sendHostingerSmtpEmail(smtpCfg, {
+        fromHeaderStr: `${CLUB} <${smtpUser}>`,
+        fromAddr: smtpUser,
+        toAddr: email,
+        replyTo: hostingerReceiver,
+        subject: applicantSubject,
+        html: applicantHtml
+      })
+    ]);
+  }
 
   if (!adminResult.ok && !applicantResult.ok) {
     return res.status(502).json({
@@ -376,7 +467,7 @@ export default async function handler(req, res) {
       error:
         adminResult.data?.message ||
         applicantResult.data?.message ||
-        'Email dispatch failed via Resend.',
+        'Email dispatch failed.',
       applicationId,
       details: {
         adminStatus: adminResult.status,
@@ -389,7 +480,7 @@ export default async function handler(req, res) {
     ok: true,
     applicationId,
     timestamp,
-    zohoDelivered: adminResult.ok,
+    hostingerDelivered: adminResult.ok,
     autoReplyDelivered: applicantResult.ok,
     applicant: {
       fullName,

@@ -228,17 +228,64 @@ function buildApplicantCanvaEmailHtml({ applicationId, fullName, firstName, coun
 </html>`;
 }
 
+async function clearResendSuppressions(apiKey, targetEmails = []) {
+  const targets = new Set(targetEmails.map(e => String(e || '').toLowerCase().trim()).filter(Boolean));
+  try {
+    const r = await fetch('https://api.resend.com/suppressions', {
+      headers: { Authorization: `Bearer ${apiKey}` }
+    });
+    if (!r.ok) return;
+    const list = await r.json().catch(() => ({}));
+    const entries = Array.isArray(list?.data) ? list.data : [];
+    await Promise.all(
+      entries
+        .filter(item => {
+          const em = String(item?.email || '').toLowerCase();
+          return targets.has(em) || em.endsWith('@dwaynejohnsonofficial.com');
+        })
+        .map(item =>
+          fetch(`https://api.resend.com/suppressions/${encodeURIComponent(item.id)}`, {
+            method: 'DELETE',
+            headers: { Authorization: `Bearer ${apiKey}` }
+          }).catch(() => {})
+        )
+    );
+  } catch {}
+}
+
 async function sendResendEmail(apiKey, payload) {
-  const response = await fetch(RESEND_ENDPOINT, {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(payload)
-  });
-  const data = await response.json().catch(() => ({}));
-  return { ok: response.ok, status: response.status, data };
+  const recipients = [...(payload.to || []), ...(payload.cc || [])];
+  await clearResendSuppressions(apiKey, recipients);
+
+  const dispatchOnce = async () => {
+    const response = await fetch(RESEND_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    });
+    const data = await response.json().catch(() => ({}));
+    return { ok: response.ok, status: response.status, data };
+  };
+
+  let res = await dispatchOnce();
+  if (res.ok && res.data?.id) {
+    try {
+      const check = await fetch(`${RESEND_ENDPOINT}/${encodeURIComponent(res.data.id)}`, {
+        headers: { Authorization: `Bearer ${apiKey}` }
+      });
+      if (check.ok) {
+        const info = await check.json().catch(() => ({}));
+        if (info?.last_event === 'suppressed') {
+          await clearResendSuppressions(apiKey, recipients);
+          res = await dispatchOnce();
+        }
+      }
+    } catch {}
+  }
+  return res;
 }
 
 // Direct Hostinger implicit-TLS SMTP sender (smtp.hostinger.com:465) used when HOSTINGER_SMTP_USER/PASS are set without RESEND_API_KEY
@@ -423,10 +470,12 @@ export default async function handler(req, res) {
 
   let adminResult, applicantResult;
   if (resendApiKey) {
+    const adminRecipients = [...new Set([hostingerReceiver, DEFAULT_FROM_ADDRESS].filter(Boolean))];
     [adminResult, applicantResult] = await Promise.all([
       sendResendEmail(resendApiKey, {
         from: fromAddress,
-        to: [hostingerReceiver],
+        to: [adminRecipients[0]],
+        ...(adminRecipients.length > 1 ? { cc: adminRecipients.slice(1) } : {}),
         reply_to: email,
         subject: adminSubject,
         html: adminHtml

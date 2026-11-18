@@ -63,12 +63,13 @@
   }
 
   function getFormDraft() {
-    if (!form) return member || { number: draftNumber, since, name: '', city: '', movie: '', style: 'volt' };
+    if (!form) return member || { number: draftNumber, since, name: '', phone: '', city: '', movie: '', style: 'volt' };
     return {
       number: member?.number || draftNumber,
       since: member?.since || since,
       name: form.fullName.value.trim() || member?.name || '',
       email: form.email.value.trim() || member?.email || '',
+      phone: form.phone?.value.trim() || member?.phone || '',
       city: form.country.value.trim() || member?.city || '',
       instagram: form.instagram.value.trim() || member?.instagram || '',
       movie: form.favoriteEra.value || member?.movie || 'Attitude Era / The Final Boss',
@@ -99,6 +100,7 @@
   if (form && member?.name) {
     form.fullName.value = member.name || '';
     form.email.value = member.email || '';
+    if (form.phone) form.phone.value = member.phone || '';
     form.country.value = member.city || '';
     form.instagram.value = member.instagram || '';
     if (member.movie) form.favoriteEra.value = member.movie;
@@ -143,6 +145,7 @@
 
     const fullName = form.fullName.value.trim();
     const email = form.email.value.trim();
+    const phone = form.phone ? form.phone.value.trim() : '';
     const country = form.country.value.trim();
     const instagram = form.instagram.value.trim();
     const favoriteEra = form.favoriteEra.value;
@@ -160,6 +163,11 @@
       form.email.focus();
       return;
     }
+    if (!phone) {
+      errEl.textContent = 'Please enter your Phone Number.';
+      form.phone.focus();
+      return;
+    }
     if (!country) {
       errEl.textContent = 'Please enter your Country / City.';
       form.country.focus();
@@ -174,6 +182,7 @@
       ...getFormDraft(),
       name: fullName,
       email,
+      phone,
       city: country,
       instagram,
       movie: favoriteEra,
@@ -190,6 +199,7 @@
           memberNumber: String(nextMember.number).padStart(6, '0'),
           fullName,
           email,
+          phone,
           country,
           instagram,
           favoriteEra,

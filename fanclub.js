@@ -56,6 +56,7 @@
   const read = () => ({
     ...draft,
     name: form.name.value.trim(),
+    phone: form.phone?.value.trim() || '',
     city: form.city.value.trim(),
     instagram: form.instagram?.value.trim() || '',
     movie: form.movie.value,
@@ -92,6 +93,7 @@
 
   if (member) {
     form.name.value = member.name || '';
+    if (form.phone) form.phone.value = member.phone || '';
     form.city.value = member.city || '';
     form.email.value = member.email || '';
     if (form.instagram) form.instagram.value = member.instagram || '';
@@ -121,6 +123,7 @@
     err.textContent = '';
     if (!form.name.value.trim()) { err.textContent = 'Please enter your Full Name.'; form.name.focus(); return; }
     if (!form.email.value.trim() || !form.email.checkValidity()) { err.textContent = 'Please enter a valid Email Address.'; form.email.focus(); return; }
+    if (form.phone && !form.phone.value.trim()) { err.textContent = 'Please enter your Phone Number.'; form.phone.focus(); return; }
     if (!form.city.value.trim()) { err.textContent = 'Please enter your Country / City.'; form.city.focus(); return; }
 
     const next = { ...read(), email: form.email.value.trim() };
@@ -133,6 +136,7 @@
         memberNumber: String(next.number).padStart(6, '0'),
         fullName: next.name,
         email: next.email,
+        phone: next.phone,
         country: next.city,
         instagram: next.instagram,
         favoriteEra: next.movie,

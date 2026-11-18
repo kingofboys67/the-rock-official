@@ -319,6 +319,7 @@
     });
     stageEl.addEventListener('pointermove', e => {
       if (!isDragging) return;
+      if (e.pointerType !== 'mouse' && Math.abs(e.clientX - dragStartX) < 12) return;
       const width = Math.max(260, stageEl.clientWidth * 0.65);
       const deltaStages = ((e.clientX - dragStartX) / width) * (N - 1);
       const nextPos = Math.max(0, Math.min(N - 1, dragStartPos + deltaStages));
@@ -335,20 +336,13 @@
     stageEl.addEventListener('pointerup', endDrag);
     stageEl.addEventListener('pointercancel', endDrag);
 
-    // Wheel / Trackpad Scrubbing on the Hero section
+    // Wheel / Trackpad Scrubbing on the Hero section.
+    // Only clearly sideways trackpad swipes change the face; vertical wheel/trackpad
+    // movement always scrolls the page so visitors can scroll up and down freely.
     heroEl.addEventListener('wheel', e => {
-      // Allow horizontal trackpad scrubbing at any time, or vertical scrubbing when at top of page
-      const isHoriz = Math.abs(e.deltaX) > Math.abs(e.deltaY);
-      const atTop = window.scrollY <= 8;
-      const delta = isHoriz ? e.deltaX : e.deltaY;
-      if (Math.abs(delta) < 1) return;
-
-      // If scrolling vertically at top of page: scrub 0 -> 3; once at Stage 4 (pos >= 2.98) and scrolling down, let page scroll normally
-      if (!isHoriz) {
-        if (!atTop) return;
-        if (delta > 0 && pos >= N - 1 - 0.02) return;
-        if (delta < 0 && pos <= 0.02) return;
-      }
+      const ax = Math.abs(e.deltaX), ay = Math.abs(e.deltaY);
+      if (ax < 2 || ax < ay * 1.5) return;
+      const delta = e.deltaX;
 
       e.preventDefault();
       clearTimeout(resumeTimer);

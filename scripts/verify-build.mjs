@@ -12,7 +12,7 @@ console.log(`Verifying ${htmlFiles.length} HTML pages and ${jsFiles.length} JS m
 for (const jf of jsFiles) {
   execFileSync('node', ['--check', path.join(root, jf)], { stdio: 'inherit' });
 }
-execFileSync('node', ['--check', path.join(root, 'api/fan-club.js')], { stdio: 'inherit' });
+for (const api of ['api/fan-club.js', 'api/admin.js']) execFileSync('node', ['--check', path.join(root, api)], { stdio: 'inherit' });
 
 const requiredRootAssets = [
   '404.html',

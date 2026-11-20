@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Site dashboard — The Rock Fan Club</title>
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Mona+Sans:wght@400..800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#282c20; --ink2:#5d6152; --ink3:#858a76; --bg:#F7F7F2; --card:#fff; --line:#e3e6d8;
+  --lime:#D4FF00; --bar:#282c20; --bar-hover:#6f7a3a;
+  --good:#2e7d32; --good-bg:#e7f3e8; --warn:#9a6a00; --warn-bg:#fdf3dc;
+  --bad:#b42318; --bad-bg:#fdeceb; --info:#5d6152; --info-bg:#eef0e6;
+  --sans:"Mona Sans","Helvetica Neue",Arial,sans-serif; --serif:"Instrument Serif",Georgia,serif;
+}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font:500 15px/1.45 var(--sans);-webkit-font-smoothing:antialiased}
+button,input{font:inherit;color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 16px 64px}
+header{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:24px}
+h1{font:400 clamp(34px,5vw,52px)/1 var(--serif);letter-spacing:-.01em}
+h1 small{display:block;font:700 11px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);margin-bottom:10px}
+h2{font:700 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);margin-bottom:14px}
+.muted{color:var(--ink3)}
+.btn{border:1px solid var(--ink);background:var(--ink);color:var(--bg);border-radius:999px;padding:10px 18px;font-weight:700;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn:focus-visible,.tab:focus-visible,input:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+.grid{display:grid;gap:16px}
+.kpis{grid-template-columns:repeat(4,minmax(0,1fr));margin-bottom:16px}
+.kpi b{display:block;font:400 48px/1 var(--serif);margin:6px 0 4px}
+.kpi span{font-size:13px;color:var(--ink2)}
+.two{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);margin-bottom:16px}
+@media (max-width:900px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.two{grid-template-columns:minmax(0,1fr)}}
+/* chart */
+.chart{position:relative;height:200px;display:flex;align-items:flex-end;gap:2px;border-bottom:1px solid var(--line);padding-top:8px}
+.chart .col{flex:1;height:100%;display:flex;align-items:flex-end;cursor:default;position:relative}
+.chart .col i{display:block;width:100%;max-width:18px;margin:0 auto;background:var(--bar);border-radius:4px 4px 0 0;min-height:0}
+.chart .col:hover i{background:var(--bar-hover)}
+.chart .col.zero i{height:2px!important;background:var(--line);border-radius:1px}
+.axis{display:flex;justify-content:space-between;font-size:12px;color:var(--ink3);margin-top:6px}
+.tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--bg);font-size:12px;padding:6px 9px;border-radius:8px;white-space:nowrap;transform:translate(-50%,-110%);opacity:0;transition:opacity .1s}
+/* status chips */
+.chip{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;border-radius:999px;padding:3px 9px;white-space:nowrap}
+.chip.good{color:var(--good);background:var(--good-bg)}.chip.warn{color:var(--warn);background:var(--warn-bg)}
+.chip.bad{color:var(--bad);background:var(--bad-bg)}.chip.info{color:var(--info);background:var(--info-bg)}
+/* lists */
+.checks{list-style:none;padding:0;display:grid;gap:10px}
+.checks li{display:flex;justify-content:space-between;gap:12px;align-items:center;border-bottom:1px solid var(--line);padding-bottom:10px}
+.checks li:last-child{border-bottom:0;padding-bottom:0}
+.checks code{font-size:13px;word-break:break-all}
+.note{margin-top:14px;padding:12px 14px;border-radius:10px;background:var(--warn-bg);color:#5c4100;font-size:14px}
+.note.ok{background:var(--good-bg);color:#1d4d20}
+/* table */
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px}
+.tab{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:7px 13px;font-size:13px;font-weight:700;cursor:pointer}
+.tab[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.toolbar input[type=search]{flex:1;min-width:180px;border:1px solid var(--line);border-radius:999px;padding:8px 14px;background:var(--card)}
+.toolbar label{font-size:13px;color:var(--ink2);display:flex;gap:6px;align-items:center}
+.tablewrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);padding:8px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top}
+td.sub{max-width:360px;color:var(--ink2)}
+tr.test td{opacity:.55}
+.kind{font-weight:700}
+#login{max-width:400px;margin:12vh auto 0}
+#login form{display:grid;gap:12px;margin-top:18px}
+#login input{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--card)}
+.err{color:var(--bad);font-size:14px;min-height:1.2em}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+
+<section id="login" class="wrap" aria-labelledby="loginTitle">
+  <h1 id="loginTitle"><small>The Rock Fan Club</small>Site dashboard</h1>
+  <form id="loginForm">
+    <label for="pw" class="muted">Dashboard password (the ADMIN_PASSWORD you set in Vercel)</label>
+    <input id="pw" type="password" autocomplete="current-password" required>
+    <button class="btn" type="submit">Open dashboard</button>
+    <p class="err" id="loginErr" role="alert"></p>
+  </form>
+</section>
+
+<main id="app" class="wrap" hidden>
+  <header>
+    <h1><small>The Rock Fan Club · private</small>Site dashboard</h1>
+    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+      <span class="muted" id="updated"></span>
+      <button class="btn ghost" id="refresh" type="button">Refresh</button>
+      <button class="btn ghost" id="logout" type="button">Lock</button>
+    </div>
+  </header>
+
+  <div class="grid kpis">
+    <div class="card kpi"><h2>Members joined</h2><b id="kSign">–</b><span id="kSign7"></span></div>
+    <div class="card kpi"><h2>Letters</h2><b id="kLet">–</b><span id="kLet7"></span></div>
+    <div class="card kpi"><h2>Emails sent</h2><b id="kSent">–</b><span id="kSentS"></span></div>
+    <div class="card kpi"><h2>Delivery problems</h2><b id="kBad">–</b><span id="kBadS"></span></div>
+  </div>
+
+  <div class="grid two">
+    <section class="card" aria-labelledby="chartTitle">
+      <h2 id="chartTitle">Sign-ups and letters per day · last 30 days</h2>
+      <div class="chart" id="chart" role="img" aria-describedby="chartSummary"></div>
+      <div class="axis"><span id="axFrom"></span><span>Today</span></div>
+      <p class="muted" id="chartSummary" style="font-size:13px;margin-top:10px"></p>
+      <div class="tip" id="tip"></div>
+    </section>
+    <section class="card" aria-labelledby="setupTitle">
+      <h2 id="setupTitle">Where messages go</h2>
+      <ul class="checks" id="setup"></ul>
+      <div id="setupNote"></div>
+    </section>
+  </div>
+
+  <section class="card" aria-labelledby="healthTitle" style="margin-bottom:16px">
+    <h2 id="healthTitle">Site health · checked from your browser just now</h2>
+    <ul class="checks" id="health" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr));display:grid;column-gap:24px"></ul>
+  </section>
+
+  <section class="card" aria-labelledby="logTitle">
+    <h2 id="logTitle">Every email the site sent</h2>
+    <div class="toolbar" role="group" aria-label="Filter emails">
+      <button class="tab" data-f="all" aria-pressed="true">All</button>
+      <button class="tab" data-f="signup" aria-pressed="false">Sign-ups</button>
+      <button class="tab" data-f="letter" aria-pressed="false">Letters</button>
+      <button class="tab" data-f="fan" aria-pressed="false">Replies to fans</button>
+      <button class="tab" data-f="problem" aria-pressed="false">Problems</button>
+      <input type="search" id="q" placeholder="Search name, email, city, ID" aria-label="Search emails">
+      <label><input type="checkbox" id="hideTests" checked> Hide test messages</label>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>When</th><th>What</th><th>Who</th><th>Sent to</th><th>Status</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+    <p class="muted" id="logNote" style="font-size:13px;margin-top:12px"></p>
+  </section>
+</main>
+
+<script>
+(() => {
+  const $ = s => document.querySelector(s);
+  const KEY = 'rfcAdminPw';
+  const store = { get: () => { try { return sessionStorage.getItem(KEY) || ''; } catch { return ''; } },
+                  set: v => { try { v ? sessionStorage.setItem(KEY, v) : sessionStorage.removeItem(KEY); } catch {} } };
+  const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const KIND = { signup: 'New member', letter: 'Fan letter', welcome: 'Welcome email', 'letter-reply': 'Letter receipt', other: 'Other' };
+  const STATUS = {
+    delivered: ['good', '✓ Delivered'], opened: ['good', '✓ Opened'], clicked: ['good', '✓ Clicked'],
+    sent: ['info', '… Sending'], queued: ['info', '… Queued'], scheduled: ['info', '… Scheduled'],
+    delivery_delayed: ['warn', '! Delayed'], suppressed: ['warn', '⊘ Blocked'],
+    bounced: ['bad', '✕ Bounced'], failed: ['bad', '✕ Failed'], complained: ['bad', '✕ Marked spam'], canceled: ['info', 'Canceled']
+  };
+  const chip = s => { const [c, l] = STATUS[s] || ['info', s]; return `<span class="chip ${c}">${esc(l)}</span>`; };
+  const isProblem = s => ['bounced', 'failed', 'complained', 'suppressed', 'delivery_delayed'].includes(s);
+  const when = iso => { const d = new Date(iso); return isNaN(d) ? '' : d.toLocaleString(undefined, { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' }); };
+  let data = null, filter = 'all';
+
+  async function load(pw) {
+    const r = await fetch('/api/admin', { headers: { Authorization: `Bearer ${pw}` }, cache: 'no-store' });
+    const j = await r.json().catch(() => ({ ok: false, error: `Server answered ${r.status}` }));
+    if (!r.ok || !j.ok) throw Object.assign(new Error(j.error || 'Could not load'), { status: r.status });
+    return j;
+  }
+
+  async function open(pw) {
+    $('#loginErr').textContent = '';
+    try {
+      data = await load(pw);
+      store.set(pw);
+      $('#login').hidden = true; $('#app').hidden = false;
+      render(); health();
+    } catch (e) {
+      store.set('');
+      $('#app').hidden = true; $('#login').hidden = false;
+      $('#loginErr').textContent = e.message;
+    }
+  }
+
+  function render() {
+    const all = data.emails;
+    const real = all.filter(e => !e.test);
+    const weekAgo = Date.now() - 7 * 864e5;
+    const count = (t, list = real) => list.filter(e => e.type === t).length;
+    const recent = real.filter(e => new Date(e.at) > weekAgo);
+    $('#updated').textContent = 'Updated ' + when(data.generatedAt);
+    $('#kSign').textContent = count('signup'); $('#kSign7').textContent = `${count('signup', recent)} in the last 7 days`;
+    $('#kLet').textContent = count('letter'); $('#kLet7').textContent = `${count('letter', recent)} in the last 7 days`;
+    $('#kSent').textContent = real.length;
+    const delivered = real.filter(e => ['delivered', 'opened', 'clicked'].includes(e.status)).length;
+    $('#kSentS').textContent = real.length ? `${Math.round(delivered / real.length * 100)}% delivered` : 'none yet';
+    const bad = real.filter(e => isProblem(e.status)).length;
+    $('#kBad').textContent = bad; $('#kBadS').textContent = bad ? 'see the Problems tab' : 'all clear';
+
+    // chart: sign-ups + letters per day
+    const days = [...Array(30)].map((_, i) => { const d = new Date(); d.setHours(0, 0, 0, 0); d.setDate(d.getDate() - 29 + i); return d; });
+    const per = days.map(d => real.filter(e => (e.type === 'signup' || e.type === 'letter') && new Date(e.at).toDateString() === d.toDateString()));
+    const max = Math.max(1, ...per.map(p => p.length));
+    $('#chart').innerHTML = per.map((p, i) => {
+      const s = p.filter(e => e.type === 'signup').length, l = p.length - s;
+      const label = `${days[i].toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' })}: ${s} sign-up${s === 1 ? '' : 's'}, ${l} letter${l === 1 ? '' : 's'}`;
+      return `<div class="col${p.length ? '' : ' zero'}" data-tip="${esc(label)}"><i style="height:${p.length / max * 100}%"></i></div>`;
+    }).join('');
+    $('#axFrom').textContent = days[0].toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+    const tot = per.reduce((a, p) => a + p.length, 0);
+    $('#chartSummary').textContent = `${tot} sign-ups and letters in the last 30 days; busiest day had ${Math.max(...per.map(p => p.length))}.`;
+
+    // setup
+    const s = data.setup;
+    const row = (label, value, ok) => `<li><span>${esc(label)}<br><code>${esc(value)}</code></span>${ok === null ? '' : ok ? '<span class="chip good">✓ OK</span>' : '<span class="chip warn">! Check</span>'}</li>`;
+    $('#setup').innerHTML =
+      row('Sign-ups and letters are emailed to', s.inbox, s.fanclubInboxSet) +
+      row('Emails are sent from', s.sender, !/default/.test(s.sender)) +
+      row('Resend connection', s.resendKeySet ? 'Connected' : 'Missing RESEND_API_KEY', s.resendKeySet) +
+      row('Site address (SITE_URL)', s.siteUrl, s.siteUrl !== '(not set)');
+    $('#setupNote').innerHTML = `<p class="note">Not seeing messages? Log in to <b>${esc(s.inbox.split(' ')[0])}</b> in Hostinger webmail and check <b>Spam</b> too. If that’s not the mailbox you use, change <code>FANCLUB_INBOX</code> in Vercel to your mailbox and redeploy.</p>`;
+    table();
+  }
+
+  function table() {
+    const q = $('#q').value.trim().toLowerCase();
+    const hide = $('#hideTests').checked;
+    const list = data.emails.filter(e =>
+      (!hide || !e.test) &&
+      (filter === 'all' || (filter === 'fan' ? ['welcome', 'letter-reply'].includes(e.type) : filter === 'problem' ? isProblem(e.status) : e.type === filter)) &&
+      (!q || [e.name, e.to, e.city, e.memberId, e.subject].join(' ').toLowerCase().includes(q)));
+    $('#rows').innerHTML = list.length ? list.map(e => `<tr class="${e.test ? 'test' : ''}">
+      <td style="white-space:nowrap">${esc(when(e.at))}</td>
+      <td class="kind">${esc(KIND[e.type] || e.type)}${e.memberId ? `<br><span class="muted" style="font-weight:500">#${esc(e.memberId)}</span>` : ''}</td>
+      <td>${esc(e.name || '—')}${e.city ? `<br><span class="muted">${esc(e.city)}</span>` : ''}</td>
+      <td style="word-break:break-all">${esc(e.to)}</td>
+      <td>${chip(e.status)}</td></tr>`).join('') : '<tr><td colspan="5" class="muted">Nothing here.</td></tr>';
+    $('#logNote').textContent = data.emailError ? `Couldn’t read the email log: ${data.emailError}` :
+      `Showing ${list.length} of ${data.emails.length} most recent emails (up to 500), from Resend. The full message text is in your inbox.`;
+  }
+
+  async function health() {
+    const pages = [['Home', '/'], ['About', '/about.html'], ['Movies', '/movies.html'], ['Videos', '/videos.html'], ['Photos', '/photos.html'], ['Fan Club', '/fanclub.html'], ['Contact', '/contact.html']];
+    const items = pages.map(([n]) => `<li><span>${esc(n)}</span><span class="chip info">… checking</span></li>`);
+    items.push('<li><span>Email form endpoint</span><span class="chip info">… checking</span></li>');
+    $('#health').innerHTML = items.join('');
+    const lis = [...$('#health').children];
+    const mark = (li, ok, txt) => { li.lastElementChild.outerHTML = `<span class="chip ${ok ? 'good' : 'bad'}">${ok ? '✓' : '✕'} ${esc(txt)}</span>`; };
+    await Promise.all(pages.map(async ([, p], i) => {
+      const t = performance.now();
+      try { const r = await fetch(p, { cache: 'no-store' }); mark(lis[i], r.ok, r.ok ? `Up · ${Math.round(performance.now() - t)} ms` : `Error ${r.status}`); }
+      catch { mark(lis[i], false, 'Not reachable'); }
+    }));
+    // A GET is refused with 405 when the email function is running, without sending anything.
+    try { const r = await fetch('/api/fan-club', { cache: 'no-store' }); mark(lis[pages.length], r.status === 405, r.status === 405 ? 'Running' : `Error ${r.status}`); }
+    catch { mark(lis[pages.length], false, 'Not reachable'); }
+  }
+
+  // chart tooltip
+  const tip = $('#tip');
+  $('#chart').addEventListener('mousemove', e => {
+    const col = e.target.closest('.col'); if (!col) { tip.style.opacity = 0; return; }
+    const box = $('#chart').parentElement.getBoundingClientRect();
+    tip.textContent = col.dataset.tip; tip.style.opacity = 1;
+    const x = Math.min(Math.max(e.clientX - box.left, 90), box.width - 90);
+    tip.style.left = x + 'px'; tip.style.top = (e.clientY - box.top) + 'px';
+  });
+  $('#chart').addEventListener('mouseleave', () => { tip.style.opacity = 0; });
+
+  document.querySelectorAll('.tab').forEach(b => b.addEventListener('click', () => {
+    filter = b.dataset.f;
+    document.querySelectorAll('.tab').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    table();
+  }));
+  $('#q').addEventListener('input', table);
+  $('#hideTests').addEventListener('change', table);
+  $('#refresh').addEventListener('click', () => open(store.get()));
+  $('#logout').addEventListener('click', () => { store.set(''); data = null; $('#app').hidden = true; $('#login').hidden = false; $('#pw').value = ''; });
+  $('#loginForm').addEventListener('submit', e => { e.preventDefault(); open($('#pw').value); });
+  if (store.get()) open(store.get());
+})();
+</script>
+</body>
+</html>
